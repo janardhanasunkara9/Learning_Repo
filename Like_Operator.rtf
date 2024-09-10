@@ -1,0 +1,182 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww28300\viewh17140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs40 \cf0 \
+\
+\
+/*\
+\
+LIKE OPERATOR \
+\
+\
+*/\
+\
+\
+Special Characters : Characters such as Non-Alphabetic and Non-Numeric.\
+\
+\
+You should know the Meaning of WILDCARD terminology.\
+\
+\
+		Wildcard characters are special Characters that can substitute for Unknown Characters.\
+\
+		Some WILDCARD characters are \'91%\'92,  \'91_\'92,  \'91[]\'92,  \'91*\'92,  \'91?\'92 and so on\
+\
+\
+		Each Programing language uses  some specific Special Characters as Wildcards.\
+\
+			For example : T- SQL uses %, _ , []\
+\
+						Oracle SQL uses %,  _\
+\
+						Linux Uses  *\
+\
+\
+\
+Now We Will talk about Wildcards in T-SQL now.\
+\
+Each Wildcard has its own meaning/pupose\
+\
+Wildcard \'91%\'92  (percentile) : It is used to represent/substitute One or More Characters.\
+\
+Wildcard \'91_\'92  (UnderScore) : It is Used to represent/Substitute exactly One Character.\
+\
+Wildcard \'91[]\'92  (square bracket) :  It is used to represent List of Characters or Range of Characters . Example : [sdg], [a-d]\
+\
+Wildcard \'91^\'92  ( Caret) :  It is used to Surround List of Characters or Range of characters that You don\'92t want to use as replacement.\
+\
+\
+\
+Example :\
+\
+\
+\'97\'97Wild Card : % : Display Lastname with \'91cho\'92 and cho<any Number of characters> \'97\'97\
+\
+\
+Select distinct last name from person.person where last name like (\'91cho%\'92);\
+\
+\
+\'97\'97\'97 WildCard   _ :  Display Lastname with cho and cho<Only one last character can be anything> \'97\'97\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Select distinct last name from person.person where last name like (\'91cho_\'92);\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\'97\'97\'97\'97\'97 WildCard [] : Display Lastname with cho and cho<last character can be i,j,k>. \'97\'97\'97\'97\'97\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Select distinct last name from person.person where last name like (\'91cho[i-k]\'92);\
+\
+\
+\'97\'97\'97\'97\'97 WildCard [] : Display Lastname with cho and cho<last character can be bi,j,k>. \'97\'97\'97\'97\'97\
+\
+Select distinct last name from person.person where last name like (\'91cho[bijk]\'92);\
+\
+\
+\'97\'97\'97\'97 Wildcard ^ : Display Alstname with cho and cho<last character can be anything but not \'91i\'92> \'97\'97\'97\
+\
+Select distinct last name from person.person where last name like (\'91cho[^i]\'92);\
+\
+\
+\
+======================. Combination of Wildcards ========\
+\
+\
+\'97\'97\'97display last name with BER and followed by R or G and then by any number of Characters \'97\'97\
+\
+\
+select distinct last name from person.person where last name like (\'91BER[RG]%\'92);\
+\
+\
+\
+\'97\'97\'97display last name with BER and followed by any Letter except R and then by any number of Characters \'97\'97\
+\
+\
+select distinct last name from person.person where last name like (\'91BER[^R]%\'92);\
+\
+\
+\
+\'97\'97\'97display last name with BER and followed by any Number of characters and should end with N \'97\'97\
+\
+\
+select distinct last name from person.person where last name like (\'91BER%N\'92);\
+\
+\
+\
+\'97\'97\'97display last name with BER and followed by any Number of characters and ex\
+\'91\'97\'97\
+\
+\
+select distinct last name from person.person where last name like (\'91BER%N_\'92);\
+\
+\
+\
+\
+============= Searching for WildCards ================\
+\
+\
+Sometimes Data contains Wildcards. So Sometimes you have a requirement to search for Those Wildcards in the Data.\
+\
+In order to search for Wildcard in Data, You should use the concept \'93ESCAPE Wildcard \'93\
+\
+\
+ESCAPE WILDCARD : Meaning You are telling to Database to treat the specified Wildcard as a Character , not as a Wildcard.\
+\
+\
+How to Achieve	 ESCAPE WILDCARD in T-SQL :\
+\
+		Escape Wildcard by Specifying them in Square Bracket .\
+\
+		Example :\
+\
+			[%], [_], [[],  []], \
+\
+\
+\
+create table escape_wildcard(id int, name varchar(60));\
+\
+insert into escape_wildcard(id, name) values (1,\'92Janardhana%Rao%Sunkara\'92);\
+insert into escape_wildcard(id, name) values (1,\'92Janardhana_Rao%Sunkara\'92);\
+insert into escape_wildcard(id, name) values (1,\'92Anjana%Devi%Sunkara\'92);\
+insert into escape_wildcard(id, name) values (1,\'92Sai_Keerthi_Vellanki\'92);\
+insert into escape_wildcard(id, name) values (1,\'92Sai_Deepthi_Vellanki\'92);\
+insert into escape_wildcard(id, name) values (1,\'92[Ajay][Kumar][Vellanki]\'92);\
+\
+\
+select * from escape_wildcard;\
+\
+select id, name from escape_wildcard where name like (\'91Janardhan%\'92);\
+select id, name from escape_wildcard where name like (\'91Janardhan%[%]Sunkara\'92);\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+\
+\
+\
+\
+		\
+\
+\
+\
+\
+\
+}

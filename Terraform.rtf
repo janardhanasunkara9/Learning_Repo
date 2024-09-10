@@ -1,0 +1,419 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\fnil\fcharset0 Menlo-Bold;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red47\green180\blue29;}
+{\*\expandedcolortbl;;\csgray\c0;\cssrgb\c20241\c73898\c14950;}
+\margl1440\margr1440\vieww28300\viewh17700\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf0 =========================================== TERRAFORM. ======================\
+\
+\
+\
+IAC : Infrastructure as Code.\
+\
+\
+Terraform uses HCL  (Hashi Corp Language ).\
+\
+Terraform - Free - Open Source\
+\
+Developed by Hashi Corp.\
+\
+\
+Terraform is a Agentless tool.\
+\
+\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97 \'97 \'97 \'97 Terraform Installation \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+\
+\
+https://developer.hashicorp.com/terraform/install\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\tx9223\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs22 \cf2 \CocoaLigature0 export PATH=/Users/janardhanaraosunkara/Documents/terraform_1.9.0_darwin_arm64:$PATH\
+\
+[jana@janardhanaraosunkara $]terraform -version\
+Terraform v1.9.0\
+on darwin_arm64\
+\
+\
+\
+\
+\
+\
+================ Terraform Workflow  - \'97\'97 \'97\'97\'97\'97 \'97\'97\'97\'97\'97 \'97\'97\'97\'97 \
+\
+Scope \'97> Author  \'97> Initialize \'97 > Plan \'97\'97> Apply.\
+\
+\
+
+\fs28 \'97\'97 \'97- \'97 \'97\'97\'97 \'97\'97\'97\'97 \'97\'97\'97 Sample Program \'97 \'97 \'97\'97\'97 \'97\'97 \'97\'97\'97\'97 \
+\
+\
+\
+
+\f2\b \
+
+\f1\b0\fs22 AUTHOR :\
+\
+\
+cat 1_filecraetion.tf \
+resource local_file file_resource \{\
+filename = "sample.txt"\
+content="Hello Terraform"\
+\}\
+\
+\
+\
+INITIALIZE:\
+\
+\
+	terraform init\
+\
+\
+\
+PLAN :\
+\
+\
+\
+	terraform plan\
+\
+\
+\
+APPLY:\
+\
+\
+	terraform apply\
+\
+\
+\
+\
+\
+\
+\'97 \'97\'97\'97\'97 \'97\'97\'97 \'97\'97 \'97\'97\'97 \'97\'97\'97  Multiple Resource - \'97 \'97\'97 \'97 \
+\
+\
+cat 2_Multiple_resource.tf \
+resource local_file file_res1_name\{\
+filename="sample1.txt"\
+content="Hello Terraform"\
+\}\
+\
+resource local_file file_res2_name\{\
+filename="sample2.txt"\
+sensitive_content="2038246979"\
+\} \
+\
+\
+\
+\
+\
+\
+\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95 Random Provider \'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\
+\
+\
+\
+The Random provider allows the use of Randomness within the terraform configuration.\
+\
+ This is a logical provider , which means that it works entirely within the terraforms logic and doesn\'92t interact with any other services.\
+\
+\
+\
+\
+\
+\
+
+\fs28 cat 3_random_provider.tf \
+resource random_integer integer_res\{\
+max=100\
+min=20\
+\}\
+\
+output output1\{\
+value=random_integer.integer_res.result\
+\}\
+\
+output output2\{\
+value=random_integer.integer_res.id\
+\}\
+\
+resource random_string string_res\{\
+length=10\
+\}\
+\
+\
+\
+output output3\{\
+value=random_string.string_res.result\
+\}\
+\
+output output4\{\
+value=random_string.string_res.id\
+\}\
+
+\fs22 \
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f2\b\fs28 \cf3 Outputs:
+\f1\b0 \cf2 \
+\
+output1 = 32\
+output2 = "32"\
+output3 = "3CR%-78q@["\
+output4 = "3CR%-78q@["\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \
+\
+\
+\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95 VARIABLES \'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\
+\
+\
+\
+\
+\
+\
+
+\fs28 cat variables.tf \
+variable filename\{\
+type= string\
+default ="sample.txt"\
+\}\
+\
+variable message\{\
+type= string\
+default="You are learning Terraform"\
+\}\
+\
+\
+\
+\
+cat 4_filecreation_with_var.tf \
+resource local_file file_res\{\
+filename=var.filename\
+content=var.message\
+\}\
+
+\fs22 \
+\
+\
+\
+\
+\
+\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95 Types of Variables-1 \'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\
+\
+\
+string\
+\
+number\
+\
+bool\
+\
+list. = list of sequence values\
+\
+tuple. = group non homogeneous data type\
+\
+\
+map. =  like key-value pair : Dictionary\
+\
+\
+set = Only Unique Values\
+\
+\
+object. = Complex Data Type.\
+\
+\
+\
+\
+\
+\
+\
+\
+
+\fs28 cat variables.tf \
+variable filename\{\
+type= string\
+default ="sample.txt"\
+\}\
+\
+variable message\{\
+type= string\
+default="You are learning Terraform"\
+\}\
+\
+variable contact\{\
+type=number\
+default=2038246979\
+\}\
+\
+\
+variable output\{\
+type=bool\
+default=true\
+\}\
+\
+\
+variable var_list\{\
+type=list(string)\
+default=["Red","Blue","Green"]\
+\}\
+\
+variable var_tuple\{\
+type=tuple([string,number,bool])\
+default=["Red",200,false]\
+\}\
+\
+variable var_map\{\
+type=map\
+default=\{name="jana",age=32\}\
+\}
+\fs22 \
+\
+\
+\
+\'97\'97\'97\
+\
+
+\fs28 cat 4_filecreation_with_var.tf \
+resource local_file file_res\{\
+filename=var.filename\
+content=var.var_list[1]\
+\}\
+\
+resource local_file tuplefile_res\{\
+filename="tuplefile.txt"\
+content=var.var_tuple[2]\
+\}\
+\
+
+\fs22 \
+\
+\
+
+\fs28 cat 4_filecreation_with_var.tf \
+resource local_file file_res\{\
+filename=var.filename\
+content=var.var_list[1]\
+\}\
+\
+resource local_file tuplefile_res\{\
+filename="tuplefile.txt"\
+content=var.var_tuple[2]\
+\}\
+\
+resource local_file mapfile_res\{\
+filename="mapfile.txt"\
+content=var.var_map["name"]\
+\}
+\fs22 \
+\
+\
+\
+\
+\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95 USE VARIABLES \'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\
+\
+\
+variable <variablename>\{\
+\
+type\
+default\
+\}\
+\
+\
+variable <variable name> \{\}  \'97\'97\'97> Terraform will ask.\
+\
+\
+terraform apply -var \'93<variablename>=<value>\'94\
+\
+\
+export TF_VAR_<variable name>=\'93<value>\'94\
+\
+\
+\
+\
+\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95 Variable Definition File \'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\
+\
+terraform.tfvars\
+\
+terraform.tfvars.json\
+\
+*.auto.tfvars\
+\
+*.auto.tfvars.json\
+\
+\
+\
+\
+Which Variable will load first :\
+\
+\
+export TF_VAR_<variablename>\
+\
+terraform.tfvars\
+\
+variable.auto.tfvars\
+\
+terraform apply -var \'94varaiblename=value\'94\
+\
+\
+\
+\
+\
+\
+\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95 DEPENDENCIES \'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\'95\
+\
+\
+IMPLICT DEPENDENCY:\
+\
+\
+\
+
+\fs28 cat 5_implicit_dependency.tf \
+resource local_file createfile_res\{\
+filename=var.filename\
+content="The random string is : $\{random_string.generatestring_res.id\}"\
+\}\
+\
+resource random_string generatestring_res\{\
+length=500\
+\}\
+
+\fs22 \
+\
+\
+\
+\
+\
+EXPLICT DEPENDENCY:\
+\
+
+\fs28 cat 6_explict_terraform.tf \
+resource local_file createfileexplict_res\{\
+filename="explictfile.txt"\
+content=" The Random Sting is : $\{random_string.generaterandomstring_res.id\}"\
+depends_on=[random_string.generaterandomstring_res]\
+\}\
+\
+resource random_string generaterandomstring_res\{\
+length=600\
+\}\
+
+\fs22 \
+\
+\
+\
+\
+
+\f0\fs28 \cf0 \CocoaLigature1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+}
