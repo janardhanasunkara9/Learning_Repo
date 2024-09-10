@@ -1,0 +1,1604 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2636
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red159\green160\blue28;\red47\green180\blue29;
+\red46\green174\blue187;\red180\green36\blue25;\red252\green83\blue8;\red107\green0\blue1;\red255\green255\blue255;
+\red45\green45\blue45;\red144\green1\blue18;\red0\green0\blue255;\red157\green0\blue210;\red15\green112\blue1;
+\red191\green28\blue37;\red0\green0\blue0;\red0\green0\blue109;\red101\green76\blue29;\red19\green118\blue70;
+}
+{\*\expandedcolortbl;;\csgray\c0;\cssrgb\c68469\c68012\c14211;\cssrgb\c20241\c73898\c14950;
+\cssrgb\c20199\c73241\c78251;\cssrgb\c76411\c21697\c12527;\cssrgb\c100000\c41713\c26;\cssrgb\c50196\c0\c0;\cssrgb\c100000\c100000\c100000;
+\cssrgb\c23137\c23137\c23137;\cssrgb\c63922\c8235\c8235;\cssrgb\c0\c0\c100000;\cssrgb\c68627\c0\c85882;\cssrgb\c0\c50196\c0;
+\cssrgb\c80392\c19216\c19216;\cssrgb\c0\c0\c0;\cssrgb\c0\c6275\c50196;\cssrgb\c47451\c36863\c14902;\cssrgb\c3529\c52549\c34510;
+}
+\margl1440\margr1440\vieww25200\viewh14220\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \CocoaLigature0 [jana@janardhanaraosunkara $]git init\
+\cf3 hint: Using 'master' as the name for the initial branch. This default branch name\cf2 \
+\cf3 hint: is subject to change. To configure the initial branch name to use in all\cf2 \
+\cf3 hint: of your new repositories, which will suppress this warning, call:\cf2 \
+\cf3 hint: \cf2 \
+\cf3 hint: 	git config --global init.defaultBranch <name>\cf2 \
+\cf3 hint: \cf2 \
+\cf3 hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\cf2 \
+\cf3 hint: 'development'. The just-created branch can be renamed via this command:\cf2 \
+\cf3 hint: \cf2 \
+\cf3 hint: 	git branch -m <name>\cf2 \
+Initialized empty Git repository in /Users/janardhanaraosunkara/.git/\
+\
+\
+\
+\'97\'97Add File to Repository \'97\
+\
+$git add test.sh\
+\
+\
+\
+\
+[jana@janardhanaraosunkara $]git status\
+On branch master\
+\
+No commits yet\
+\
+Changes to be committed:\
+  (use "git rm --cached <file>..." to unstage)\
+	\cf4 new file:   test.sh\
+\
+\
+\
+\cf2 jana@janardhanaraosunkara $]git commit -m "COMMIT1" test.sh \
+[master (root-commit) b31943c] COMMIT1\
+ Committer: Janardhana Rao Sunkara <janardhanaraosunkara@Janardhanas-Air.attlocal.net>\
+Your name and email address were configured automatically based\
+on your username and hostname. Please check that they are accurate.\
+You can suppress this message by setting them explicitly. Run the\
+following command and follow the instructions in your editor to edit\
+your configuration file:\
+\
+    git config --global --edit\
+\
+After doing this, you may fix the identity used for this commit with:\
+\
+    git commit --amend --reset-author\
+\
+ 1 file changed, 5 insertions(+)\
+ create mode 100755 test.sh\
+\
+\cf4 \
+\
+\
+\cf2 [jana@janardhanaraosunkara $]git log\
+\cf3 commit b31943c68560c02c7be1b549312cfe1934f68fd0 (
+\f1\b \cf5 HEAD -> \cf4 master
+\f0\b0 \cf3 )\cf2 \
+Author: Janardhana Rao Sunkara <janardhanaraosunkara@Janardhanas-Air.attlocal.net>\
+Date:   Tue Jul 30 14:12:34 2024 -0700\
+\
+    COMMIT1\
+\cf4 \
+\
+\
+\
+\
+============ Checkout =====\
+\
+\
+\
+git checkout <sanpid>\
+\
+\
+git checkout master\
+\
+\
+\
+==================== GIT REVERT ===========\
+\
+\
+Revert Changes of a given Commit by creating a new commit.\
+\
+\
+\
+\cf2 git revert fa232f97c208f254569c34a9cc1324892dbfd14e\
+\
+\
+\
+\
+\
+\
+============= GIT RESET =======\
+\
+\
+Undo Changes by deleting all commits since <id>\
+\
+git reset --hard fa232f97c208f254569c34a9cc1324892dbfd14e\
+HEAD is now at fa232f9 COMMIT2\cf4 \
+\
+\
+\
+\
+\
+=============== Add Multiple files and exclude files at same time. ==================\
+\
+\
+\'97\'97To Add multiple files and dir recursively \'97\'97\
+\
+\
+git . \
+\
+git *\
+\
+\
+\'97\'97\'97To add a Folder in repo \'97\'97\'97\
+\
+\
+\
+You must create a file .gitignore and add exclude files names into it\
+\
+\
+\
+\
+\
+\
+\cf2 [jana@janardhanaraosunkara $]git add .\
+\
+\
+[jana@janardhanaraosunkara $]git status\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf6 HEAD detached from \cf2 b31943c\
+Changes to be committed:\
+  (use "git restore --staged <file>..." to unstage)\
+	\cf4 new file:   .gitignore\cf2 \
+	\cf4 new file:   test3.sh\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 [jana@janardhanaraosunkara $]cat .gitignore \
+test2.sh\
+\
+\
+$git commit -m "multiplefiles"\
+\cf4 \
+\
+\
+\
+\
+\
+============================== UNDERSTANDING BRANCES ================\
+\
+\
+\
+There is one Main Branch, which is also called MASTER branch.\
+\
+You can create Feature branches. Useful when multiple people are updating code.\
+\
+\
+\'97\'97\'97\'97\'97\'97 Create new Feature Branch \'97\'97\'97\'97\
+\
+By Default, Feature branch starts with latest COMMIT of Master Branch.\
+\
+You can add new Commits in Feature branch.\
+\
+\
+Create a Branch \
+\
+git branch <name>\
+\
+\
+or\
+\
+\
+$git checkout -b <name>  \'97Create and Switch to newly created Branches.\
+\
+\
+\'97List Branch\
+\
+$git branch\
+\
+\
+\
+To Switch to Branch :\
+\
+\
+$git checkout <branch name>\
+\
+\
+\
+To Delete a branch \
+\
+\
+$git branch -D <name>\
+\
+\
+\
+\
+====================================MERGE BRANCH ==========\
+\
+\
+git checkout master\
+\
+\
+git checkout -b feature-branch-1\
+\
+\
+\'97\'97Merge Feature Branch with Master Branch \'97\
+\
+Note : Make Sure you are in Master Branch.\
+\
+\
+$git merge <featurebranch name>\
+\
+\
+\cf2 $git merge feature-branch-1\
+\
+Updating 2e10436..4d30b90\
+Fast-forward\
+ feature-branch-1.txt | 1 \cf4 +\cf2 \
+ 1 file changed, 1 insertion(+)\
+ create mode 100644 feature-branch-1.txt\cf4 \
+\
+\
+\
+\
+\
+===================================. GITHUB ===============\
+\
+\
+GIT is a Tool to manage repository.\
+\
+\
+GITHUB is a Company that offers Cloud Service to store and Manage GIT Repositories.\
+\
+\
+GITLAB is another Company like GITHUB.\
+\
+\
+\
+\
+======================== Create GITHUB Account ===============\
+\
+\
+Git Repositories are 2 Types : PUBLIC and PRIVATE.\
+\
+\
+go to GitHub.com and create an Account.\
+\
+\
+\
+\
+================== Creating a Remote GitHub Repository =======\
+\
+\
+To Connect to Remote Git HUB :\
+\
+		git remote add\
+\
+\
+To Push Local Commits to remote GitHub:\
+\
+\
+	git push\
+\
+\
+To Pull from Remote Github \
+\
+\
+	git pull\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+git branch -M main\
+git remote add origin https://github.com/janardhanasunkara9/github_rep1.git\
+git push -u origin master\
+\
+\
+\
+\
+\
+git remote add origin https://github.com/janardhanasunkara9/github_rep1.git\
+git branch -M main\
+git push -u origin main\
+\
+\
+\
+\
+\cf2 $git remote add origin https://github.com/janardhanasunkara9/github_rep1.git\
+error: remote origin already exists.\
+\
+\
+$git remote set-url origin https://github.com/janardhanasunkara9/github_rep1.git\
+\
+\
+$git push -u origin master\
+\
+\
+\
+=========================== GITHUB Branches =============\
+\
+\
+Note: You are in Feature Brach (Local)\
+\
+\
+git log\
+\cf3 commit 044ab4b2171be04adabe5e1cdee9e216bf00545a (
+\f1\b \cf5 HEAD -> \cf4 feature-branch-2
+\f0\b0 \cf3 )\cf2 \
+Author: Janardhana Rao Sunkara <janardhanaraosunkara@Janardhanas-Air.attlocal.net>\
+Date:   Wed Aug 7 15:36:26 2024 -0700\
+\
+    feature-branch-2\
+\
+\cf3 commit 4d30b90fe50eda12f119a7bc6de35d317846d166 (
+\f1\b \cf6 origin/master
+\f0\b0 \cf3 , 
+\f1\b \cf4 master
+\f0\b0 \cf3 , 
+\f1\b \cf4 feature-branch-1
+\f0\b0 \cf3 )\cf2 \
+Author: Janardhana Rao Sunkara <janardhanaraosunkara@Janardhanas-Air.attlocal.net>\
+Date:   Wed Aug 7 13:45:50 2024 -0700\
+\
+    feature-branch-1-commit\
+\
+\cf3 commit 2e10436e983f0fdf691bea586cd63bd12d30ecbe\cf2 \
+Author: Janardhana Rao Sunkara <janardhanaraosunkara@Janardhanas-Air.attlocal.net>\
+Date:   Tue Jul 30 14:17:32 2024 -0700\
+\
+    COMMIT2\
+\
+\cf3 commit b31943c68560c02c7be1b549312cfe1934f68fd0\cf2 \
+Author: Janardhana Rao Sunkara <janardhanaraosunkara@Janardhanas-Air.attlocal.net>\
+Date:   Tue Jul 30 14:12:34 2024 -0700\
+\
+    COMMIT1\
+\
+\
+\
+\
+\'97\'97\'97\'97 Push Feature Branch into GITHUB \'97\'97\'97\'97\'97\
+\
+\
+$git branch\
+  feature-branch-1\
+* \cf4 feature-branch-2\cf2 \
+  master\
+\
+\
+\
+\
+\
+\
+$git push origin feature-branch-2\
+\
+\
+Enumerating objects: 7, done.\
+Counting objects: 100% (7/7), done.\
+Delta compression using up to 8 threads\
+Compressing objects: 100% (3/3), done.\
+Writing objects: 100% (5/5), 493 bytes | 493.00 KiB/s, done.\
+Total 5 (delta 0), reused 0 (delta 0), pack-reused 0\
+remote: \
+remote: Create a pull request for 'feature-branch-2' on GitHub by visiting:\
+remote:      https://github.com/janardhanasunkara9/github_rep1/pull/new/feature-branch-2\
+remote: \
+To https://github.com/janardhanasunkara9/github_rep1.git\
+ * [new branch]      feature-branch-2 -> feature-branch-2\
+\
+\
+\
+\
+\
+\cf4 \
+\
+\
+\cf2 \
+[jana@janardhanaraosunkara $]git merge feature-branch-2\
+Updating 4d30b90..044ab4b\
+Fast-forward\
+ feature-branch-2.txt | 1 \cf4 +\cf2 \
+ test.sh              | 2 \cf4 ++\cf2 \
+ test2.sh             | 1 \cf4 +\cf2 \
+ 3 files changed, 4 insertions(+)\
+ create mode 100644 feature-branch-2.txt\
+ create mode 100644 test2.sh\
+\cf4 \
+\
+\
+\
+\cf2 $git push origin master\
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0\
+To https://github.com/janardhanasunkara9/github_rep1.git\
+   4d30b90..044ab4b  master -> master\
+\
+\
+\
+\
+\
+============\cf7 ==================== README and PULLING =======================\
+\
+\
+\
+\cf4 \
+\
+\cf2 $git remote add origin https://github.com/janardhanasunkara9/github_rep1.git\
+error: remote origin already exists.\
+[\
+\
+\
+$git pull\
+remote: Enumerating objects: 4, done.\
+remote: Counting objects: 100% (4/4), done.\
+remote: Compressing objects: 100% (2/2), done.\
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0\
+Unpacking objects: 100% (3/3), 964 bytes | 241.00 KiB/s, done.\
+From https://github.com/janardhanasunkara9/github_rep1\
+   044ab4b..af0ebec  master     -> origin/master\
+Updating 044ab4b..af0ebec\
+Fast-forward\
+ README.md | 1 \cf4 +\cf2 \
+ 1 file changed, 1 insertion(+)\
+ create mode 100644 README.md\
+\
+\
+\
+\
+\
+=========================== CLONING REPOSITORIE =============================\
+\
+ \
+\cf4 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs28 \cf2 $git clone https://github.com/janardhanasunkara9/github_rep1.git git-clone-demo\
+Cloning into 'git-clone-demo'...\
+remote: Enumerating objects: 17, done.\
+remote: Counting objects: 100% (17/17), done.\
+remote: Compressing objects: 100% (9/9), done.\
+remote: Total 17 (delta 4), reused 11 (delta 1), pack-reused 0\
+Receiving objects: 100% (17/17), done.\
+Resolving deltas: 100% (4/4), done.\
+\
+\
+bash-3.2$ \
+bash-3.2$ ls -ltr\
+total 0\
+drwxr-xr-x  8 janardhanaraosunkara  staff  256 Aug  7 16:10 git-clone-demo\
+\
+\
+bash-3.2$ cd git-clone-demo/\
+\
+\
+\
+bash-3.2$ ls -ltr\
+total 40\
+-rw-r--r--  1 janardhanaraosunkara  staff   49 Aug  7 16:10 README.md\
+-rw-r--r--  1 janardhanaraosunkara  staff   24 Aug  7 16:10 feature-branch-1.txt\
+-rw-r--r--  1 janardhanaraosunkara  staff   16 Aug  7 16:10 feature-branch-2.txt\
+-rwxr-xr-x  1 janardhanaraosunkara  staff  100 Aug  7 16:10 test.sh\
+-rw-r--r--  1 janardhanaraosunkara  staff   11 Aug  7 16:10 test2.sh\cf4 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf4 \
+\
+========================= Get Connected Url ===========\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs28 \cf2 bash-3.2$ git remote\
+origin\
+\
+\
+\
+bash-3.2$ git remote get-url origin\
+https://github.com/janardhanasunkara9/github_rep1.git\
+bash-3.2$ 
+\fs22 \cf4 \
+\
+\
+\
+\
+
+\fs28 \cf2 $git remote remove origin\
+\
+\
+\
+\
+\
+\
+============================ Multiple Users Scenaraios ======\
+\
+\
+\
+*************. GITHUB ISSUES and COLLABORATORS ************\
+\
+\
+They are 2 Main ways :\
+\
+Clone\
+\
+Fork.\
+\
+\
+\
+1. Create Issue in GitHub.\
+\
+\
+  sjrao ghp_\
+\
+\
+\
+\
+1. Create Collaborate\
+\
+\
+3. Restrict access to Master branch and Enable Pull Request for merging.\
+\
+\
+\
+4. Push from different user.\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 git remote add orgin https://github.com/janardhanasunkara9/github_rep1.git\
+\
+git remote set-url orgin https://sjrao9@github.com/janardhanasunkara9/github_rep1.git\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs28 git branch\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 bash-3.2$ git push orgin sjrao-feature-branch\
+Password for 'https://sjrao9@github.com': \
+Enumerating objects: 4, done.\
+Counting objects: 100% (4/4), done.\
+Delta compression using up to 8 threads\
+Compressing objects: 100% (2/2), done.\
+Writing objects: 100% (3/3), 323 bytes | 323.00 KiB/s, done.\
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0\
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.\
+remote: \
+remote: Create a pull request for 'sjrao-feature-branch' on GitHub by visiting:\
+remote:      https://github.com/janardhanasunkara9/github_rep1/pull/new/sjrao-feature-branch\
+remote: \
+To https://github.com/janardhanasunkara9/github_rep1.git\
+ * [new branch]      sjrao-feature-branch -> sjrao-feature-branch\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs28 5. Merge Branch in GITHUB.
+\fs22 \
+\
+\
+\
+
+\fs28 Pull Request is a Request to merge new changes.\
+\
+\
+Create a Pull request from a different user.\
+\
+\
+\
+After reviewer approval.\
+\
+Merge with master branch\
+\
+\
+close pull request\
+\
+Close issue.\
+\
+\
+\
+\
+============. FORK ==============\
+\
+\
+\
+\
+FORK : Create a New Repo in GITHUB itself in another User.\
+\
+\
+\
+\
+\
+\
+=========================== GIT HUB ACTIONS ===============\
+\
+#### WORKFLOW 1 ############\
+\
+#Name of the Workflow\
+name: 1_First_wkfw\
+\
+#Workflow Trigger event\
+on: workflow_dispatch\
+\
+#Define Job\
+jobs:\
+  my_first_job:\
+    runs-on: ubuntu-latest\
+    steps:\
+      - name: "Job_Step1 :Printing Greetings"\
+        run: echo "Hello Good Morning"\
+\
+      - name: "Job_Step2: Say Bye"\
+        run: echo `uname -a`    \
+\
+\
+\
+\
+\'97\'97\'97\'97\'97\'97 Muli Line Shell Command \'97\'97\
+\
+\
+You can add a Pipe Symbol (|) as a value after the run: Key\
+\
+\
+run: |\
+	echo \'93Hello\'94\
+	echo \'93Tell Your Name\'94\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf4 \
+\
+\
+\
+\
+#########################################. More Realistic Example ##############\
+\
+\
+You Can explore Github Action Events.\
+\
+\
+\'97  Define Workflow NAmw \'97\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf8 \cb9 \expnd0\expndtw0\kerning0
+\CocoaLigature1 name\cf10 : \cf11 "2_python_wkflw\'94\
+\
+\'97 Define Workflow Trigger event \'97\
+\cf10 \cb1 \
+\cf12 \cb9 on\cf10 : [\cf12 push\cf10 , \cf12 workflow_dispatch\cf10 ]\cb1 \
+\
+\'97Define Jobs \'97\
+\
+\cf8 \cb9 jobs\cf10 :\
+\
+\'97 Job Name \'97\
+\cb1 \
+\cb9   \cf8 python_job\cf10 :\
+\
+\'97 Define Hither Action Runner host \'97\cb1 \
+\cb9     \cf8 runs-on\cf10 : \cf12 ubuntu-latest\
+\'97 Define Jobs \'97\cf10 \cb1 \
+\cb9     \cf8 steps\cf10 :\cb1 \
+\cb9       - \cf8 name\cf10 : \cf11 "Get Code from Repo and run it on Runner Machine"\cf10 \cb1 \
+\cb9         \cf8 uses\cf10 : \cf12 actions/checkout@v3\cf10 \cb1 \
+\
+\cb9       - \cf8 name\cf10 : \cf11 "Install Python"\cf10 \cb1 \
+\cb9         \cf8 uses\cf10 : \cf12 actions/setup-python@v5\cf10 \cb1 \
+\cb9         \cf8 with\cf10 :\cb1 \
+\cb9           \cf8 python-version\cf10 : \cf12 '3.10'\cf10 \cb1 \
+\cb9       - \cf8 name\cf10 : \cf11 "Run Python Program"\cf10 \cb1 \
+\cb9         \cf8 run\cf10 : \cf12 python 1_python.py\cf10 \cb1 \
+\cb9   \cf8 shell_job\cf10 :\
+\'97Define Jobs dependencies \'97\cb1 \
+\cb9     \cf8 needs\cf10 : \cf12 python_job\cf10 \cb1 \
+\cb9     \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9     \cf8 steps\cf10 :\cb1 \
+\cb9       - \cf8 name\cf10 : \cf11 "Get Code from Repo"\cf10 \cb1 \
+\cb9         \cf8 uses\cf10 : \cf12 actions/checkout@v3\cf10 \cb1 \
+\
+\cb9       - \cf8 name\cf10 : \cf11 "Run Shell Script"\cf10 \cb1 \
+\cb9         \cf8 run\cf10 : \cf13 |\cf10 \cb1 \
+\cf12 \cb9             echo `hostname`\cf10 \cb1 \
+\cf12 \cb9             sh shell_script1.sh  
+\fs24 \cf10 \cb1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf4 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\
+\
+\
+\
+\
+\
+*************************. GITHUB EXPRESSSIONS, CONTEXT, FUNCTIONS ************************\
+\
+\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf14 \cb9 \expnd0\expndtw0\kerning0
+\CocoaLigature1 ## Define Workflow Name \cf10 \cb1 \
+\cf8 \cb9 name\cf10 : \cf12 3_expr_context_wkfw\cf10 \cb1 \
+\cf12 \cb9 on\cf10 : \cf12 push\cf10 \cb1 \
+\
+\
+\cf8 \cb9 jobs\cf10 :\cb1 \
+\cb9   \cf8 context_job\cf10 :\cb1 \
+\cb9     \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9     \cf8 steps\cf10 :\cb1 \
+\
+\cb9       - \cf8 name\cf10 : \cf11 "Getting Context"\cf10 \cb1 \
+\cb9         \cf8 run\cf10 : \cf13 |\cf15  \cf10 \cb1 \
+\cf12 \cb9           echo "Hello GitHub Action \cf10 $\{\{ \cf17 github\cf10 .\cf17 event_name\cf10  \}\}\cf12  "   ##Define Expression and Context\cf10 \cb1 \
+\cf12 \cb9           echo "The Full GitHub Context is \cf10 $\{\{ \cf17 github\cf10  \}\}\cf12  "\cf10 \cb1 \
+\cf12 \cb9           echo " \cf10 $\{\{ \cf18 toJSON\cf10 (\cf17 github\cf10 ) \}\}\cf12  "\cf10 \cb1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf4 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\
+\
+\
+\
+\
+\
+\
+***************************. TRIGGER EVENT : ISSUES ***********************\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf8 \cb9 \expnd0\expndtw0\kerning0
+\CocoaLigature1 name\cf10 : \cf12 Start_Issues_WkFw\cf10 \cb1 \
+\cf12 \cb9 on\cf10 : \cf12 issues\cf10 \cb1 \
+\
+\cf8 \cb9 jobs\cf10 :\cb1 \
+\cb9     \cf8 issues_job\cf10 :\cb1 \
+\cb9         \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9         \cf8 steps\cf10 :\cb1 \
+\cb9             - \cf8 name\cf10 : \cf11 "Triggers Jobs When Issue "\cf10 \cb1 \
+\cb9               \cf8 uses\cf10 : \cf12 actions/checkout@v3\cf10 \cb1 \
+\
+\cb9             - \cf8 name\cf10 : \cf11 "Printing Message"\cf10 \cb1 \
+\cb9               \cf8 run\cf10 : \cf12 echo "The Actions is \cf10 $\{\{ \cf18 toJSON\cf10 (\cf17 github\cf10 .\cf17 event\cf10 )\}\}\cf12  "\cf10 \cb1 \
+\
+\cb9     \cf8 send_email_job\cf10 :\cb1 \
+\cb9         \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9         \cf8 steps\cf10 :\cb1 \
+\cb9            - \cf8 name\cf10 : \cf12 Send Email\cf10 \cb1 \
+\cb9              \cf8 uses\cf10 : \cf12 hilarion5/send-mail@v1\cf10 \cb1 \
+\cb9              \cf8 with\cf10 :\cb1 \
+\cb9                \cf8 smtp-server\cf10 : \cf12 smtp.gmail.com\cf10 \cb1 \
+\cb9                \cf8 smtp-port\cf10 : \cf19 465\cf10 \cb1 \
+\cb9                \cf8 smtp-secure\cf10 : \cf12 true\cf10 \cb1 \
+\cb9                \cf8 from-email\cf10 : \cf12 janardhanasunkara9@gmail.com\cf10 \cb1 \
+\cb9                \cf8 to-email\cf10 : \cf12 janardhanasunkara9@gmail.com\cf10 \cb1 \
+\cb9                \cf8 subject\cf10 : \cf12 Test Email\cf10 \cb1 \
+\cb9                \cf8 body\cf10 : \cf12 This is a test email sent from GitHub Actions.\cf10 \cb1 \
+\cb9                \cf8 html\cf10 : \cf13 |\cf10 \cb1 \
+\cf12 \cb9                       <h1>This is a test email</h1>\cf10 \cb1 \
+\cf12 \cb9                       <p>Test Paragraph</p>\cf10 \cb1 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf4 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\
+\
+\
+\
+**************************. Events Activity and Event Filters ********************\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf8 \cb9 \expnd0\expndtw0\kerning0
+\CocoaLigature1 name\cf10 : \cf12 Activity_Filter_wkfw\cf10 \cb1 \
+\
+\cf12 \cb9 on\cf10 :                         \cf14 ##Defining Wkfw Events that Triggers Workflow\cf10 \cb1 \
+\cb9   \cf8 pull_request\cf10 :\cb1 \
+\cb9     \cf8 types\cf10 :                 \cf14 ##Defining Activities\cf10 \cb1 \
+\cb9       - \cf12 closed\cf10 \cb1 \
+\cb9   \cf8 push\cf10 :   \cb1 \
+\cb9     \cf8 branches\cf10 :               \cf14 ##Defining Filters\cf10 \cb1 \
+\cb9       - \cf12 feature-branch-1\cf10 \cb1 \
+\cb9   \cf8 workflow_dispatch\cf10 :          \cf14 ##Define On-Demand Workflow    \cf10 \cb1 \
+\
+\cf8 \cb9 jobs\cf10 :\cb1 \
+\cb9   \cf8 Activity_filter_Job\cf10 :\cb1 \
+\cb9     \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9     \cf8 steps\cf10 :\cb1 \
+\cb9       - \cf8 name\cf10 : \cf11 "Pulling Code from repo"\cf10 \cb1 \
+\cb9         \cf8 uses\cf10 : \cf12 actions/checkout@v3\cf10 \cb1 \
+\
+\cb9       - \cf8 name\cf10 : \cf11 "Run SHell command"\cf10 \cb1 \
+\cb9         \cf8 run\cf10 : \cf12 echo "Running Workflow"\cf10 \cb1 \
+\cb9           \cb1 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf4 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\
+\
+\
+\
+\
+************************** \
+\
+\
+NOTES : Workflows with PULL_REQUEST Event won\'92t start without Approval if it is Fork Pull Request.\
+\
+\
+NOTES: Workflows with PULL_REQUEST Event will start as expected if the Pull requestor is a Contributor.\
+\
+\
+\
+\
+\
+\
+\
+*********************************\
+\
+\
+\
+Workflow Failures:\
+\
+\
+By Default Workflow fails if step fails in a Job.\
+\
+By Default , Job fails at least one Step Fails.\
+\
+You can also candles Workflows manually.\
+\
+\
+\
+\
+SKIPPING :\
+\
+\
+By default, All Matching events starts a workflow.\
+\
+You can add exceptions for PUSH and PULL_REQUEST Events.\
+\
+\
+Visit: Github Actions Skipping Workflow Runs.\
+\
+\
+\
+Example : git commit -m "commit 30 [skip ci]"\
+\
+\
+\
+\
+\
+#################################### Artifacts & Outputs ###############\
+\
+\
+\
+##### Creating Artifacts \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf8 \cb9 \expnd0\expndtw0\kerning0
+\CocoaLigature1 name\cf10 : \cf12 1_test_artifacts_wkfw\cf10 \cb1 \
+\cf12 \cb9 on\cf10 : \cf12 push\cf10 \cb1 \
+\
+\cf8 \cb9 jobs\cf10 :\cb1 \
+\cb9   \cf8 test_artifacts_job\cf10 :\cb1 \
+\cb9     \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9     \cf8 steps\cf10 :\cb1 \
+\cb9       - \cf8 name\cf10 : \cf11 "Test Upload Artifacts"\cf10 \cb1 \
+\cb9         \cf8 uses\cf10 : \cf12 actions/checkout@v3\cf10 \cb1 \
+\cb9       - \cf8 run\cf10 : \cf12 echo "Hello Buddy" > /tmp/buddy.txt\cf10 \cb1 \
+\cb9       - \cf8 run\cf10 : \cf12 df -h\cf10 \cb1 \
+\cb9       - \cf8 run\cf10 : \cf12 mkdir -p /tmp/db\cf10 \cb1 \
+\cb9       - \cf8 run\cf10 : \cf12 echo "Hello Nana" > /tmp/db/nana.txt\cf10 \cb1 \
+\cb9       - \cf8 uses\cf10 : \cf12 actions/upload-artifact@v4\cf10            \cf14 #Define Artifact Upload Action\cf10 \cb1 \
+\cb9         \cf8 with\cf10 :\cb1 \
+\cb9           \cf8 name\cf10 : \cf12 my_uploading_artifact\cf10              \cf14 #userdefined name for the Artifact\cf10 \cb1 \
+\cb9           \cf8 path\cf10 : \cf13 |\cf10                                  \cf14 #Files and Dirs thats are Uploading to above Artifact\cf10 \cb1 \
+\cf12 \cb9               /tmp/buddy.txt\cf10 \cb1 \
+\cf12 \cb9               /tmp/db/nana.txt\cf10 \cb1 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf4 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97Create Artifacts and Download Artifacts in another Job   \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97  \
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf8 \cb9 \expnd0\expndtw0\kerning0
+\CocoaLigature1 name\cf10 : \cf12 1_test_artifacts_wkfw\cf10 \cb1 \
+\cf12 \cb9 on\cf10 : \cf12 push\cf10 \cb1 \
+\
+\cf8 \cb9 jobs\cf10 :\cb1 \
+\cb9   \cf8 test_artifacts_job\cf10 :\cb1 \
+\cb9     \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9     \cf8 steps\cf10 :\cb1 \
+\cb9       - \cf8 name\cf10 : \cf11 "Test Upload Artifacts"\cf10 \cb1 \
+\cb9         \cf8 uses\cf10 : \cf12 actions/checkout@v3\cf10 \cb1 \
+\cb9       - \cf8 run\cf10 : \cf12 echo "Hello Buddy" > /tmp/buddy.txt\cf10 \cb1 \
+\cb9       - \cf8 run\cf10 : \cf12 df -h\cf10 \cb1 \
+\cb9       - \cf8 run\cf10 : \cf12 mkdir -p /tmp/db\cf10 \cb1 \
+\cb9       - \cf8 run\cf10 : \cf12 echo "Hello Nana" > /tmp/db/nana.txt\cf10 \cb1 \
+\cb9       - \cf8 uses\cf10 : \cf12 actions/upload-artifact@v4\cf10            \cf14 #Define Artifact Upload Action\cf10 \cb1 \
+\cb9         \cf8 with\cf10 :\cb1 \
+\cb9           \cf8 name\cf10 : \cf12 my_upload_artifact\cf10              \cf14 #userdefined Artifact Name ;  Files and Dirs will be Uploaded to this Artifact\cf10 \cb1 \
+\cb9           \cf8 path\cf10 : \cf13 |\cf10                                  \cf14 #Files and Dirs thats are Uploading to above Artifact\cf10 \cb1 \
+\cf12 \cb9               /tmp/buddy.txt\cf10 \cb1 \
+\cf12 \cb9               /tmp/db/nana.txt\cf10 \cb1 \
+\
+\cb9   \cf8 test_dwnld_artifacts_job\cf10 :\cb1 \
+\cb9     \cf8 needs\cf10 : \cf12 test_artifacts_job\cf10      \cf14 #Add Job Dependencies\cf10 \cb1 \
+\cb9     \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9     \cf8 steps\cf10 :\cb1 \
+\cb9       - \cf8 name\cf10 : \cf11 "Downloading Artifacts"\cf10    \cb1 \
+\cb9         \cf8 uses\cf10 : \cf12 actions/download-artifact@v4\cf10        \cf14 # Action for download Artifacts\cf10 \cb1 \
+\cb9         \cf8 with\cf10 :\cb1 \
+\cb9             \cf8 name\cf10 : \cf12 my_upload_artifact\cf10     \cf14 ## Name must be above defined Artifact name in above job.\cf10 \cb1 \
+\
+\cb9       - \cf8 run\cf10 : \cf12 ls -ltr\cf10 \cb1 \
+\cb9                            \cb1 \
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf4 \kerning1\expnd0\expndtw0 \CocoaLigature0 ##########. Passing Outputs from Job to Another Job.\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf8 \cb9 \expnd0\expndtw0\kerning0
+\CocoaLigature1 name\cf10 : \cf12 1_Outputs_wkfw\cf10 \cb1 \
+\cf12 \cb9 on\cf10 : \cf12 push\cf10 \cb1 \
+\
+\cf8 \cb9 jobs\cf10 :\cb1 \
+\cb9   \cf8 test_artifacts_job\cf10 :\cb1 \
+\cb9     \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9     \cf8 outputs\cf10 :\cb1 \
+\cb9         \cf8 output1\cf10 : $\{\{ \cf17 steps\cf10 .\cf17 publish1\cf10 .\cf17 outputs\cf10 .\cf17 filename\cf10  \}\}   \cf14 ## steps.<id>.outputs.<keyvalue>\cf10 \cb1 \
+\cb9     \cf8 steps\cf10 :\cb1 \
+\cb9       - \cf8 name\cf10 : \cf11 "Test Upload Artifacts"\cf10 \cb1 \
+\cb9         \cf8 uses\cf10 : \cf12 actions/checkout@v3\cf10 \cb1 \
+\cb9       - \cf8 run\cf10 : \cf12 echo "Hello Buddy" > /tmp/buddy.txt\cf10 \cb1 \
+\cb9       - \cf8 run\cf10 : \cf12 df -h\cf10 \cb1 \
+\cb9       - \cf8 run\cf10 : \cf12 mkdir -p /tmp/db\cf10 \cb1 \
+\cb9       - \cf8 run\cf10 : \cf12 echo "Hello Nana" > /tmp/db/nana.txt\cf10 \cb1 \
+\cb9       - \cf8 uses\cf10 : \cf12 actions/upload-artifact@v4\cf10            \cf14 #Define Artifact Upload Action\cf10 \cb1 \
+\cb9         \cf8 with\cf10 :\cb1 \
+\cb9           \cf8 name\cf10 : \cf12 my_upload_artifact\cf10              \cf14 #userdefined Artifact Name ;  Files and Dirs will be Uploaded to this Artifact\cf10 \cb1 \
+\cb9           \cf8 path\cf10 : \cf13 |\cf10                                  \cf14 #Files and Dirs thats are Uploading to above Artifact\cf10 \cb1 \
+\cf12 \cb9               /tmp/buddy.txt\cf10 \cb1 \
+\cf12 \cb9               /tmp/db/nana.txt\cf10 \cb1 \
+\cb9       - \cf8 name\cf10 : \cf11 "Learning about outputs"\cf10 \cb1 \
+\cb9         \cf8 id\cf10 : \cf12 publish1\cf10                             \cf14 #Set ID, will refer in above outputs\cf10 \cb1 \
+\cb9         \cf8 run\cf10 : \cf12 find /tmp/db -type f -name "nana*" -execdir echo "filename=\{\}" >> $GITHUB_OUTPUT ';'\cf10   \cf14 ## Storing KeyValue-Pair , the key "filename" used in above outputs.\cf10 \cb1 \
+\
+\cb9   \cf8 output_job\cf10 :\cb1 \
+\cb9     \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9     \cf8 needs\cf10 : \cf12 test_artifacts_job\cf10 \cb1 \
+\cb9     \cf8 steps\cf10 :\cb1 \
+\cb9         - \cf8 name\cf10 : \cf11 "Displaying the Output value from previous Job"\cf10 \cb1 \
+\cb9           \cf8 run\cf10 : \cf12 echo "\cf10 $\{\{ \cf17 needs\cf10 .\cf17 test_artifacts_job\cf10 .\cf17 outputs\cf10 .\cf17 output1\cf10  \}\}\cf12 "\cf10    \cf14 ## needs.<jobname>.outputs.<outputname>\cf10 \cb1 \
+\cb9                            \cb1 \
+\
+\
+\
+\
+\
+Notes : Outputs can also be assigned as like below:\
+\
+\
+       run: echo \'93::set-output name=<keyname>::<value>\'94\
+\
+       example : run: echo \'93::set-output name=address::200 Manville Hill Road\'94 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf4 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf14 \cb9 \expnd0\expndtw0\kerning0
+\CocoaLigature1 ##Env Variables learning in Workflow.\cf10 \cb1 \
+\
+\
+\cf8 \cb9 name\cf10 : \cf12 3_Env_vars_wkfw\cf10 \cb1 \
+\
+\cf12 \cb9 on\cf10 : \cf12 push\cf10 \cb1 \
+\
+\cf8 \cb9 env\cf10 :                   \cf14 ## Declare Env Variables at Workflow level\cf10 \cb1 \
+\
+\cb9   \cf8 DBNAME\cf10 : \cf11 "Oracle"\cf10 \cb1 \
+\cb9   \cf8 PORT\cf10 : \cf19 1551\cf10 \cb1 \
+\cb9   \cf8 HOSTNAME\cf10 : \cf11 "test.db.oracle.com"\cf10 \cb1 \
+\
+\cf8 \cb9 jobs\cf10 :\cb1 \
+\cb9   \cb1 \
+\cb9   \cf8 env_vars_job\cf10 :\cb1 \
+\cb9    \cb1 \
+\cb9     \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9     \cf8 env\cf10 :\cb1 \
+\cb9       \cf8 USERNAME\cf10 : \cf11 "Jana_user"\cf10          \cf14 # Declare Env Variable in  Job level\cf10 \cb1 \
+\cb9     \cf8 steps\cf10 :\cb1 \
+\cb9       - \cf8 name\cf10 : \cf11 "Printing ENv Variables Values"\cf10 \cb1 \
+\cb9         \cf8 run\cf10 : \cf12 echo "The DB NAme is $\{DBNAME\} and Port is $\{PORT\} and Username is $\{USERNAME\}"\cf10                         \cf14 ## Method 1 : Printing Env Variables values\cf10 \cb1 \
+\cb9       - \cf8 run\cf10 : \cf12 echo "The DB NAme is \cf10 $\{\{ \cf17 env\cf10 .\cf17 DBNAME\cf10 \}\}\cf12  and Port is \cf10 $\{\{ \cf17 env\cf10 .\cf17 PORT\cf10  \}\}\cf12  and Username is \cf10 $\{\{ \cf17 env\cf10 .\cf17 USERNAME\cf10  \}\}\cf12 "\cf10   \cf14 ## Method 2 : Printing Env Variables values\cf10 \cb1 \
+\
+\cb9       - \cf8 name\cf10 : \cf11 "Get Code from Repo"\cf10 \cb1 \
+\cb9         \cf8 uses\cf10 : \cf12 actions/checkout@v3\cf10 \cb1 \
+\
+\cb9       - \cf8 name\cf10 : \cf11 "Running Shell Script"\cf10 \cb1 \
+\cb9         \cf8 run\cf10 : \cf12 sh 1_pass_env_values_wkfw.sh\cf10 \cb1 \
+\cb9           \cb1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf4 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\
+\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf14 \cb9 \expnd0\expndtw0\kerning0
+\CocoaLigature1 ### Leaning Seceres in GITHUB Actions Workflow.\cf10 \cb1 \
+\
+\cf8 \cb9 name\cf10 : \cf12 4_Secrets_wkfw\cf10 \cb1 \
+\
+\cf12 \cb9 on\cf10 : \cf12 push\cf10 \cb1 \
+\
+\cf8 \cb9 env\cf10 :\cb1 \
+\cb9     \cf8 DB_PASSWORD\cf10 : $\{\{ \cf17 secrets\cf10 .\cf17 PASSWORD_SECRET\cf10  \}\}    \cf14 ##Passing Repository Secret Varibale to Env Variable\cf10 \cb1 \
+\
+\cf8 \cb9 jobs\cf10 :\cb1 \
+\cb9     \cf8 secrets_job\cf10 :\cb1 \
+\cb9       \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9       \cf8 steps\cf10 :\cb1 \
+\cb9         - \cf8 run\cf10 : \cf12 echo "The Password is \cf10 $\{\{ \cf17 env\cf10 .\cf17 DB_PASSWORD\cf10 \}\}\cf12  "\cf10     \cf14 ### Display Env Variable \cf10 \cb1 \
+\
+\cb9     \cf8 env_repo_job\cf10 :\cb1 \
+\cb9       \cf8 environment\cf10 : \cf12 DEV\cf10                      \cf14 ##Declare Environment; If protection branch rule enabled then it only when defined branch is pushed.\cf10 \cb1 \
+\cb9       \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9       \cf8 steps\cf10 :\cb1 \
+\cb9         \cb1 \
+\cb9         - \cf8 name\cf10 : \cf11 " The Env is dev"\cf10 \cb1 \
+\cb9           \cf8 run\cf10 : \cf12 echo " The DB Name is \cf10 $\{\{ \cf17 secrets\cf10 .\cf17 DBNAME\cf10  \}\}\cf12  "\cf10    \cf14 ## Passing  Environmnet related secrets\cf10 \cb1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf4 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf14 \cb9 \expnd0\expndtw0\kerning0
+\CocoaLigature1 ##Leaning IF Condition between Steps in a Given Job\cf10 \cb1 \
+\
+\cf8 \cb9 name\cf10 : \cf12 1_if_condition_wkfw\cf10 \cb1 \
+\
+\cf12 \cb9 on\cf10 : \cf12 push\cf10 \cb1 \
+\
+\cf8 \cb9 jobs\cf10 :\cb1 \
+\
+\cb9     \cf8 if_condition_job\cf10 :\cb1 \
+\cb9         \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9         \cb1 \
+\cb9         \cf8 steps\cf10 :\cb1 \
+\
+\cb9             - \cf8 name\cf10 : \cf11 "Step1"\cf10 \cb1 \
+\cb9               \cf8 id\cf10 : \cf12 Step1\cf10               \cf14 ##Define ID for the Step1 \cf10 \cb1 \
+\cb9               \cf8 run\cf10 : \cf12 echo "Hello Boy!!\cf10   \cf14 ##Syntax is Wrong\cf10 \cb1 \
+\
+\cb9             - \cf8 name\cf10 : \cf11 "Step2"\cf10 \cb1 \
+\cb9             \cf14 #Define IF Condition to handle/report about Failure of Step 1 \cf10 \cb1 \
+\cb9               \cf8 if\cf10 : \cf18 failure\cf10 () && \cf17 steps\cf10 .\cf17 Step1\cf10 .\cf17 outcome\cf10  == \cf11 'failure'\cf10   \cb1 \
+\cb9               \cf8 run\cf10 : \cf12 echo "Step1 failed in if condition job"\cf10 \cb1 \
+\
+\cb9         \cb1 \
+\cb9               \cb1 \
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf4 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf14 \cb9 \expnd0\expndtw0\kerning0
+\CocoaLigature1 ##Learning About IF Condition between Jobs\cf10 \cb1 \
+\
+\cf8 \cb9 name\cf10 : \cf12 if_conition_jobs_wkfw\cf10 \cb1 \
+\
+\cf12 \cb9 on\cf10 : \cf12 push\cf10 \cb1 \
+\
+\cf8 \cb9 jobs\cf10 :\cb1 \
+\cb9     \cf8 job_1\cf10 :\cb1 \
+\cb9         \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9         \cf8 steps\cf10 :\cb1 \
+\cb9           - \cf8 name\cf10 : \cf11 "Running Job1"\cf10 \cb1 \
+\cb9             \cf8 run\cf10 : \cf12 echo "Hello Job1\cf10    \cf14 ##On Purpose the Syntax is wrong\cf10 \cb1 \
+\
+\cb9     \cf8 job_2\cf10 :\cb1 \
+\cb9         \cf8 needs\cf10 : \cf12 job_1\cf10         \cf14 ##Add Job Dependencies\cf10 \cb1 \
+\cb9         \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9         \cf8 steps\cf10 :\cb1 \
+\cb9           - \cf8 name\cf10 : \cf11 "Running Job2"\cf10 \cb1 \
+\cb9             \cf8 run\cf10 : \cf12 echo "Hello Job2"\cf10 \cb1 \
+\
+\cb9     \cf8 job_3\cf10 :\cb1 \
+\cb9         \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9         \cf8 steps\cf10 :\cb1 \
+\cb9           - \cf8 name\cf10 : \cf11 "Running Job3"\cf10 \cb1 \
+\cb9             \cf8 run\cf10 : \cf12 echo "Hello Job3"\cf10 \cb1 \
+\
+\cb9     \cf8 report_job\cf10 :\cb1 \
+\cb9         \cf8 needs\cf10 : [\cf12 job_2\cf10 ,\cf12 job_3\cf10 ]  \cf14 ##Add dependcies\cf10 \cb1 \
+\cb9         \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\
+\cb9       \cf14 ##Failure Handling   \cf10 \cb1 \
+\cb9       \cb1 \
+\cb9         \cf8 if\cf10 : \cf18 failure\cf10 ()         \cb1 \
+\cb9         \cf8 steps\cf10 :\cb1 \
+\
+\cb9             - \cf8 name\cf10 : \cf11 "Repoting Failures"\cf10 \cb1 \
+\cb9               \cf8 run\cf10 : \cf12 echo " One or more Jobs were failed"\cf10 \cb1 \
+\
+\
+\
+\
+\
+\
+\cf14 \cb9 ##Learning About IF Confition between Jobs and CONTINUE-ON-ERROR\cf10 \cb1 \
+\
+\cf8 \cb9 name\cf10 : \cf12 if_conition_jobs_wkfw\cf10 \cb1 \
+\
+\cf12 \cb9 on\cf10 : \cf12 push\cf10 \cb1 \
+\
+\cf8 \cb9 jobs\cf10 :\cb1 \
+\cb9     \cf8 job_1\cf10 :\cb1 \
+\cb9         \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9         \cf8 continue-on-error\cf10 : \cf12 true\cf10     \cf14 ##Define Contine On Errot to pass the job and so the dependency job will run \cf10 \cb1 \
+\cb9         \cf8 steps\cf10 :\cb1 \
+\cb9           - \cf8 name\cf10 : \cf11 "Running Job1"\cf10 \cb1 \
+\cb9             \cf8 run\cf10 : \cf12 echo "Hello Job1\cf10    \cf14 ##On Purpose the Syntax is wrong\cf10 \cb1 \
+\
+\cb9     \cf8 job_2\cf10 :\cb1 \
+\cb9         \cf8 needs\cf10 : \cf12 job_1\cf10         \cf14 ##Add Job Dependencies\cf10 \cb1 \
+\cb9         \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9         \cf8 steps\cf10 :\cb1 \
+\cb9           - \cf8 name\cf10 : \cf11 "Running Job2"\cf10 \cb1 \
+\cb9             \cf8 run\cf10 : \cf12 echo "Hello Job2"\cf10 \cb1 \
+\
+\cb9     \cf8 job_3\cf10 :\cb1 \
+\cb9         \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9         \cf8 steps\cf10 :\cb1 \
+\cb9           - \cf8 name\cf10 : \cf11 "Running Job3"\cf10 \cb1 \
+\cb9             \cf8 id\cf10 : \cf12 job3_step1\cf10 \cb1 \
+\cb9             \cf8 run\cf10 : \cf13 |\cf10 \cb1 \
+\cf12 \cb9                 echo "Hello Job3"\cf10 \cb1 \
+\cb9           - \cf8 name\cf10  : \cf11 "Evaluating Outcome"\cf10 \cb1 \
+\cb9             \cf8 if\cf10 : \cf17 steps\cf10 .\cf17 job3_step1\cf10 .\cf17 outcome\cf10  == \cf11 'success'\cf10 \cb1 \
+\cb9             \cf8 run\cf10 : \cf12 echo "The Job3 is Success"\cf10       \cb1 \
+\cb9              \cb1 \
+\cb9           \cb1 \
+\
+\cb9     \cf8 report_job\cf10 :\cb1 \
+\cb9         \cf8 needs\cf10 : [\cf12 job_2\cf10 ,\cf12 job_3\cf10 ]  \cf14 ##Add dependcies\cf10 \cb1 \
+\cb9         \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\
+\cb9       \cf14 ##Failure Handling   \cf10 \cb1 \
+\
+\cb9         \cf8 if\cf10 : \cf18 failure\cf10 ()         \cb1 \
+\cb9         \cf8 steps\cf10 :\cb1 \
+\
+\cb9             - \cf8 name\cf10 : \cf11 "Repoting Failures"\cf10 \cb1 \
+\cb9               \cf8 run\cf10 : \cf13 |\cf10 \cb1 \
+\cf12 \cb9                     echo " One or more Jobs were failed"\cf10 \cb1 \
+\cf12 \cb9            \cf10 \cb1 \
+\
+\
+\
+\
+\
+\cf14 \cb9 ##Learning About Matric Feature in Github Actions\
+\cf10 \cb1 \
+\cf8 \cb9 name\cf10 : \cf12 3_Matrix_wkfw\cf10 \cb1 \
+\cf12 \cb9 on\cf10 : \cf12 push\cf10 \cb1 \
+\
+\cf8 \cb9 jobs\cf10 :\cb1 \
+\cb9   \cf8 matrix_job\cf10 :\cb1 \
+\
+\cb9     \cf8 strategy\cf10 :                                        \cf14 ## Matrix Stntax\cf10 \cb1 \
+\cb9       \cf8 matrix\cf10 :\cb1 \
+\cb9         \cf8 os_type\cf10 : [\cf12 ubuntu-latest\cf10 ,\cf12 ubuntu-24.04\cf10 ,\cf12 macos-12\cf10 ]\cb1 \
+\cb9         \cf8 command\cf10 : [\cf11 "Hello Matrix"\cf10 , \cf11 "Hello Macos"\cf10 ]\cb1 \
+\
+\cb9     \cf8 runs-on\cf10 : $\{\{ \cf17 matrix\cf10 .\cf17 os_type\cf10  \}\}                     \cf14 ## Calling MAtrix Context and assign OS Types \cf10 \cb1 \
+\cb9         \cb1 \
+\cb9     \cf8 steps\cf10 :\cb1 \
+\
+\cb9       - \cf8 name\cf10 : \cf11 " Running Os Steps"\cf10 \cb1 \
+\cb9         \cf8 run\cf10 : \cf12 echo \cf10 $\{\{ \cf17 matrix\cf10 .\cf17 command\cf10  \}\}                \cf14 ## Calling Matrix Context and runs commands\
+\
+\
+\
+\
+\
+##Learning About Matric Feature in Github Actions\cf10 \cb1 \
+\cf8 \cb9 name\cf10 : \cf12 3_Matrix_wkfw\cf10 \cb1 \
+\cf12 \cb9 on\cf10 : \cf12 push\cf10 \cb1 \
+\
+\cf8 \cb9 jobs\cf10 :\cb1 \
+\cb9   \cf8 matrix_job\cf10 :\cb1 \
+\cb9     \cf8 continue-on-error\cf10 : \cf12 true\cf10 \cb1 \
+\cb9     \cf8 strategy\cf10 :                                        \cf14 ## Matrix Syntax\cf10 \cb1 \
+\cb9       \cf8 matrix\cf10 :\cb1 \
+\cb9         \cf8 os_type\cf10 : [\cf12 ubuntu-latest\cf10 ,\cf12 ubuntu-24.04\cf10 ,\cf12 macos-12\cf10 ]\cb1 \
+\cb9         \cf8 command\cf10 : [\cf11 "Hello Matrix"\cf10 , \cf11 "Hello Macos"\cf10 , \cf11 "MAC NOT FOR ENTERPRISE"\cf10 ]\cb1 \
+\
+\cb9         \cf8 include\cf10 :                                         \cf14 ##INCLUDE In MATRIX\cf10 \cb1 \
+\cb9           - \cf8 os_type\cf10 : [\cf12 ubuntu-latest\cf10 ]\cb1 \
+\cb9             \cf8 command\cf10 : [\cf11 "Oracle 19c NOT Supported on Unbuntu Latest"\cf10 ]\cb1 \
+\
+\cb9           - \cf8 os_type\cf10 : [\cf12 macos-12\cf10 ]\cb1 \
+\cb9             \cf8 command\cf10 : [\cf11 " Oracle NOT SUPPORTED ON MACOS"\cf10 ] \cb1 \
+\cb9             \cb1 \
+\cb9         \cf8 exclude\cf10 :                                       \cf14 ##Exclude in Matrix\cf10 \cb1 \
+\cb9           - \cf8 os_type\cf10 : [\cf12 ubuntu-latest\cf10 ,\cf12 ubuntu-24.04\cf10 ]\cb1 \
+\cb9             \cf8 command\cf10 : [\cf11 "MAC NOT FOR ENTERPRISE"\cf10 ]   \cb1 \
+\
+\
+\cb9     \cf8 runs-on\cf10 : $\{\{ \cf17 matrix\cf10 .\cf17 os_type\cf10  \}\}      \cf14 ## Calling MAtrix Context and assign OS Types                \cf10 \cb1 \
+\cb9         \cb1 \
+\cb9     \cf8 steps\cf10 :\cb1 \
+\
+\cb9       - \cf8 name\cf10 : \cf11 " Running Os Steps"\cf10 \cb1 \
+\cb9         \cf8 run\cf10 : \cf12 echo \cf10 $\{\{ \cf17 matrix\cf10 .\cf17 command\cf10  \}\}                \cf14 ## Calling Matrix Context\cf10 \cb1 \
+\
+\
+\
+\
+\
+\
+\
+\cf14 \cb9 ###Learning Inputs for Workflow_Dispatch Event\cf10 \cb1 \
+\
+\cf8 \cb9 name\cf10 : \cf12 4_inputs_wkfw\cf10 \cb1 \
+\
+\cf12 \cb9 on\cf10 : \cb1 \
+\cb9   \cf8 workflow_dispatch\cf10 :\cb1 \
+\cb9     \cf8 inputs\cf10 :              \cf14 ##Define Inputs\cf10 \cb1 \
+\cb9         \cf8 name\cf10 :            \cf14 ## Input Name\cf10 \cb1 \
+\cb9           \cf8 description\cf10 : \cf11 "Enter Your Name"\cf10 \cb1 \
+\cb9           \cf8 required\cf10 : \cf12 true\cf10 \cb1 \
+\cb9           \cf8 type\cf10 : \cf12 string\cf10 \cb1 \
+\cb9           \cf8 default\cf10 : \cf12 Keerthi\cf10 \cb1 \
+\
+\cf8 \cb9 jobs\cf10 :\cb1 \
+\cb9   \cf8 input_job\cf10 :\cb1 \
+\cb9     \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\
+\cb9     \cf8 steps\cf10 :\cb1 \
+\cb9       - \cf8 name\cf10 : \cf11 "Display Your Name"\cf10 \cb1 \
+\cb9         \cf8 run\cf10 : \cf12 echo "\cf10 $\{\{ \cf17 inputs\cf10 .\cf17 name\cf10  \}\}\cf12 "\cf10      \cf14 ## Calling Input.\cf10 \cb1 \
+\cb9       \cb1 \
+\cb9      \cb1 \
+\
+\
+\
+\cb9                 \cb1 \
+\
+\
+\
+\
+\cf14 \cb9 ##Define Reusable Workflow\cf10 \cb1 \
+\
+\cf8 \cb9 name\cf10 : \cf11 "Reusable_Articat_Upload_wkfw"\cf10 \cb1 \
+\
+\cf12 \cb9 on\cf10 : \cb1 \
+\cb9     \cf8 workflow_call\cf10 :   \cf14 ## Triggger Workflow when called by Other Workflowd\cf10 \cb1 \
+\cb9       \cf8 inputs\cf10 :        \cf14 ##Accepts Inputs from Other Workflows\cf10 \cb1 \
+\cb9         \cf8 artifact_name\cf10 :    \cf14 ###This Input Name and Variable name in other Workflow must be Same.\cf10 \cb1 \
+\cb9             \cf8 description\cf10 : \cf11 "Enter Artifact Name"\cf10 \cb1 \
+\cb9             \cf8 required\cf10 : \cf12 false\cf10 \cb1 \
+\cb9             \cf8 default\cf10 : \cf11 "Upload Artifacts"\cf10 \cb1 \
+\cb9             \cf8 type\cf10 : \cf12 string\cf10 \cb1 \
+\
+\cb9       \cf8 outputs\cf10 :                 \cf14 ##Passing O/p value to Main Workflow\cf10 \cb1 \
+\cb9         \cf8 Address_Output\cf10 :        \cf14 ##This Variable name will be refered in Main Caller Workflow.\cf10 \cb1 \
+\cb9           \cf8 description\cf10 : \cf11 "Passing Address to Main Workflow"\cf10 \cb1 \
+\cb9           \cf8 value\cf10 : $\{\{ \cf17 jobs\cf10 .\cf17 artifact_upload_job\cf10 .\cf17 outputs\cf10 .\cf17 outcome1\cf10  \}\}\cb1 \
+\
+\
+\cf8 \cb9 jobs\cf10 :\cb1 \
+\cb9     \cf8 artifact_upload_job\cf10 :\cb1 \
+\
+\cb9       \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9       \cf8 outputs\cf10 : \cb1 \
+\cb9         \cf8 outcome1\cf10 : $\{\{ \cf17 steps\cf10 .\cf17 test_output_id_1\cf10 .\cf17 outputs\cf10 .\cf17 address\cf10  \}\}    \cf14 ##Declare O/p in Job level \cf10 \cb1 \
+\cb9       \cf8 steps\cf10 :\cb1 \
+\cb9         - \cf8 name\cf10 : \cf11 "Get Code from Repo"\cf10 \cb1 \
+\cb9           \cf8 uses\cf10 : \cf12 actions/checkout@v3\cf10 \cb1 \
+\cb9         - \cf8 name\cf10 : \cf11 "Create Files"\cf10 \cb1 \
+\cb9           \cf8 run\cf10 : \cf13 |\cf10 \cb1 \
+\cf12 \cb9             echo "Hell Jana" > /tmp/buddy.txt\cf10 \cb1 \
+\cf12 \cb9             mkdir -p /tmp/db\cf10 \cb1 \
+\cf12 \cb9             echo "Hello Nana" > /tmp/db/nana.txt\cf10 \cb1 \
+\cb9         - \cf8 name\cf10 : \cf11 "Upload Artifacts"\cf10 \cb1 \
+\cb9           \cf8 uses\cf10 : \cf12 actions/upload-artifact@v3\cf10 \cb1 \
+\cb9           \cf8 with\cf10 :\cb1 \
+\cb9             \cf8 name\cf10 : $\{\{ \cf17 inputs\cf10 .\cf17 artifact_name\cf10  \}\}     \cf14 ## Passing Name through Input Parameters\cf10 \cb1 \
+\cb9             \cf8 path\cf10 : \cf13 |\cf10 \cb1 \
+\cf12 \cb9               /tmp/buddy.txt\cf10 \cb1 \
+\cf12 \cb9               /tmp/db/nana.txt\cf10 \cb1 \
+\
+\cb9         - \cf8 name\cf10 : \cf11 "TestOutputs"\cf10 \cb1 \
+\cb9           \cf8 id\cf10 : \cf12 test_output_id_1\cf10    \cb1 \
+\cb9           \cf8 run\cf10 : \cf12 echo "::set-output name=address::'200 Manville Hill Road'"\cf10    \cf14 ##Assign a O/p value to a Key name called address\cf10 \cb1 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\cf14 \cb9 ###A Main Workflow calling a reusable Workflow.\cf10 \cb1 \
+\
+\cf8 \cb9 name\cf10 : \cf12 Calling_Reusable_wkfw\cf10 \cb1 \
+\
+\cf12 \cb9 on\cf10 : [\cf12 push\cf10 ,\cf12 workflow_dispatch\cf10 ]\cb1 \
+\
+\cf8 \cb9 jobs\cf10 :\cb1 \
+\cb9     \cf8 Get_Repo_Code_Job\cf10 :\cb1 \
+\cb9         \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9         \cf8 steps\cf10 :\cb1 \
+\cb9             - \cf8 name\cf10 : \cf11 "Get Code from Repo"\cf10 \cb1 \
+\cb9               \cf8 uses\cf10 : \cf12 actions/checkout@v3\cf10 \cb1 \
+\cb9     \cb1 \
+\cb9     \cf8 Calling_reuasble_wkfw_job\cf10 :  \cf14 ##When Calling Resuable Workflow , dont use Step command.\cf10 \cb1 \
+\cb9     \cb1 \
+\cb9       \cf8 uses\cf10 : \cf12 ./.github/workflows/5_reusable_file.yml\cf10 \cb1 \
+\cb9       \cf8 with\cf10 :\cb1 \
+\cb9         \cf8 artifact_name\cf10 : \cf12 upload_artifact_1\cf10 \cb1 \
+\
+\cb9     \cf8 Download_Artifacts_Job\cf10 :\cb1 \
+\cb9         \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\cb9         \cf8 needs\cf10 : \cf12 Calling_reuasble_wkfw_job\cf10 \cb1 \
+\cb9         \cf8 steps\cf10 :\cb1 \
+\cb9             \cb1 \
+\cb9             - \cf8 name\cf10 : \cf11 "Download Artifacts Jobs"\cf10            \cf14 ##Download Artifacts\cf10 \cb1 \
+\cb9               \cf8 uses\cf10 : \cf12 actions/download-artifact@v3\cf10 \cb1 \
+\cb9               \cf8 with\cf10 :\cb1 \
+\cb9                 \cf8 name\cf10 : \cf12 upload_artifact_1\cf10 \cb1 \
+\
+\cb9             - \cf8 name\cf10 : \cf11 "Listing Downloaded Files"\cf10     \cb1 \
+\cb9               \cf8 run\cf10 : \cf13 |\cf10 \cb1 \
+\cf12 \cb9                 pwd\cf10 \cb1 \
+\cf12 \cb9                 ls -ltr\cf10 \cb1 \
+\
+\cb9             - \cf8 name\cf10 : \cf11 "Display Address"\cf10                  \cf14 ##Display Address by using Output of Reusable Workflow Output      \cf10 \cb1 \
+\cb9               \cf8 run\cf10 : \cf12 echo " \cf10 $\{\{ \cf17 needs\cf10 .\cf17 Calling_reuasble_wkfw_job\cf10 .\cf17 outputs\cf10 .\cf17 Address_Output\cf10  \}\}\cf12  "\cf10 \cb1 \
+\
+\
+\
+\
+\
+\
+\
+\
+#############################################.   CUSTOM ACTIONS   ###########\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf10 There are 3 different types of Custom Actions:\
+\
+	JavaScript Actions : \
+\
+	Docker Actions :\
+\
+ 		Create a Docket file with your required Configuration\
+\
+		Perform any tasks of your choice with any language.\
+		\
+		Lots of flexibility but requires Docker Knowledge.\
+\
+\
+\
+	Composite Actions:\
+\
+       Combines Multiple  Workflows steps into one Single Action.\
+\
+	  Combine Run commands and Uses Commands.\
+\
+	   Allows for reusing Shared Steps .\
+\
+\
+\
+\
+\
+\
+================================. Create COMPOSITE ACTIONS =================\
+\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf14 \cb9 ## Create Composite Action.\cf10 \cb1 \
+\
+\cf14 \cb9 ## The Composite Action cane be created in any folder but the action.yml should exist in that folder\cf10 \cb1 \
+\
+\cf8 \cb9 name\cf10 : \cf11 "Composite_Action"\cf10      \cf14 ### Define name for Composite Action\cf10 \cb1 \
+\
+\cf8 \cb9 description\cf10 : \cf11 "The Composite Action will do some specific tasks"\cf10   \cf14 ## Define Description for Composite Action\cf10 \cb1 \
+\
+\cf8 \cb9 inputs\cf10 :                                           \cf14 ## Define Inputs\cf10 \cb1 \
+\
+\cb9   \cf8 message\cf10 :\cb1 \
+\cb9     \cf8 description\cf10 : \cf11 "Send Message"\cf10 \cb1 \
+\cb9     \cf8 default\cf10 : \cf11 "Hello World"\cf10 \cb1 \
+\cb9     \cf8 type\cf10 : \cf12 string\cf10 \cb1 \
+\cb9     \cf8 required\cf10 : \cf12 true\cf10 \cb1 \
+\
+\cf8 \cb9 outputs\cf10 :                                            \cf14 ##  Define Outputs\cf10 \cb1 \
+\cb9   \cf8 current_address\cf10 :\cb1 \
+\cb9     \cf8 description\cf10 : \cf11 "Get the Living Address"\cf10 \cb1 \
+\cb9     \cf8 value\cf10 : \cf12 $\{\{ steps.address_id.outputs.address \}\}\cf10 \cb1 \
+\
+\cb9   \cf8 current_county\cf10 :\cb1 \
+\cb9     \cf8 description\cf10 : \cf11 "Get The Current County"\cf10 \cb1 \
+\cb9     \cf8 value\cf10 : \cf12 $\{\{ steps.address_id.outputs.County \}\}\cf10 \cb1 \
+\
+\
+\
+\cf8 \cb9 runs\cf10 :                                                 \cf14 ## Defined Key word \cf10 \cb1 \
+\cb9   \cf8 using\cf10 : \cf11 "composite"\cf10                                   \cf14 ## Must be as is\cf10 \cb1 \
+\
+\cb9   \cf8 steps\cf10 :                                               \cf14 ##Define Steps\cf10 \cb1 \
+\cb9     - \cf8 name\cf10 : \cf11 "Say Greetings"\cf10 \cb1 \
+\cb9       \cf8 run\cf10 : \cf11 "echo $\{\{ inputs.message \}\}"\cf10 \cb1 \
+\cb9       \cf8 shell\cf10 : \cf12 bash\cf10 \cb1 \
+\
+\cb9     - \cf8 name\cf10 : \cf11 "Get Current Address"\cf10 \cb1 \
+\cb9       \cf8 id\cf10 : \cf12 address_id\cf10 \cb1 \
+\cb9       \cf8 run\cf10 : \cf13 |\cf10 \cb1 \
+\cf12 \cb9         echo "address=200 Manville Hill Road" >> $GITHUB_OUTPUT   \cf10 \cb1 \
+\cf12 \cb9         echo "County=$city" >> $GITHUB_OUTPUT\cf10 \cb1 \
+\cb9       \cf8 shell\cf10 : \cf12 bash\cf10 \cb1 \
+\cb9       \cf8 env\cf10 :\cb1 \
+\cb9         \cf8 city\cf10 : \cf11 "Cumberland"\cf10 \cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf10 \
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf14 \cb9 ##This Worlflow calls the Custom Composite Action\cf10 \cb1 \
+\
+\cf8 \cb9 name\cf10 : \cf11 "Calling_Composite_Action_wkfw"\cf10 \cb1 \
+\
+\cf12 \cb9 on\cf10 : \cf12 push\cf10 \cb1 \
+\
+\cf8 \cb9 jobs\cf10 :\cb1 \
+\
+\cb9   \cf8 composite_action_job\cf10 :     \cf14 ##Define Job\cf10 \cb1 \
+\
+\cb9     \cf8 runs-on\cf10 : \cf12 ubuntu-latest\cf10 \cb1 \
+\
+\cb9     \cf8 steps\cf10 :\cb1 \
+\cb9         - \cf8 name\cf10 : \cf11 "Get Code from Repo"\cf10 \cb1 \
+\cb9           \cf8 uses\cf10 : \cf12 actions/checkout@v3\cf10 \cb1 \
+\
+\cb9         - \cf8 name\cf10 : \cf11 "Calling Composite Action"\cf10      \cf14 ### Calling Custom Composite Action\cf10 \cb1 \
+\cb9           \cf8 id\cf10 : \cf12 composite_action_id_1\cf10 \cb1 \
+\cb9           \cf8 uses\cf10 : \cf12 ./.github/actions\cf10 \cb1 \
+\cb9           \cf8 with\cf10 :\cb1 \
+\cb9             \cf8 message\cf10 : \cf11 "Jana Living in Rhodeisland"\cf10     \cf14 ### Pass Value to the Input varuable\cf10 \cb1 \
+\
+\cb9         - \cf8 name\cf10 : \cf11 "Get O/p from Composite Action"\cf10      \cf14 ### Get Outputs from Composite Actions\cf10 \cb1 \
+\cb9           \cf8 run\cf10 : \cf13 |\cf10 \cb1 \
+\cf12 \cb9             echo "The Address is \cf10 $\{\{ \cf17 steps\cf10 .\cf17 composite_action_id_1\cf10 .\cf17 outputs\cf10 .\cf17 current_address\cf10  \}\}\cf12  "\cf10 \cb1 \
+\cf12 \cb9             echo "The County is \cf10 $\{\{  \cf17 steps\cf10 .\cf17 composite_action_id_1\cf10 .\cf17 outputs\cf10 .\cf17 current_county\cf10  \}\}\cf12 "\cf10 \cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\fs28 \cf10 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf10 \
+\
+Git\
+\
+\
+Jenkins\
+\
+Docker\
+\
+Kubernetes\
+\
+Ansible\
+\
+Terraform\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf4 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\
+\
+\
+\
+}
