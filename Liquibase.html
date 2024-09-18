@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://learn.liquibase.com/unit/view/id:3493 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="liquibase">
+			<meta property="og:title" content="Liquibase University">
+		<meta property="og:image" content="https://d3j0t7vrtr92dk.cloudfront.net/liquibase/1654782873_Liquibase_logo_horizontal_RGB.png">
+		<meta property="og:description" content="Take courses and get certified to help your team implement database DevOps practices for higher quality releases that are faster and safer.">
+		<!--<base href="https://learn.liquibase.com/">--><base href=".">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
+	<meta http-equiv="Content-Language" content="en">
+	
+	<meta name="keywords" content="lms, elearning, learning platform, cloud, saas">
+	<meta name="description" content="Take courses and get certified to help your team implement database DevOps practices for higher quality releases that are faster and safer.">
+			<title>Liquibase University | Fundamentals of Liquibase (LB101) | How Liquibase Works</title>
+	<link href="./Liquibase_files/animate.min.css" rel="stylesheet" type="text/css">
+						<link href="./Liquibase_files/fmt_1725978692,tn_53,tv_240,ct_1,rtl_0" rel="stylesheet" type="text/css">
+										<link href="./Liquibase_files/codemirror.css" rel="stylesheet" type="text/css">
+		<link href="./Liquibase_files/fullscreen.css" rel="stylesheet" type="text/css">
+		<link href="./Liquibase_files/dialog.css" rel="stylesheet" type="text/css">
+		<link href="./Liquibase_files/matchesonscrollbar.css" rel="stylesheet" type="text/css">
+		<link href="./Liquibase_files/summernote.css" rel="stylesheet" type="text/css">
+		<link href="./Liquibase_files/summernote-bs2.css" rel="stylesheet" type="text/css">
+        <link href="./Liquibase_files/font-awesome.min.css" rel="stylesheet" type="text/css">
+    			<link href="./Liquibase_files/wysiwyg-fonts.css" rel="stylesheet" type="text/css">
+			<link href="https://d3j0t7vrtr92dk.cloudfront.net/liquibase/1585756414_Liquibase_logo_horizontal_RGB.png" rel="shortcut icon">
+					<script type="text/javascript" async="" src="./Liquibase_files/js"></script><script src="./Liquibase_files/web-interactives-embed.js.download" type="text/javascript" id="hubspot-web-interactives-loader" crossorigin="anonymous" data-loader="hs-scriptloader" data-hsjs-portal="8381145" data-hsjs-env="prod" data-hsjs-hublet="na1"></script><script src="./Liquibase_files/8381145.js.download" type="text/javascript" id="hs-analytics"></script><script src="./Liquibase_files/collectedforms.js.download" type="text/javascript" id="CollectedForms-8381145" crossorigin="anonymous" data-leadin-portal-id="8381145" data-leadin-env="prod" data-loader="hs-scriptloader" data-hsjs-portal="8381145" data-hsjs-env="prod" data-hsjs-hublet="na1"></script><script src="./Liquibase_files/fb.js.download" type="text/javascript" id="hs-ads-pixel-8381145" data-ads-portal-id="8381145" data-ads-env="prod" data-loader="hs-scriptloader" data-hsjs-portal="8381145" data-hsjs-env="prod" data-hsjs-hublet="na1"></script><script src="./Liquibase_files/banner.js.download" type="text/javascript" id="cookieBanner-8381145" data-cookieconsent="ignore" data-hs-ignore="true" data-loader="hs-scriptloader" data-hsjs-portal="8381145" data-hsjs-env="prod" data-hsjs-hublet="na1"></script><script async="" src="./Liquibase_files/uwt.js.download"></script><script type="text/javascript" async="" src="./Liquibase_files/insight.min.js.download"></script><script src="./Liquibase_files/main-560.min.js.download" type="text/javascript"></script>
+									<script src="./Liquibase_files/editor-560.min.js.download" type="text/javascript"></script>
+																			<link href="./Liquibase_files/toastr.min.css" rel="stylesheet" type="text/css">
+		<script defer="" src="./Liquibase_files/632b7a0e-ba7b-4613-ab8a-a34d8edf1097"></script><style id="_goober"> .go2933276541{position:fixed;display:block;width:100%;height:0px;margin:0px;padding:0px;overflow:visible;transform-style:preserve-3d;background:transparent;backface-visibility:hidden;pointer-events:none;left:0px;z-index:9998;}.go2369186930{top:0px;z-index:9999;height:100%;width:100%;}.go1348078617{bottom:0px;}.go2417249464{position:fixed;z-index:9989;}.go3921366393{left:0;bottom:0;}.go3967842156{right:0;bottom:0;}.go613305155{left:0;top:0;}.go471583506{right:0;top:0;}.go3670563033{position:relative;overflow:hidden;display:none;}.go1041095097{display:block;}.go1632949049{position:absolute;pointer-events:none;width:101vw;height:101vh;background:rgba(0,0,0,0.7);opacity:0;z-index:-1;}.go2512015367{z-index:99998;opacity:0.8;visibility:visible;pointer-events:all;cursor:pointer;}.go1432718904{overflow:hidden;}.go812842568{display:block !important;position:static !important;box-sizing:border-box !important;background:transparent !important;border:none;min-height:0px !important;max-height:none !important;margin:0px;padding:0px !important;height:100% !important;width:1px !important;max-width:100% !important;min-width:100% !important;}.go2729809544{z-index:99999;visibility:hidden;position:absolute;inset:50vh auto auto 50%;transform:translate(-50%,-50%);left:50%;top:50%;opacity:0;pointer-events:none;max-height:95%;max-width:95%;}.go1011812720{pointer-events:auto !important;visibility:visible;opacity:1;transition:opacity 1s ease-in;}.go456419034{transition:opacity 0.3s ease-in;}.go3128134379{pointer-events:auto !important;visibility:visible !important;max-height:95vh !important;transition:max-height 1s ease-in;}.go494047706{z-index:9999;width:100%;max-height:95%;position:fixed;visibility:hidden;}.go2481764524{z-index:9999;width:100%;max-height:95%;position:fixed;visibility:hidden;bottom:0px;}.go2685733372{visibility:hidden;}.go2985984737{visibility:visible !important;}.go3281949485{pointer-events:auto !important;visibility:visible !important;max-height:95vh !important;transform:none !important;}.go3539422596{z-index:9999;width:100%;max-height:95%;position:fixed;visibility:hidden;transition:transform 0.5s cubic-bezier(0.31,-0.2,0.04,1.47);}.go988075951{z-index:9999;position:fixed;left:10px;top:10px;max-height:95vh !important;max-width:95%;visibility:hidden;}.go2699082514{z-index:9999;position:fixed;right:10px;top:10px;max-height:95vh !important;max-width:95%;visibility:hidden;}.go1595992025{z-index:9999;position:fixed;left:10px;bottom:10px;max-height:95vh !important;max-width:95%;visibility:hidden;}.go1222083472{z-index:9999;position:fixed;right:10px;bottom:10px;max-height:95vh !important;max-width:95%;visibility:hidden;}.go722322694{transition:none !important;}.go26732895{cursor:pointer;}.go2083580917{display:flex;justify-content:center;align-items:center;}</style><script async="" src="./Liquibase_files/js(1)"></script><script type="text/javascript" async="" src="./Liquibase_files/f.txt"></script><link rel="stylesheet" href="./Liquibase_files/css2"></head>
+<body class="tl-body"><div id="hs-web-interactives-top-push-anchor" class="go3670563033"></div>
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container-fluid nav-container">
+				<a class="btn btn-navbar hamburger hamburger--slider hamburger--small hamburger--collapse" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+					</span>
+				</a>
+				<div class="hidden-phone hidden-tablet pull-left">
+															<div class="tl-ellipsis"><a class="brand title  headerCourseName" id="tl-navbar-course-name" title="Back to course info" href="https://learn.liquibase.com/learner/courseinfo/id:152"><span title="Back to course info" class="tl-formatted-course-name">Fundamentals of Liquibase</span></a></div>
+										
+								</div>
+
+				<div class="tl-ellipsis hidden-desktop">
+															<div class="tl-ellipsis"><a class="brand title headerCourseName" id="tl-navbar-course-name" title="Back to course info" href="https://learn.liquibase.com/learner/courseinfo/id:152"><span title="Back to course info" class="tl-formatted-course-name">Fundamentals of Liquibase <span class="tl-formatted-course-code">(LB101)</span></span></a></div>
+													</div>
+
+				<div id="tl-loading-pane" class="hide affix text-center"><p><img src="./Liquibase_files/loading-small.gif" class="tl-loader-small"></p></div>
+				<div class="nav-collapse collapse">
+					<ul class="nav pull-right" id="tl-pull-right-nav">
+										 						 					<li class="headerUnits"><a title="Previous" href="https://learn.liquibase.com/unit/view/id:3437" style="padding-bottom: 11px;"><i class="icon-chevron-left" style="font-size: 24px; line-height: 14px; margin-top: 4px;"></i></a></li>
+ 						        			<li class="dropdown headerUnits" id="tl-dropdown-progress">
+							<a href="https://learn.liquibase.com/#" class="dropdown-toggle scrolling-dropdown" data-toggle="dropdown">
+											    		<span title="How Liquibase Works">How Liquibase Works</span>				    			<b class="caret"></b>
+				    		</a>
+							<ul class="dropdown-menu" style="overflow-y: auto; overflow-x: hidden; max-height: 500px;" id="tl-navbar-progress">
+															<li class="nav-header" style="margin-top: 4px;">
+									<div class="progress progress-success" style="margin-bottom: 0px;">
+																  			<div class="bar" id="tl-navbar-progress-measure" style="width: 10%;">10%</div>
+								  										</div>
+								</li>
+								<li class="divider"></li>
+														<li style="margin: 4px 0px;"><span class="tl-cursor-default label label-section" style="display: inline; margin-left: 10px; margin-right: 10px;"><span title="Welcome">Welcome</span></span></li><li><a id="tl-navbar-unit-link-3440" style="" href="https://learn.liquibase.com/unit/view/id:3440"><i class="icon-ok tl-green-ok"></i>&nbsp;<span title="Welcome to the Fundamentals of Liquibase Course">Welcome to the Fundamentals of Liquibase Course</span></a></li><li><a id="tl-navbar-unit-link-3438" style="" href="https://learn.liquibase.com/unit/view/id:3438"><i class="icon-ok tl-green-ok"></i>&nbsp;<span title="Learning Environment">Learning Environment</span></a></li><li><a id="tl-navbar-unit-link-3439" style="" href="https://learn.liquibase.com/unit/view/id:3439"><i class="icon-ok tl-green-ok"></i>&nbsp;<span title="Liquibase Help Resources">Liquibase Help Resources</span></a></li><li><a id="tl-navbar-unit-link-3492" style="" href="https://learn.liquibase.com/unit/view/id:3492"><i class="icon-ok tl-green-ok"></i>&nbsp;<span title="What is Liquibase?">What is Liquibase?</span></a></li><li><a id="tl-navbar-unit-link-3437" style="" href="https://learn.liquibase.com/unit/view/id:3437"><i class="icon-ok tl-green-ok"></i>&nbsp;<span title="Why Liquibase is Used">Why Liquibase is Used</span></a></li><li style="margin: 4px 0px;"><span class="tl-cursor-default label label-section" style="display: inline; margin-left: 10px; margin-right: 10px;"><span title="How Liquibase Works">How Liquibase Works</span></span></li><li><a id="tl-navbar-unit-link-3493" style="font-weight: 600;" href="https://learn.liquibase.com/unit/view/id:3493"><span title="How Liquibase Works">How Liquibase Works</span></a></li><li><a id="tl-navbar-unit-link-3442" style="" href="https://learn.liquibase.com/unit/view/id:3442" class="tl-disabled" onclick="return false"><span title="How Liquibase Works">How Liquibase Works</span></a></li><li><a id="tl-navbar-unit-link-3445" style="" href="https://learn.liquibase.com/unit/view/id:3445" class="tl-disabled" onclick="return false"><span title="Liquibase Properties File">Liquibase Properties File</span></a></li><li><a id="tl-navbar-unit-link-3443" style="" href="https://learn.liquibase.com/unit/view/id:3443" class="tl-disabled" onclick="return false"><span title="Working with Command Parameters">Working with Command Parameters</span></a></li><li><a id="tl-navbar-unit-link-3452" style="" href="https://learn.liquibase.com/unit/view/id:3452" class="tl-disabled" onclick="return false"><span title="Connecting to the Database">Connecting to the Database</span></a></li><li><a id="tl-navbar-unit-link-3447" style="" href="https://learn.liquibase.com/unit/viewtestsurvey/id:3447,mode:test" class="tl-disabled" onclick="return false"><span title="How Liquibase Works Knowledge Check">How Liquibase Works Knowledge Check</span></a></li><li style="margin: 4px 0px;"><span class="tl-cursor-default label label-section" style="display: inline; margin-left: 10px; margin-right: 10px;"><span title="Working with Liquibase">Working with Liquibase</span></span></li><li><a id="tl-navbar-unit-link-3495" style="" href="https://learn.liquibase.com/unit/view/id:3495" class="tl-disabled" onclick="return false"><span title="Working with Liquibase Changelogs Animated Video">Working with Liquibase Changelogs Animated Video</span></a></li><li><a id="tl-navbar-unit-link-3449" style="" href="https://learn.liquibase.com/unit/view/id:3449" class="tl-disabled" onclick="return false"><span title="Working with Liquibase Changelogs">Working with Liquibase Changelogs</span></a></li><li><a id="tl-navbar-unit-link-3496" style="" href="https://learn.liquibase.com/unit/view/id:3496" class="tl-disabled" onclick="return false"><span title="Working with Liquibase Changesets Animated Video">Working with Liquibase Changesets Animated Video</span></a></li><li><a id="tl-navbar-unit-link-3451" style="" href="https://learn.liquibase.com/unit/view/id:3451" class="tl-disabled" onclick="return false"><span title="Working with Liquibase Changesets">Working with Liquibase Changesets</span></a></li><li><a id="tl-navbar-unit-link-3454" style="" href="https://learn.liquibase.com/unit/view/id:3454" class="tl-disabled" onclick="return false"><span title="Creating a Formatted SQL Changelog">Creating a Formatted SQL Changelog</span></a></li><li><a id="tl-navbar-unit-link-3589" style="" href="https://learn.liquibase.com/unit/view/id:3589" class="tl-disabled" onclick="return false"><span title="Demonstrating How to Create a Formatted SQL Changelog">Demonstrating How to Create a Formatted SQL Change...</span></a></li><li><a id="tl-navbar-unit-link-3457" style="" href="https://learn.liquibase.com/unit/view/id:3457" class="tl-disabled" onclick="return false"><span title="Creating an XML Changelog">Creating an XML Changelog</span></a></li><li><a id="tl-navbar-unit-link-3590" style="" href="https://learn.liquibase.com/unit/view/id:3590" class="tl-disabled" onclick="return false"><span title="Demonstrating How to Create an XML Changelog">Demonstrating How to Create an XML Changelog</span></a></li><li><a id="tl-navbar-unit-link-3497" style="" href="https://learn.liquibase.com/unit/view/id:3497" class="tl-disabled" onclick="return false"><span title="Liquibase and Source Control Animated Video">Liquibase and Source Control Animated Video</span></a></li><li><a id="tl-navbar-unit-link-3460" style="" href="https://learn.liquibase.com/unit/view/id:3460" class="tl-disabled" onclick="return false"><span title="Liquibase and Source Control">Liquibase and Source Control</span></a></li><li><a id="tl-navbar-unit-link-3461" style="" href="https://learn.liquibase.com/unit/viewtestsurvey/id:3461,mode:test" class="tl-disabled" onclick="return false"><span title="Working with Liquibase Knowledge Check">Working with Liquibase Knowledge Check</span></a></li><li style="margin: 4px 0px;"><span class="tl-cursor-default label label-section" style="display: inline; margin-left: 10px; margin-right: 10px;"><span title="Liquibase Core Commands">Liquibase Core Commands</span></span></li><li><a id="tl-navbar-unit-link-3462" style="" href="https://learn.liquibase.com/unit/view/id:3462" class="tl-disabled" onclick="return false"><span title="Liquibase Core Commands">Liquibase Core Commands</span></a></li><li><a id="tl-navbar-unit-link-3463" style="" href="https://learn.liquibase.com/unit/view/id:3463" class="tl-disabled" onclick="return false"><span title="Liquibase Update Commands">Liquibase Update Commands</span></a></li><li><a id="tl-navbar-unit-link-3472" style="" href="https://learn.liquibase.com/unit/view/id:3472" class="tl-disabled" onclick="return false"><span title="Database Status Commands">Database Status Commands</span></a></li><li><a id="tl-navbar-unit-link-3499" style="" href="https://learn.liquibase.com/unit/view/id:3499" class="tl-disabled" onclick="return false"><span title="Database Rollback Commands Animated Video">Database Rollback Commands Animated Video</span></a></li><li><a id="tl-navbar-unit-link-3468" style="" href="https://learn.liquibase.com/unit/view/id:3468" class="tl-disabled" onclick="return false"><span title="Database Rollback Commands">Database Rollback Commands</span></a></li><li><a id="tl-navbar-unit-link-3722" style="" href="https://learn.liquibase.com/unit/view/id:3722" class="tl-disabled" onclick="return false"><span title="Demonstrating the Rollback Commands">Demonstrating the Rollback Commands</span></a></li><li><a id="tl-navbar-unit-link-3582" style="" href="https://learn.liquibase.com/unit/view/id:3582" class="tl-disabled" onclick="return false"><span title="Database Diff Commands Animated Video">Database Diff Commands Animated Video</span></a></li><li><a id="tl-navbar-unit-link-3470" style="" href="https://learn.liquibase.com/unit/view/id:3470" class="tl-disabled" onclick="return false"><span title="Database Diff Commands">Database Diff Commands</span></a></li><li><a id="tl-navbar-unit-link-3721" style="" href="https://learn.liquibase.com/unit/view/id:3721" class="tl-disabled" onclick="return false"><span title="Demonstrating the Diff Commands">Demonstrating the Diff Commands</span></a></li><li><a id="tl-navbar-unit-link-3466" style="" href="https://learn.liquibase.com/unit/view/id:3466" class="tl-disabled" onclick="return false"><span title="Database Snapshot Commands">Database Snapshot Commands</span></a></li><li><a id="tl-navbar-unit-link-3474" style="" href="https://learn.liquibase.com/unit/view/id:3474" class="tl-disabled" onclick="return false"><span title="Liquibase Core Commands Practice Exercise. Run the Update and History Commands">Liquibase Core Commands Practice Exercise. Run the...</span></a></li><li><a id="tl-navbar-unit-link-3475" style="" href="https://learn.liquibase.com/unit/viewtestsurvey/id:3475,mode:test" class="tl-disabled" onclick="return false"><span title="Liquibase Core Commands Knowledge Check">Liquibase Core Commands Knowledge Check</span></a></li><li style="margin: 4px 0px;"><span class="tl-cursor-default label label-section" style="display: inline; margin-left: 10px; margin-right: 10px;"><span title="The Liquibase Developer Workflow">The Liquibase Developer Workflow</span></span></li><li><a id="tl-navbar-unit-link-3476" style="" href="https://learn.liquibase.com/unit/view/id:3476" class="tl-disabled" onclick="return false"><span title="Standard Liquibase Developer Workflow">Standard Liquibase Developer Workflow</span></a></li><li><a id="tl-navbar-unit-link-3477" style="" href="https://learn.liquibase.com/unit/view/id:3477" class="tl-disabled" onclick="return false"><span title="Workflow Step 1 - Adding a Changeset to the Changelog">Workflow Step 1 - Adding a Changeset to the Change...</span></a></li><li><a id="tl-navbar-unit-link-3478" style="" href="https://learn.liquibase.com/unit/view/id:3478" class="tl-disabled" onclick="return false"><span title="Workflow Step 2 - Run the Liquibase Update Command">Workflow Step 2 - Run the Liquibase Update Command</span></a></li><li><a id="tl-navbar-unit-link-3479" style="" href="https://learn.liquibase.com/unit/view/id:3479" class="tl-disabled" onclick="return false"><span title="Workflow Step 3 - Verify the Results of your Database Update">Workflow Step 3 - Verify the Results of your Datab...</span></a></li><li><a id="tl-navbar-unit-link-3480" style="" href="https://learn.liquibase.com/unit/view/id:3480" class="tl-disabled" onclick="return false"><span title="Workflow Step 4 - Saving your Changelog to Source Control">Workflow Step 4 - Saving your Changelog to Source ...</span></a></li><li><a id="tl-navbar-unit-link-3720" style="" href="https://learn.liquibase.com/unit/view/id:3720" class="tl-disabled" onclick="return false"><span title="Demonstrating the Developer Workflow">Demonstrating the Developer Workflow</span></a></li><li><a id="tl-navbar-unit-link-3482" style="" href="https://learn.liquibase.com/unit/viewtestsurvey/id:3482,mode:test" class="tl-disabled" onclick="return false"><span title="Liquibase Developer Workflow Knowledge Check">Liquibase Developer Workflow Knowledge Check</span></a></li><li style="margin: 4px 0px;"><span class="tl-cursor-default label label-section" style="display: inline; margin-left: 10px; margin-right: 10px;"><span title="Liquibase Best Practices">Liquibase Best Practices</span></span></li><li><a id="tl-navbar-unit-link-3483" style="" href="https://learn.liquibase.com/unit/view/id:3483" class="tl-disabled" onclick="return false"><span title="Organize your Changelogs">Organize your Changelogs</span></a></li><li><a id="tl-navbar-unit-link-3484" style="" href="https://learn.liquibase.com/unit/view/id:3484" class="tl-disabled" onclick="return false"><span title="Add Comments to Changesets">Add Comments to Changesets</span></a></li><li><a id="tl-navbar-unit-link-3485" style="" href="https://learn.liquibase.com/unit/view/id:3485" class="tl-disabled" onclick="return false"><span title="Specify One Change per Changeset">Specify One Change per Changeset</span></a></li><li><a id="tl-navbar-unit-link-3486" style="" href="https://learn.liquibase.com/unit/view/id:3486" class="tl-disabled" onclick="return false"><span title="Create a Rollback Strategy">Create a Rollback Strategy</span></a></li><li><a id="tl-navbar-unit-link-3487" style="" href="https://learn.liquibase.com/unit/view/id:3487" class="tl-disabled" onclick="return false"><span title="Define the Changeset ID Format">Define the Changeset ID Format</span></a></li><li><a id="tl-navbar-unit-link-3488" style="" href="https://learn.liquibase.com/unit/view/id:3488" class="tl-disabled" onclick="return false"><span title="Enhance your Database Security">Enhance your Database Security</span></a></li><li><a id="tl-navbar-unit-link-3489" style="" href="https://learn.liquibase.com/unit/view/id:3489" class="tl-disabled" onclick="return false"><span title="Managing Data with Liquibase">Managing Data with Liquibase</span></a></li><li><a id="tl-navbar-unit-link-3491" style="" href="https://learn.liquibase.com/unit/viewtestsurvey/id:3491,mode:test" class="tl-disabled" onclick="return false"><span title="Liquibase Best Practices Knowledge Check">Liquibase Best Practices Knowledge Check</span></a></li><li style="margin: 4px 0px;"><span class="tl-cursor-default label label-section" style="display: inline; margin-left: 10px; margin-right: 10px;"><span title="Course Survey">Course Survey</span></span></li><li><a id="tl-navbar-unit-link-3716" style="" href="https://learn.liquibase.com/unit/viewtestsurvey/id:3716,mode:survey" class="tl-disabled" onclick="return false"><span title="LBF101 Fundamentals of Liquibase Course Survey">LBF101 Fundamentals of Liquibase Course Survey</span></a></li>														</ul>
+						</li>
+																	<li class="headerUnits"><a rel="popover" data-content="Please complete this unit to move forward" title="" data-href="https://learn.liquibase.com/unit/view/id:3442" id="tl-navbar-next-unit" class="tl-content-show-popover" style="padding-bottom: 11px;" data-original-title="Unable to proceed"><i class="icon-chevron-right tl-disabled" style="font-size: 24px; line-height: 14px; margin-top: 4px;"></i></a></li>
+																        														<li class="divider-vertical headerMoreOptions"></li>
+						<li class="dropdown headerMoreOptions hidden-phone" id="tl-dropdown-more">
+							<a href="https://learn.liquibase.com/#" class="dropdown-toggle" data-toggle="dropdown">More&nbsp;<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="javascript:void(0)" class="tl-course-info" data-url="https://learn.liquibase.com/course/info/course_id:152">Course info</a></li>
+																<li><a href="https://learn.liquibase.com/dashboard/index">Back to courses</a></li>
+																																								<li class="divider"></li>
+								<li><a id="navbar-logout" href="https://learn.liquibase.com/index/logout/token:1834">Log out</a></li>
+							</ul>
+						</li>
+											<li style="display: none;" class="divider-vertical tl-course-completed-navbar-link headerCertificationIcon"></li>
+						<li style="display: none;" class="tl-course-completed-navbar-link headerCertificationIcon"><a title="Course completed!" href="javascript:void(0)" onclick="$(&#39;#tl-course-completed-modal&#39;).modal()" style="padding-bottom: 10px;"><i class="icon-trophy" style="font-size: 24px; line-height: 14px; margin-top: 5px;"></i></a></li>
+										</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade hide" id="tl-course-info-modal" style="outline: none;" tabindex="-1">
+		<div class="modal-header">
+			<a href="javascript:void(0)" class="close" data-dismiss="modal">×</a>
+			<h3>Course info</h3>
+		</div>
+		<div class="modal-body">
+			<div class="span1 pull-left padded">
+				<img id="tl-course-info-modal-avatar" src="./Liquibase_files/unknown_big.png">
+			</div>
+			<h3 id="tl-course-info-modal-name"></h3>
+			 <h3 id="tl-course-info-modal-name"></h3>
+	        			<div id="tl-course-info-modal-description" class="tl-course-description"></div>
+			<p id="tl-course-info-modal-fields" class="tl-course-fields"></p>
+			<div id="tl-course-info-modal-description-tmp"></div>
+			<div style="clear: both;">
+				<fieldset>
+					<legend>Content</legend>
+					<div id="tl-course-info-modal-no-units" class="alert alert-info">
+						<h4 class="alert-heading">Empty course</h4>
+						There are no units at the moment					</div>
+					<ul class="tl-unit-list" id="tl-course-info-modal-unit-list"></ul>
+				</fieldset>
+			</div>
+			<div style="clear: both;" id="tl-course-info-modal-rules">
+				<fieldset>
+					<legend>Completion rules</legend>
+					<ul class="tl-unit-list" id="tl-course-info-modal-rules-list"></ul>
+				</fieldset>
+			</div>
+			<div style="clear: both;" id="tl-course-info-modal-prerequisites">
+				<fieldset>
+					<legend>Prerequisites</legend>
+					<ul class="tl-unit-list tl-course-info-prerequisites-list" id="tl-course-info-modal-prerequisites-list"></ul>
+				</fieldset>
+			</div>
+	    </div>
+	    <div class="modal-footer">
+	        <a data-dismiss="modal" class="btn">Close</a>
+	    </div>
+	</div>
+
+	
+<script type="text/javascript">
+	var isLoggingOut = false;
+
+	$(document).ready(function(){
+		$("#navbar-logout").on('click', function(){
+			isLoggingOut = true;
+		});
+
+		if($('.btn-navbar').is(':visible')){	// responsive
+			var pullRightWidth = $('.btn-navbar').width();
+		}
+		else{
+			var pullRightWidth = $('#tl-pull-right-nav').width();
+		}
+
+		if(pullRightWidth < 300){
+			var formattedCourseName = "<span title='Fundamentals of Liquibase' class='tl-formatted-course-name'>Fundamentals of Liquibase</span>";
+		}
+		else if(pullRightWidth < 400){
+			var formattedCourseName = "<span title='Fundamentals of Liquibase' class='tl-formatted-course-name'>Fundamentals of Liquibase</span>";
+		}
+		else if(pullRightWidth < 500){
+			var formattedCourseName = "<span title='Fundamentals of Liquibase' class='tl-formatted-course-name'>Fundamentals of Liquibase</span>";
+		}
+		else if(pullRightWidth < 600){
+			var formattedCourseName = "<span title='Fundamentals of Liquibase' class='tl-formatted-course-name'>Fundamentals of Liquibase</span>";
+		}
+		else if(pullRightWidth < 700){
+			var formattedCourseName = "<span title='Fundamentals of Liquibase' class='tl-formatted-course-name'>Fundamentals of Liquibase</span>";
+		}
+		else{
+			var formattedCourseName = "<span title='Fundamentals of Liquibase' class='tl-formatted-course-name'>Fundamentals of...</span>";
+		}
+
+		$('#tl-navbar-course-name').html(formattedCourseName);
+					$('#tl-navbar-course-name .tl-formatted-course-name').prop('title', 'Back to course info');
+		
+										
+		
+		
+				// Auto open header menus
+		$('#tl-dropdown-progress, #tl-dropdown-more, #tl-dropdown-add, #tl-dropdown-files').mouseenter(function(e) {
+			if (!$(this).hasClass('open') && $(window).width() >= 980){
+				$(this).addClass("open autoopened");
+			}
+		});
+		$('#tl-dropdown-progress, #tl-dropdown-more, #tl-dropdown-add, #tl-dropdown-files').mouseleave(function() {
+			if ($(this).hasClass('open') && $(this).hasClass('autoopened')){
+				$(this).removeClass("open autoopened");
+			}
+		});
+	});
+</script>
+
+<div class="container ">
+						
+	
+	
+	<div class="row">
+				<div class="span12">			
+
+<div class="tl-unit-content ">
+	<div style="display: none;" id="last-unit-progress"></div>
+	<div style="display: none;" id="assignment-reply-type"></div>
+	<div class="hide" id="assignment-modify-answer-time"></div>
+	<div class="tl-unit-content ">
+		<center><div class="readability"><p></p>
+<center style="text-align: left;"></center>
+<img src="./Liquibase_files/1659465005_Generic university course banner.png" style="width: 100%;" class="img-rounded">
+<center style="text-align: left;"></center>
+<p></p>
+<p></p>
+<center style="text-align: left;"></center>
+<p></p>
+<hr>
+<p></p>
+<p></p>
+<p></p>
+<center style="text-align: left;">
+<h1><span style="font-family: Lato;">How Liquibase Works</span></h1>
+<p><span style="font-family: Lato; font-weight: bold;">Watch this short video for an overview on how Liquibase works.&nbsp;</span></p>
+<hr></center>
+<p></p>
+<p></p>
+<center><iframe class="video-frame" width="100%" height="592.3125" src="./Liquibase_files/-KY7I_xAMYE.html" frameborder="0" allowfullscreen="allowfullscreen"></iframe></center>
+<p></p>
+<p></p></div></center>			</div>
+	<div class="clear"></div>
+		<div id="tl-complete-unit-handles-area" class="text-center  ">
+		<hr class="tl-hr-content">
+				<div class="tl-completed-unit-handles" style="display:none">
+			<div class="btn-group dropup" style="display: inline-block;">
+							<a href="javascript:void(0)" class="btn btn-large tl-passed-continue-unit-button" onclick="location=&#39;https://learn.liquibase.com/unit/view/id:3442&#39;">Completed. Let's continue.</a>
+			
+						</div>
+								</div>
+		
+				<div class="tl-pending-unit-handles" style="display:none">
+			<a href="javascript:void(0)" class="btn btn-large tl-pending-button-assignment disabled">Pending reply from Instructor</a>
+			<div class="help-inline tl-assignment-more-options-pending">
+				<div class="tl-assignment-handles-inner">
+					<div class="tl-assignment-icon tl-assignment-check-answer">
+						<div class="tl-icon-stack">
+							<i class="icon-circle tl-icon-stack-background"></i>
+							<i class="icon-comment tl-icon-stack-content"></i>
+						</div>
+						<br class="clear">
+						<div class="tl-icon-label">Your answer</div>
+					</div>
+					<div class="tl-assignment-icon tl-assignment-modify-answer">
+						<div class="tl-icon-stack">
+							<i class="icon-circle tl-icon-stack-background"></i>
+							<i class="icon-edit tl-icon-stack-content"></i>
+						</div>
+						<br class="clear">
+						<div class="tl-icon-label">Modify your answer</div>
+					</div>
+				</div>
+			</div>
+		</div>
+				
+				
+				
+		<div class="tl-incomplete-unit-handles" style="">
+											<a href="javascript:void(0)" class="btn btn-large tl-complete-button tl-completed-continue-button" data-toggle="https://learn.liquibase.com/unit/complete/id:3493">Complete and continue</a>
+									
+		</div>
+	</div>
+		
+	</div>
+
+<div class="modal fade" id="tl-course-completed-modal" style="display: none; outline: none;" tabindex="-1">
+    <div class="modal-body text-center">
+     	<a href="javascript:void(0)" class="close pull-right" data-dismiss="modal">×</a>
+		<h1>Congratulations!</h1>
+		<img alt="Course completed!" src="./Liquibase_files/course_completed.jpg">
+		<h2>Course completed!</h2>
+    	<h3><span title="Fundamentals of Liquibase (LB101)" class="tl-formatted-course-name">Fundamentals of Liquibase <span class="tl-formatted-course-code">(LB101)</span></span></h3>
+           		<div id="tl-course-completed-modal-options" class="text-center">
+        	        	<p><a class="btn btn-primary tl-download-certificate" href="https://learn.liquibase.com/user/downloadcertification/id:###id###" style="display: none;">Download certificate</a></p>
+        	<p><a href="javascript:void(0)" class="btn btn-primary tl-share-certificate" onclick="tl_toggleShare(this)" data-url="https://learn.liquibase.com/reports/shareCertification/id:###id###" style="display: none;">Share certificate</a></p><div class="hide" id="tl-view-share-certificate"><div id="tl-view-share-certificate-body"></div></div>        				        	<p><a class="tl-courses-list" href="javascript:void(0);" data-dismiss="modal">Continue</a></p>
+			        	        	<p><a class="tl-next-course" href="https://learn.liquibase.com/learner/courseinfo/id:###id###" style="display:none">Go to next course</a></p>
+        	        	</div>
+        </div>
+</div>
+
+<div class="modal fade hide" id="tl-course-failed-modal" style="outline: none;" tabindex="-1">
+    <div class="modal-body text-center">
+        <a href="javascript:void(0)" class="close pull-right" data-dismiss="modal">×</a>
+		<h1>You didn't quite make it</h1>
+		<img alt="You didn&#39;t quite make it" src="./Liquibase_files/course_failed.png">
+		<h2>Unfortunately, you didn't reach a passing score for this course</h2>
+	       <div id="tl-course-failed-modal-options" class="text-center">
+								<p><a class="tl-courses-list" href="https://learn.liquibase.com/dashboard/index">Go to course list</a></p>
+			        </div>
+	    </div>
+</div>
+
+
+
+<script>
+	var tl_timer_id = false;
+	var isCompleted = false;
+	var unitEndDate;
+
+
+$(document).ready(function(){
+	
+	if($('#tl-gamification-points-message').length){
+		$('#tl-gamification-points-message').css('z-index','10000');
+	}
+
+	if($('#tl-gamification-badges-message').length){
+		$('#tl-gamification-badges-message').css('z-index','10000');
+	}
+	
+	if ($('#documents-images-zip_namespace').length) {
+		$('#documents-images-zip_namespace').fileupload({
+			autoUpload: true,
+			disableInputButton: false,
+			replaceFileInput: true,
+			acceptFileTypes: /(\.|\/)(gif|jpg|jpeg|png|ppt|pptx|doc|docx|xls|xlsx|pdf|zip|mp4|webm|ogg|ogv|avi|mpeg|mpg|mov|wmv|3gp|flv|mp3|aac|ogg|oga|wav|mpeg|webm|wma|aif|aiff)$/i,
+			maxFileSize: 209715200,
+			maxFileSizeArray: uploader_limits,
+			add: function(e, data){
+					$('.tl-assignment-showuploader').click(); // Show file form.
+					var that = this;
+					var $this = $(this);
+					var validation = data.process(function () {
+						return $this.fileupload('process', data);
+					});
+					validation.done(function() {
+						$.blueimp.fileupload.prototype.options.add.call(that, e, data);
+					});
+					validation.fail(function(data) {
+						$('#documents-images-zip_namespace .note.error').html("<i class='icon-attention-circled tl-cursor-default'></i> "+data.files[data.index].error);
+					});
+				},
+			done: function(e, data){
+				resp = $.parseJSON(data.jqXHR.responseText);
+				setTimeout(function(){data.context.remove()}, 200); // remove completed file's table row
+				
+				if (resp.success) {
+					 if(resp.data.assignmentReplyFile !== undefined){
+						 completeAssignmentUnit(null, resp.data.assignmentReplyFile);
+					 }
+					 else {
+						 $('#documents-images-zip_namespace .note.error').html("<i class='icon-attention-circled tl-cursor-default'></i> "+resp.data.error);
+					 }
+				}
+				else {
+					 $('#documents-images-zip_namespace .note.error').html("<i class='icon-attention-circled tl-cursor-default'></i> "+resp.data.error);
+				 }
+			}
+		});
+		$('#documents-images-zip_namespace').bind('fileuploadadd', function (e) {$('#documents-images-zip_namespace tr.template-upload, #documents-images-zip_namespace tr.template-download').remove();});
+		$('#documents-images-zip_namespace').bind('fileuploadstart', function(e){ myportal.app.isUploading = true; });
+		$('#documents-images-zip_namespace').bind('fileuploadstop', function(e){ myportal.app.isUploading = false; });
+	}
+	
+	
+	$('#send-message-instructor-failing').on('click', function(){
+		$('#tl-course-failed-modal').modal('hide');
+		$('#tl-send-message-modal').modal();
+	});
+
+	if ($('.tl-assignment-reply-editor').length) {
+		$('.tl-assignment-reply-editor').summernote({
+			airMode: true,
+			airPopover: [
+				['text', ['bold', 'italic', 'underline']],
+				['insert', ['link', 'picture']]
+			],
+			disableDragAndDrop: true,
+			onImageUpload: function(files) {
+				return false;
+			}
+		});
+	}
+
+    $(document).on('blur', '.note-editable', function(){
+		$('.note-air-popover').hide();
+	});
+
+	var gamificationPointsForUnitCompletion = $.cookie("gamification_points_for_unit_completion");
+	var gamificationPointsForCourseCompletion = $.cookie("gamification_points_for_course_completion");
+	var gamificationPointsForCertification = $.cookie("gamification_points_for_certification");
+	var gamificationPointsNotification = '';
+	var gamificationAddedPoints = 0;
+
+	if(gamificationPointsForUnitCompletion){
+		var parts = gamificationPointsForUnitCompletion.split('###');
+		gamificationPointsNotification = parts[0];
+		gamificationAddedPoints = parseInt(parts[1]);
+		setTlmsCookie("gamification_points_for_unit_completion", null, {expires: -1, path: '/', domain: myEffectiveDomain, secure: false});
+	}
+
+	if(gamificationPointsForCourseCompletion){
+		var parts = gamificationPointsForCourseCompletion.split('###');
+		gamificationPointsNotification = (gamificationPointsNotification) ? gamificationPointsNotification + '<br/>' + parts[0] : parts[0];
+		gamificationAddedPoints = gamificationAddedPoints + parseInt(parts[1]);
+		setTlmsCookie("gamification_points_for_course_completion", null, {expires: -1, path: '/', domain: myEffectiveDomain, secure: false});
+	}
+
+	if(gamificationPointsForCertification){
+		var parts = gamificationPointsForCertification.split('###');
+		gamificationPointsNotification = (gamificationPointsNotification) ? gamificationPointsNotification + '<br/>' + parts[0] : parts[0];
+		gamificationAddedPoints = gamificationAddedPoints + parseInt(parts[1]);
+		setTlmsCookie("gamification_points_for_certification", null, {expires: -1, path: '/', domain: myEffectiveDomain, secure: false});
+	}
+
+	if(gamificationPointsNotification){
+		if($("#tl-header-gamification-entrance").data('entrancemode') == 'points'){
+			$("#tl-header-gamification-entrance").empty();
+			var pointsCountUp = new countUp("tl-header-gamification-entrance", parseInt($("#tl-header-gamification-entrance").data('entrancevalue')) - parseInt(gamificationAddedPoints), parseInt($("#tl-header-gamification-entrance").data('entrancevalue')), 0, 1.5, {useEasing: true, useGrouping: true, separator: '', suffix: ' ' + "points"});
+			pointsCountUp.start();
+		}
+		
+		$("#tl-gamification-points-message").html(decodeURIComponent(gamificationPointsNotification)).fadeIn(1000);
+		setTimeout(function(){$("#tl-gamification-points-message").fadeOut('slow');}, 3000);
+	}
+
+	var gamificationAssignmentBadge = $.cookie("gamification_assignment_badge");
+	var gamificationLearningBadge = $.cookie("gamification_learning_badge");
+	var gamificationCertificationBadge = $.cookie("gamification_certification_badge");
+
+	if(gamificationAssignmentBadge){
+		var parts = gamificationAssignmentBadge.split('###');
+		$(".tl-badge-image").attr('src', parts[1]);
+		$(".tl-badge-message").html(decodeURIComponent(parts[0]));
+		setTlmsCookie("gamification_assignment_badge", null, {expires: -1, path: '/', domain: myEffectiveDomain, secure: false});
+	}
+
+	if(gamificationLearningBadge){
+		var parts = gamificationLearningBadge.split('###');
+		setTlmsCookie("gamification_learning_badge", null, {expires: -1, path: '/', domain: myEffectiveDomain, secure: false});
+
+		if($(".tl-badge-image").attr('src') != '' && $(".tl-badge-message").html() != ''){
+			$("#tl-gamification-badges-message").append('<hr/><div id="learning-badge-message" class="tl-badge-image-message-wrapper"></div>');
+			$("#learning-badge-message").append('<img class="tl-badge-image pull-left image60x60" src="' + parts[1] + '"/>').append('<div class="tl-badge-message text-center tl-bold-item">' + decodeURIComponent(parts[0]) + '</div>');
+		}
+		else{
+			$(".tl-badge-image").attr('src', parts[1]);
+			$(".tl-badge-message").html(decodeURIComponent(parts[0]));
+		}
+	}
+
+	if(gamificationCertificationBadge){
+		var parts = gamificationCertificationBadge.split('###');
+		setTlmsCookie("gamification_certification_badge", null, {expires: -1, path: '/', domain: myEffectiveDomain, secure: false});
+
+		if($(".tl-badge-image").attr('src') != '' && $(".tl-badge-message").html() != ''){
+			$("#tl-gamification-badges-message").append('<hr/><div id="certification-badge-message" class="tl-badge-image-message-wrapper"></div>');
+			$("#certification-badge-message").append('<img class="tl-badge-image pull-left image60x60" src="' + parts[1] + '"/>').append('<div class="tl-badge-message text-center tl-bold-item">' + decodeURIComponent(parts[0]) + '</div>');
+		}
+		else{
+			$(".tl-badge-image").attr('src', parts[1]);
+			$(".tl-badge-message").html(decodeURIComponent(parts[0]));
+		}
+	}
+
+	if(gamificationAssignmentBadge || gamificationLearningBadge || gamificationCertificationBadge){
+		if(gamificationPointsNotification){
+			$("#tl-gamification-badges-message").css('bottom', $("#tl-gamification-points-message").height() + 20 + 16 + 5);
+		}
+
+		if($("#tl-header-gamification-entrance").data('entrancemode') == 'badges'){
+			$("#tl-header-gamification-entrance").empty();
+			var badgesCountUp = new countUp("tl-header-gamification-entrance", 0, parseInt($("#tl-header-gamification-entrance").data('entrancevalue')), 0, 1.5, {useEasing: true, useGrouping: true, separator: '', suffix: ' ' + "badges"});
+			badgesCountUp.start();
+		}
+
+		$("#tl-gamification-badges-message").fadeIn(1000).css('display', 'table');
+		setTimeout(function(){$("#tl-gamification-badges-message").fadeOut('slow');}, 5000);
+	}
+
+	var gamificationCompletedCourses = $.cookie("gamification_completed_courses");
+
+	if(gamificationCompletedCourses && $("#tl-header-gamification-entrance").data('entrancemode') == 'courses'){
+		$("#tl-header-gamification-entrance").empty();
+		var completedCoursesCountUp = new countUp("tl-header-gamification-entrance", 0, parseInt($("#tl-header-gamification-entrance").data('entrancevalue')), 0, 1.5, {useEasing: true, useGrouping: true, separator: '', suffix: ' ' + "completed courses"});
+		completedCoursesCountUp.start();
+		setTlmsCookie("gamification_completed_courses", null, {expires: -1, path: '/', domain: myEffectiveDomain, secure: false});
+	}
+
+	var gamificationUserLevel = $.cookie("gamification_user_level");
+
+	if(gamificationUserLevel && $("#tl-header-gamification-entrance").data('entrancemode') == 'levels'){
+		var gamificationUserLevelParts = gamificationUserLevel.split('###');
+		$("#tl-header-gamification-entrance").empty();
+		var userLevelCountUp = new countUp("tl-header-gamification-entrance", 0, parseInt(gamificationUserLevelParts[0]), 0, 1.5, {useEasing: true, useGrouping: true, separator: ''});
+		userLevelCountUp.start(function(){$('#tl-header-gamification-entrance').html(decodeURIComponent(gamificationUserLevelParts[1]));});
+		setTlmsCookie("gamification_user_level", null, {expires: -1, path: '/', domain: myEffectiveDomain, secure: false});
+	}
+
+		
+	$('#documents-images-zip_namespace .inputbtn').addClass('btn btn-large').data('placement', 'right');
+	
+	$("a[rel=popover]").popover({placement: 'bottom'}).click(function(e){
+		if($(this).hasClass('tl-content-show-popover')){
+			e.preventDefault();
+		}
+	});
+
+	$(document).on('click', '.tl-assignment-select-method', function(){
+		$("#tl-recording-area").hide();
+		if(videoRecordingPlayer){
+			videoRecordingPlayer.record().reset();
+		}
+		$("#tl-recording-audio-area").hide();
+		if(audioRecordingPlayer){
+			audioRecordingPlayer.record().reset();
+		}
+		$("#tl-recording-screen-area").hide();
+		if(screenRecordingPlayer){
+			screenRecordingPlayer.record().reset();
+		}
+		$('#documents-images-zip_namespace').hide();
+		$('#assignment-reply-textbox-group').hide();
+		$('.tl-assignment-handles').hide();
+		$('.tl-complete-button-assignment').hide();
+		$('.tl-send-assignment-recording').addClass('disabled').hide();
+		$('.tl-send-assignment-recording-audio').addClass('disabled').hide();
+		$('.tl-send-assignment-recording-screen').addClass('disabled').hide();
+		$('.tl-assignment-handles').show();
+		$(this).parent().hide();
+	});
+
+    $(document).on('click', '.tl-assignment-usetextbox', function(){
+		$("#tl-recording-area").hide();
+		if(videoRecordingPlayer){
+			videoRecordingPlayer.record().reset();
+		}
+		$("#tl-recording-audio-area").hide();
+		if(audioRecordingPlayer){
+			audioRecordingPlayer.record().reset();
+		}
+		$("#tl-recording-screen-area").hide();
+		if(screenRecordingPlayer){
+			screenRecordingPlayer.record().reset();
+		}
+		$('#documents-images-zip_namespace').hide();
+		$('#assignment-reply-textbox-group').show();
+		$('#assignment-reply-textbox-group').removeClass('hidden-textbox').addClass('visible-textbox');
+		$('.tl-complete-button-assignment').show();
+		$('.tl-send-assignment-recording').addClass('disabled').hide();
+		$('.tl-send-assignment-recording-audio').addClass('disabled').hide();
+		$('.tl-send-assignment-recording-screen').addClass('disabled').hide();
+		$('.tl-assignment-select-method').parent().show();
+		$('.tl-assignment-handles').hide();
+		setTimeout(function(){ $("#assignment-reply-textbox").focus(); }, 100);
+	});
+
+    $(document).on('click', '.tl-assignment-showuploader', function(){
+		$("#tl-recording-area").hide();
+		if(videoRecordingPlayer){
+			videoRecordingPlayer.record().reset();
+		}
+		$("#tl-recording-audio-area").hide();
+		if(audioRecordingPlayer){
+			audioRecordingPlayer.record().reset();
+		}
+		$("#tl-recording-screen-area").hide();
+		if(screenRecordingPlayer){
+			screenRecordingPlayer.record().reset();
+		}
+		$('#documents-images-zip_namespace').show();
+		$('#assignment-reply-textbox-group').hide();
+		$('#assignment-reply-textbox-group').removeClass('visible-textbox').addClass('hidden-textbox');
+		$('#documents-images-zip_namespace').show();
+		$('.tl-complete-button-assignment').hide();
+		$('.tl-send-assignment-recording').addClass('disabled').hide();
+		$('.tl-send-assignment-recording-audio').addClass('disabled').hide();
+		$('.tl-send-assignment-recording-screen').addClass('disabled').hide();
+		$('.tl-assignment-select-method').parent().show();
+		$('.tl-assignment-handles').hide();
+	});
+
+	$(document).on('click', '.tl-assignment-showrecorder', function(){
+		$("#tl-recording-audio-area").hide();
+		if(audioRecordingPlayer){
+			audioRecordingPlayer.record().reset();
+		}
+		$("#tl-recording-screen-area").hide();
+		if(screenRecordingPlayer){
+			screenRecordingPlayer.record().reset();
+		}
+		$('#assignment-reply-textbox-group').removeClass('visible-textbox').addClass('hidden-textbox');
+		$('#documents-images-zip_namespace').hide();
+		$('.tl-complete-button-assignment').hide();
+		$('.tl-send-assignment-recording').addClass('disabled').show();
+		$('.tl-send-assignment-recording-audio').addClass('disabled').hide();
+		$('.tl-send-assignment-recording-screen').addClass('disabled').hide();
+		$('.tl-assignment-select-method').parent().show();
+		$('.tl-assignment-handles').hide();
+		$("#tl-recording-area").show();
+		if(videoRecordingPlayer){
+			videoRecordingPlayer.record().getDevice();
+		}
+	});
+
+	$(document).on('click', '.tl-assignment-showrecorder-audio', function(){
+		$("#tl-recording-area").hide();
+		if(videoRecordingPlayer){
+			videoRecordingPlayer.record().reset();
+		}
+		$("#tl-recording-screen-area").hide();
+		if(screenRecordingPlayer){
+			screenRecordingPlayer.record().reset();
+		}
+
+		setTimeout(function(){
+			// unlike the video recorder, we initialize the audio recorder after it is visible to the user, otherwise the sound waves do not show up
+			initAudioRecordingPlayer();
+		}, 100);
+		$('#assignment-reply-textbox-group').removeClass('visible-textbox').addClass('hidden-textbox');
+		$('#documents-images-zip_namespace').hide();
+		$('.tl-complete-button-assignment').hide();
+		$('.tl-send-assignment-recording').addClass('disabled').hide();
+		$('.tl-send-assignment-recording-screen').addClass('disabled').hide();
+		$('.tl-send-assignment-recording-audio').addClass('disabled').show();
+		$('.tl-assignment-select-method').parent().show();
+		$('.tl-assignment-handles').hide();
+		$("#tl-recording-audio-area").show();
+		if(audioRecordingPlayer){
+			audioRecordingPlayer.record().getDevice();
+		}
+	});
+
+	$(document).on('click', '.tl-assignment-showrecorder-screen', function() {
+		$("#tl-recording-area").hide();
+
+		if (videoRecordingPlayer) {
+			videoRecordingPlayer.record().reset();
+		}
+
+		$("#tl-recording-audio-area").hide();
+
+		if (audioRecordingPlayer) {
+			audioRecordingPlayer.record().reset();
+		}
+
+		$('#assignment-reply-textbox-group').removeClass('visible-textbox').addClass('hidden-textbox');
+		$('#documents-images-zip_namespace').hide();
+		$('.tl-complete-button-assignment').hide();
+		$('.tl-send-assignment-recording').addClass('disabled').hide();
+		$('.tl-send-assignment-recording-audio').addClass('disabled').hide();
+		$('.tl-send-assignment-recording-screen').addClass('disabled').show();
+		$('.tl-assignment-select-method').parent().show();
+		$('.tl-assignment-handles').hide();
+		$("#tl-recording-screen-area").show();
+
+		if (screenRecordingPlayer) {
+			screenRecordingPlayer.record().getDevice();
+		}
+	});
+
+    $(document).on('click', '.tl-assignment-modify-answer', function(){
+		var replyType = $('#assignment-reply-type').text();
+		$('#assignment-modify-answer-time').text(Math.floor(new Date().getTime()/1000));
+
+		$('.tl-assignment-handles').show();
+		$('.tl-pending-unit-handles').hide();
+		$('.tl-incomplete-unit-handles').show();
+		$('#documents-images-zip_namespace').hide();
+		$('.tl-assignment-more-options-complete .tl-assignment-select-method').removeClass('tl-assignment-select-method').addClass('tl-assignment-cancel-modify').parent().show();
+	});
+
+    $(document).on('click', '.tl-assignment-cancel-modify', function(){
+		$('.tl-assignment-handles').hide();
+		$('.tl-pending-unit-handles').show();
+		$('.tl-incomplete-unit-handles').hide();
+		$("#tl-recording-area").hide();
+		if(videoRecordingPlayer){
+			videoRecordingPlayer.record().reset();
+		}
+		$("#tl-recording-audio-area").hide();
+		if(audioRecordingPlayer){
+			audioRecordingPlayer.record().reset();
+		}
+		$("#tl-recording-screen-area").hide();
+		if(screenRecordingPlayer){
+			screenRecordingPlayer.record().reset();
+		}
+		$('#documents-images-zip_namespace').hide();
+		$('#assignment-reply-textbox-group').hide();
+		$('#assignment-reply-textbox-group').removeClass('visible-textbox').addClass('hidden-textbox');
+		$('.tl-complete-button-assignment').hide();
+		$('.tl-send-assignment-recording').addClass('disabled').hide();
+		$('.tl-send-assignment-recording-audio').addClass('disabled').hide();
+		$('.tl-send-assignment-recording-screen').addClass('disabled').hide();
+	});
+
+    $(document).on('click', '.tl-assignment-check-answer', function(){
+		var url = 'https://learn.liquibase.com/unit/getassignmentreply/id:3493,mode:view';
+
+		myportal.app.ajax(url, {
+			type: 'GET',
+			success: function(response){
+				var data = myportal.app.parseResponse(response);
+				var replyTypeFile = 'file';
+
+				if(data.type == replyTypeFile && data.fileType != 'zip' && data.fileType != ''){
+					$('#tl-assignment-check-answer-modal').addClass('preview-modal');
+				}
+				else{
+					$('#tl-assignment-check-answer-modal').removeClass('preview-modal');
+				}
+
+				$('#tl-assignment-check-answer-modal .modal-body').html(data.reply);
+				$('#tl-assignment-check-answer-modal .modal-header h3').html("Your answer");
+				$('#tl-assignment-check-answer-modal').modal();
+			}
+		});
+	});
+
+    $(document).on('click', '.tl-assignment-checkreply', function(){
+		var url = 'https://learn.liquibase.com/unit/getassignmentreply/id:3493,mode:view';
+
+		myportal.app.ajax(url, {
+			type: 'GET',
+			success: function(response){
+				var data = myportal.app.parseResponse(response);
+
+				$('#tl-assignment-check-answer-modal .modal-header h3').html("Instructor reply");
+				$('#tl-assignment-check-answer-modal .modal-body').empty().append("<div style='margin-bottom: 7px;'><b>" + "Grade" + ":</b>&nbsp;" + data.grade + "</div>");
+				$('#tl-assignment-check-answer-modal .modal-body').append("<div class='pull-left'><b>" + "Comments" + ":</b>&nbsp;</div><div class='pull-left' style='max-width:100%'>" + data.comments + "</div>");
+				$('#tl-assignment-check-answer-modal').removeClass('preview-modal');
+				$('#tl-assignment-check-answer-modal').modal();
+			}
+		});
+	});
+
+	$('#tl-assignment-check-answer-modal').bind('hidden', function(){	// empty modal on close so that videos/audio stop playing
+		$('#tl-assignment-check-answer-modal .modal-body').html('');
+	});
+
+    $(document).on('click', '.tl-ilt-checkreply', function(){
+		var url = 'https://learn.liquibase.com/unit/getiltreply/id:3493';
+
+		myportal.app.ajax(url, {
+			type: 'GET',
+			success: function(response){
+				var data = myportal.app.parseResponse(response);
+
+				$('#tl-ilt-check-answer-modal .modal-body').empty().append("<div style='margin-bottom: 7px;'><b>" + "Grade" + ":</b>&nbsp;" + data.grade + "</div>");
+				$('#tl-ilt-check-answer-modal .modal-body').append("<div class='pull-left'><b>" + "Comments" + ":</b>&nbsp;</div><div class='pull-left'>" + data.comments + "</div>");
+				$('#tl-ilt-check-answer-modal').modal();
+			}
+		});
+	});
+
+	$('.tl-failed-button-assignment').on('click', function(){
+		var url = 'https://learn.liquibase.com/unit/resetprogress/id:484128';
+		myportal.app.ajax(url, {
+			type: 'POST',
+			data: {'myToken': myToken},
+			success: function(){
+				window.location = window.location.toString();
+			}
+		});
+	});
+
+	updateProgress = function(response){
+		if(false && isLoggingOut){ // We bypass the parseResponse function in case of exception, since we do not want a pop-up when someone is logging out while in a SCORM file
+			try{
+				$.parseJSON(response);
+			}
+			catch (ex){
+				console.log("Some error occurred");
+				return;
+			}
+		}
+
+		data = myportal.app.parseResponse(response);
+
+		if(typeof(data) != 'undefined'){
+			if(data.unit_status == 'completed'){	// means that the unit was completed
+				if(data.progress_measure && $('#tl-navbar-progress-measure').length > 0){
+					$('#tl-navbar-progress-measure').css('width', data.progress_measure + '%').text(data.progress_measure + '%');
+					
+					if (data.progress_measure == 100){
+						$(".tl-courses-list").text('Go to course list');
+						$(".tl-courses-list").removeAttr('data-dismiss');
+						$(".tl-courses-list").attr('href', 'https://learn.liquibase.com/dashboard/index');
+					}
+					
+					if(data.course_completed){
+						$('#tl-navbar-progress-measure').text("Completed");
+					}
+				}
+				
+				if(data.unit_id){
+					if($('#tl-navbar-unit-link-' + data.unit_id).length > 0){
+						$('#tl-navbar-unit-link-' + data.unit_id).css('fontWeight', 'bold');
+						$('#tl-navbar-unit-link-' + data.unit_id).children('i').show();
+					}
+															if(data.course_completed){
+							setTlmsCookie('show_completed', '152', { expires: 1, path: '/', domain: myEffectiveDomain, secure: false});
+						}
+										
+					var redirect_url = 'https://learn.liquibase.com/unit/view/id:3442';
+					window.location = redirect_url;
+					return true;
+								}
+
+								$('.tl-incomplete-unit-handles').fadeOut('fast', function(){
+					$('.tl-completed-unit-handles').fadeIn('fast');
+					$('#tl-scorm-iframe-closed-message').find('h3').text("You have completed the unit");
+				});
+								
+				if($('#tl-navbar-next-unit').length > 0){
+					$('#tl-navbar-next-unit').attr('title', "Next");
+					$('#tl-navbar-next-unit').children().removeClass('tl-disabled');
+					$('#tl-navbar-next-unit').popover('destroy');
+					$('#tl-navbar-next-unit').removeClass('tl-content-show-popover');
+					
+					if($('#tl-navbar-next-unit').attr('data-href') && $('#tl-navbar-next-unit').attr('data-href').length){
+						$('#tl-navbar-next-unit').attr('href', $('#tl-navbar-next-unit').attr('data-href'));
+					}
+				}
+
+								if(data.course_completed && !isCompleted){
+					if($('#tl-navbar-unit-link-' + data.unit_id).length > 0){
+						$('#tl-navbar-unit-link-' + data.unit_id).prepend('<i class="icon-ok tl-green-ok"></i>&nbsp;');
+					}
+										var el = $('#tl-course-completed-modal').find('.tl-next-course');
+					
+					if(el.length > 0 && data.next_course){
+						el.show().attr('href', el.attr('href').replace('###id###', data.next_course));
+					}
+					
+										var el = $('.tl-download-certificate');
+					
+					if(el.length > 0 && data.course_certificate){
+						el.show().attr('href', el.attr('href').replace('###id###', data.course_certificate));
+						$('.tl-download-certificate-holder').show();
+						$('#tl-course-completed-modal-options').removeClass('text-center').addClass('text-left');
+					}
+					el = $('.tl-share-certificate');
+
+					if(el.length > 0 && data.course_certificate){
+						el.show().attr('data-url', el.attr('data-url').replace('###id###', data.course_certificate));
+						$('.tl-share-certificate').show();
+					}
+					
+										$('.tl-completed-button').on('click', function(){ $('#tl-course-completed-modal').modal(); });
+					
+										$('.tl-course-completed-navbar-link').show();
+					$('li.tl-course-completed-navbar-link').css('display', 'list-item');
+										isCompleted = true;
+					$('#tl-course-completed-modal').modal();
+					setTlmsCookie('show_completed', null, { expires: 1, path: '/', domain: myEffectiveDomain, secure: false});
+				}
+				else if(data.course_failed){
+					$('.tl-completed-button').attr('onClick', "$('#tl-course-failed-modal').modal();");
+					$('#tl-course-failed-modal').modal();
+					isCompleted = true;
+					setTlmsCookie('show_completed', null, { expires: 1, path: '/', domain: myEffectiveDomain, secure: false});
+				}
+				
+				var gamificationPointsForUnitCompletion = $.cookie("gamification_points_for_unit_completion");
+				var gamificationPointsForCourseCompletion = $.cookie("gamification_points_for_course_completion");
+				var gamificationPointsForCertification = $.cookie("gamification_points_for_certification");
+				var gamificationPointsNotification = '';
+				var gamificationAddedPoints = 0;
+
+				if(gamificationPointsForUnitCompletion){
+					var parts = gamificationPointsForUnitCompletion.split('###');
+					gamificationPointsNotification = parts[0];
+					gamificationAddedPoints = parseInt(parts[1]);
+					setTlmsCookie("gamification_points_for_unit_completion", null, {expires: -1, path: '/', domain: myEffectiveDomain, secure: false});
+				}
+
+				if(gamificationPointsForCourseCompletion){
+					var parts = gamificationPointsForCourseCompletion.split('###');
+					gamificationPointsNotification = (gamificationPointsNotification) ? gamificationPointsNotification + '<br/>' + parts[0] : parts[0];
+					gamificationAddedPoints = gamificationAddedPoints + parseInt(parts[1]);
+					setTlmsCookie("gamification_points_for_course_completion", null, {expires: -1, path: '/', domain: myEffectiveDomain, secure: false});
+				}
+
+				if(gamificationPointsForCertification){
+					var parts = gamificationPointsForCertification.split('###');
+					gamificationPointsNotification = (gamificationPointsNotification) ? gamificationPointsNotification + '<br/>' + parts[0] : parts[0];
+					gamificationAddedPoints = gamificationAddedPoints + parseInt(parts[1]);
+					setTlmsCookie("gamification_points_for_certification", null, {expires: -1, path: '/', domain: myEffectiveDomain, secure: false});
+				}
+
+				if(gamificationPointsNotification){
+					if($("#tl-header-gamification-entrance").data('entrancemode') == 'points'){
+						$("#tl-header-gamification-entrance").empty();
+						var pointsCountUp = new countUp("tl-header-gamification-entrance", parseInt($("#tl-header-gamification-entrance").data('entrancevalue')), parseInt($("#tl-header-gamification-entrance").data('entrancevalue')) + parseInt(gamificationAddedPoints), 0, 1.5, {useEasing: true, useGrouping: true, separator: '', suffix: ' ' + "points"});
+						pointsCountUp.start();
+					}
+					
+					$("#tl-gamification-points-message").html(decodeURIComponent(gamificationPointsNotification)).fadeIn(1000);
+					setTimeout(function(){$("#tl-gamification-points-message").fadeOut('slow');}, 3000);
+				}
+
+				var gamificationAssignmentBadge = $.cookie("gamification_assignment_badge");
+				var gamificationLearningBadge = $.cookie("gamification_learning_badge");
+				var gamificationCertificationBadge = $.cookie("gamification_certification_badge");
+				var gamificationAddedBadges = 0;
+				$(".tl-badge-image").attr('src', '');
+				$(".tl-badge-message").empty();
+
+				if(gamificationAssignmentBadge){
+					var parts = gamificationAssignmentBadge.split('###');
+					$(".tl-badge-image").attr('src', parts[1]);
+					$(".tl-badge-message").html(decodeURIComponent(parts[0]));
+					setTlmsCookie("gamification_assignment_badge", null, {expires: -1, path: '/', domain: myEffectiveDomain, secure: false});
+					gamificationAddedBadges++;
+				}
+
+				if(gamificationLearningBadge){
+					var parts = gamificationLearningBadge.split('###');
+					setTlmsCookie("gamification_learning_badge", null, {expires: -1, path: '/', domain: myEffectiveDomain, secure: false});
+					gamificationAddedBadges++;
+
+					if($(".tl-badge-image").attr('src') != '' && $(".tl-badge-message").html() != ''){
+						$("#tl-gamification-badges-message").append('<hr/><div id="learning-badge-message" class="tl-badge-image-message-wrapper"></div>');
+						$("#learning-badge-message").append('<img class="tl-badge-image pull-left image60x60" src="' + parts[1] + '"/>').append('<div class="tl-badge-message text-center tl-bold-item">' + decodeURIComponent(parts[0]) + '</div>');
+					}
+					else{
+						$(".tl-badge-image").attr('src', parts[1]);
+						$(".tl-badge-message").html(decodeURIComponent(parts[0]));
+					}
+				}
+
+				if(gamificationCertificationBadge){
+					var parts = gamificationCertificationBadge.split('###');
+					setTlmsCookie("gamification_certification_badge", null, {expires: -1, path: '/', domain: myEffectiveDomain, secure: false});
+					gamificationAddedBadges++;
+
+					if($(".tl-badge-image").attr('src') != '' && $(".tl-badge-message").html() != ''){
+						$("#tl-gamification-badges-message").append('<hr/><div id="certification-badge-message" class="tl-badge-image-message-wrapper"></div>');
+						$("#certification-badge-message").append('<img class="tl-badge-image pull-left image60x60" src="' + parts[1] + '"/>').append('<div class="tl-badge-message text-center tl-bold-item">' + decodeURIComponent(parts[0]) + '</div>');
+					}
+					else{
+						$(".tl-badge-image").attr('src', parts[1]);
+						$(".tl-badge-message").html(decodeURIComponent(parts[0]));
+					}
+				}
+
+				if(gamificationAssignmentBadge || gamificationLearningBadge || gamificationCertificationBadge){
+					if(gamificationPointsNotification){
+						$("#tl-gamification-badges-message").css('bottom', $("#tl-gamification-points-message").height() + 20 + 16 + 5);
+					}
+
+					if($("#tl-header-gamification-entrance").data('entrancemode') == 'badges'){
+						$("#tl-header-gamification-entrance").empty();
+						var badgesCountUp = new countUp("tl-header-gamification-entrance", 0, parseInt($("#tl-header-gamification-entrance").data('entrancevalue')) + parseInt(gamificationAddedBadges), 0, 1.5, {useEasing: true, useGrouping: true, separator: '', suffix: ' ' + "badges"});
+						badgesCountUp.start();
+					}
+
+					$("#tl-gamification-badges-message").fadeIn(1000).css('display', 'table');
+					setTimeout(function(){$("#tl-gamification-badges-message").fadeOut('slow');}, 5000);
+				}
+
+				var gamificationCompletedCourses = $.cookie("gamification_completed_courses");
+
+				if(gamificationCompletedCourses && ($("#tl-header-gamification-entrance").data('entrancemode') == 'courses' || $("#tl-header-gamification-entrance").data('entrancemode') == 'certifications')){
+					$("#tl-header-gamification-entrance").empty();
+					var completedCoursesCountUp = new countUp("tl-header-gamification-entrance", 0, parseInt(gamificationCompletedCourses), 0, 1.5, {useEasing: true, useGrouping: true, separator: '', suffix: ' ' + "completed courses"});
+					completedCoursesCountUp.start();
+					setTlmsCookie("gamification_completed_courses", null, {expires: -1, path: '/', domain: myEffectiveDomain, secure: false});
+				}
+
+				var gamificationUserLevel = $.cookie("gamification_user_level");
+
+				if(gamificationUserLevel && $("#tl-header-gamification-entrance").data('entrancemode') == 'levels'){
+					var gamificationUserLevelParts = gamificationUserLevel.split('###');
+					$("#tl-header-gamification-entrance").empty();
+					var userLevelCountUp = new countUp("tl-header-gamification-entrance", 0, parseInt(gamificationUserLevelParts[0]), 0, 1.5, {useEasing: true, useGrouping: true, separator: ''});
+					userLevelCountUp.start(function(){$('#tl-header-gamification-entrance').html(decodeURIComponent(gamificationUserLevelParts[1]));});
+					setTlmsCookie("gamification_user_level", null, {expires: -1, path: '/', domain: myEffectiveDomain, secure: false});
+				}
+			}
+			else if(data.unit_status == 'pending'){	// means that the unit is in a pending status now (assignment units)
+				
+				$('.tl-incomplete-unit-handles').fadeOut('fast', function(){
+					$('.tl-pending-unit-handles').fadeIn('fast');
+				});
+				$('#tl-recording-area').fadeOut('fast');
+				$('#tl-recording-audio-area').fadeOut('fast');
+				$('#tl-recording-screen-area').fadeOut('fast');
+			}
+			else{
+				
+				$('#tl-submit-question').removeClass('disabled').addClass('btn-danger').text("Incorrect answer, try again");
+				setTimeout(function(){
+					$('#tl-submit-question').fadeOut('slow', function(){
+						$('#tl-submit-question').removeClass('btn-danger').text("Submit answer");
+						$('#tl-submit-question').fadeIn(400);
+					});}, 2000);
+
+							}
+		}	
+	}
+	
+	submitResults = function(url){
+		myportal.app.ajax(url, {
+			type: 'post',
+			data: $('.tl-unit-question-form').serialize() + "&myToken=" + myToken,
+			success: function(response){
+				updateProgress(response);
+			},
+			error: function(jqXHR_obj){
+				var response = $.parseJSON(jqXHR_obj.responseText);
+				$('#tl-submit-question').removeClass('disabled');
+				myportal.app.notify({type: "error", message: decodeURIComponent(response.message)});
+			}
+		});
+	}
+
+	window.completeUnit = function(el){
+		var url = $(el).attr('data-toggle');
+		if(typeof(url) != 'undefined'){
+			myportal.app.ajax(url, {
+				type: 'GET',
+				success: function(response){
+										$('#last-unit-progress').text('');
+					
+					updateProgress(response);
+				},
+				error: function(jqXHR_obj){
+					var response = $.parseJSON(jqXHR_obj.responseText);
+					myportal.app.notify({type: "error", message: decodeURIComponent(response.message)});
+				}
+			});
+		}
+	}
+
+	completeAssignmentUnit = function(el, fileId){
+		var assignmentId = '3493';
+		var replyType = '';
+		var url = '';
+
+		if(el == null && fileId != null){
+			url = 'https://learn.liquibase.com/unit/complete';
+		}
+		else{
+			url = $(el).attr('data-toggle');
+		}
+
+		if($('#assignment-reply-textbox-group').hasClass('hidden-textbox')){
+			replyType = 'file';
+		}
+		else{
+			replyType = 'textbox';
+		}
+
+		$('#assignment-reply-type').text(replyType);
+
+		if(typeof(url) != 'undefined'){
+			myportal.app.ajax(url, {
+				type: 'POST',
+				data: {'id': assignmentId, 'textbox-reply': $('#assignment-reply-textbox').val(), 'reply-type': replyType, 'reply-file': fileId, 'assignment-modify-answer-time': $('#assignment-modify-answer-time').text()},
+				success: function(response){
+										$('#last-unit-progress').text('');
+					
+					updateProgress(response);
+					$('.tl-complete-button-assignment').text("Send your reply").removeClass('disabled');
+					if($('#assignment-reply-textbox-group').hasClass('visible-textbox')){
+						$('#assignment-reply-textbox-group').removeClass('visible-textbox').addClass('hidden-textbox');
+						$('#assignment-reply-textbox-group').fadeOut('slow');
+						$('.tl-complete-button-assignment').hide();
+					}
+				}
+			});
+		}
+	}
+
+		$('#tl-submit-question').on('click', function(){
+		if($(this).hasClass('disabled') || $(this).hasClass('btn-success') || $(this).hasClass('btn-danger')){
+			return false;
+		}
+
+		$(this).addClass('disabled');
+		var url = 'https://learn.liquibase.com/unit/submitquestion/id:3493,questionId:,questionType:';
+		submitResults(url);
+	});
+	
+    $(document).on('click', '.tl-complete-button, .tl-complete-button-assignment', function(){
+		if($(this).hasClass('disabled')){
+			return;
+		}
+
+				$(this).text("Completing...").addClass('disabled');
+		
+		if(!$(this).hasClass('tl-complete-button-assignment')){
+			completeUnit($(this));
+		}
+		else{
+			$('#assignment-reply-textbox').val($('.tl-assignment-reply-editor').code());
+			completeAssignmentUnit($(this), null);
+		}
+	});
+
+	$(document).on('click', '.tl-send-assignment-recording', function(){
+		if($(this).hasClass('disabled') || !recordedData){
+			return;
+		}
+
+		// Videos shorter than 5 seconds seem to have issues in EncodeMagic. Check the duration (written in the recorder's toolbar) and if too small do nothing
+		var parts = $('#tl-recording-video span.vjs-duration-display').text().split(':');
+		if(parts.length == 2){
+			if(parts[0]*60+parts[1]*1 < 6){ // multiply seconds with 1 to be sure we have an integer and not a string
+				$('#tl-record-error').text('Video should be longer than 5 seconds').removeClass('hide');
+				$('.tl-send-assignment-recording').addClass('disabled');
+				return;
+			}
+		}
+		else if(parts.length == 3){
+			if(parts[0]*3600+parts[1]*60+parts[2]*1 < 6){ // multiply seconds with 1 to be sure we have an integer and not a string
+				$('#tl-record-error').text('Video should be longer than 5 seconds').removeClass('hide');
+				$('.tl-send-assignment-recording').addClass('disabled');
+				return;
+			}
+		}
+
+		var uploadUrl = 'https://learn.liquibase.com/unit/uploadassignmentreply/id:3493';
+		var _formData = new FormData();
+		_formData.append('files', recordedData, recordedData.name);
+
+		myportal.app.ajax(uploadUrl,{
+			type: "POST",
+			data: _formData,
+			cache: false,
+			dataType: 'json',
+			processData: false,
+			contentType: false,
+			success: function(resp){
+				if(resp.success){
+					$('.tl-send-assignment-recording').addClass('disabled').hide();
+					completeAssignmentUnit(null, resp.data.assignmentReplyFile);
+				}
+			}
+		});
+	});
+
+	$(document).on('click', '.tl-send-assignment-recording-audio', function(){
+		if($(this).hasClass('disabled') || !recordedAudioData){
+			return;
+		}
+
+		// Videos/audio shorter than 5 seconds seem to have issues in EncodeMagic. Check the duration (written in the recorder's toolbar) and if too small do nothing
+		var parts = $('#tl-recording-audio span.vjs-duration-display').text().split(':');
+
+		if(parts.length == 2){
+			if(parts[0]*60+parts[1]*1 < 6){ // multiply seconds with 1 to be sure we have an integer and not a string
+				$('#tl-record-audio-error').text('Audio should be longer than 5 seconds').removeClass('hide');
+				$('.tl-send-assignment-recording-audio').addClass('disabled');
+				return;
+			}
+		}
+		else if(parts.length == 3){
+			if(parts[0]*3600+parts[1]*60+parts[2]*1 < 6){ // multiply seconds with 1 to be sure we have an integer and not a string
+				$('#tl-record-audio-error').text('Audio should be longer than 5 seconds').removeClass('hide');
+				$('.tl-send-assignment-recording-audio').addClass('disabled');
+				return;
+			}
+		}
+
+		var uploadUrl = 'https://learn.liquibase.com/unit/uploadassignmentreply/id:3493';
+		var _formData = new FormData();
+		_formData.append('files', recordedAudioData, recordedAudioData.name);
+
+		myportal.app.ajax(uploadUrl,{
+			type: "POST",
+			data: _formData,
+			cache: false,
+			dataType: 'json',
+			processData: false,
+			contentType: false,
+			success: function(resp){
+				if(resp.success){
+					$('.tl-send-assignment-recording-audio').addClass('disabled').hide();
+					completeAssignmentUnit(null, resp.data.assignmentReplyFile);
+				}
+			}
+		});
+	});
+
+	$(document).on('click', '.tl-send-assignment-recording-screen', function() {
+		if ($(this).hasClass('disabled') || !recordedScreenData) {
+			return;
+		}
+
+		// Videos shorter than 5 seconds seem to have issues in EncodeMagic. Check the duration (written in the recorder's toolbar) and if too small do nothing
+		var parts = $('#tl-screen-recording span.vjs-duration-display').text().split(':');
+		if (parts.length === 2) {
+			if (parts[0]*60+parts[1]*1 < 6) { // multiply seconds with 1 to be sure we have an integer and not a string
+				$('#tl-screen-record-error').text('Video should be longer than 5 seconds').removeClass('hide');
+				$('.tl-send-assignment-recording-screen').addClass('disabled');
+				return;
+			}
+		} else if (parts.length === 3) {
+			if (parts[0]*3600+parts[1]*60+parts[2]*1 < 6) { // multiply seconds with 1 to be sure we have an integer and not a string
+				$('#tl-screen-record-error').text('Video should be longer than 5 seconds').removeClass('hide');
+				$('.tl-send-assignment-recording-screen').addClass('disabled');
+				return;
+			}
+		}
+
+		var uploadUrl = 'https://learn.liquibase.com/unit/uploadassignmentreply/id:3493';
+		var _formData = new FormData();
+		_formData.append('files', recordedScreenData, recordedScreenData.name);
+
+		myportal.app.ajax(uploadUrl, {
+			type: "POST",
+			data: _formData,
+			cache: false,
+			dataType: 'json',
+			processData: false,
+			contentType: false,
+			success: function(resp) {
+				if (resp.success) {
+					$('.tl-send-assignment-recording-screen').addClass('disabled').hide();
+					completeAssignmentUnit(null, resp.data.assignmentReplyFile);
+				}
+			}
+		});
+	});
+
+		
+	$('.tl-scorm-frame').ready(function(){
+		$('#tl-scorm-progress-bar').hide();
+
+		$('.tl-complete-button-scorm')
+            .show()
+            .removeClass('disabled')
+            .text("Incomplete");
+
+		
+		$(document).on('click', '.tl-complete-button-scorm-link', function(){
+			$('.tl-complete-button-scorm').popover('destroy');
+			$('.tl-scorm-frame').attr('src', '').remove(); // .remove() without emptying the iframe content, sometimes crashes ie
+			$('.tl-complete-button-scorm').hide().text("Incomplete. Click to retry.").on('click', function() {window.location.reload()}).fadeIn('slow');
+			$('#tl-scorm-iframe-closed-message').fadeIn('slow');		
+		});
+	});
+	
+	$('#tl-reset-progress').on('click', function(){
+		if(tl_timer_id){
+			tl_stopTimer(start_time);
+		}
+
+		var lastUnitProgress = $('#last-unit-progress').text();
+
+		if(lastUnitProgress != ''){
+			var url = 'https://learn.liquibase.com/unit/resetprogress/id:##unit_progress_id##'.replace('##unit_progress_id##', lastUnitProgress);
+		}
+		else{
+			var url = 'https://learn.liquibase.com/unit/resetprogress/id:484128';
+		}
+
+		myportal.app.ajax(url, {
+			type: 'POST',
+			data: {'myToken': myToken},
+			success: function(){
+								$('.tl-completed-unit-handles').fadeOut('fast', function(){
+					$('.tl-incomplete-unit-handles').fadeIn('fast');
+
+					
+					if(window.clearQuestion){
+						window.clearQuestion();		// Clear the question's results
+					}
+
+					isCompleted = false;
+
+					if(parseInt(start_time) > 0){
+						tl_initTimerValue(start_time);
+						tl_setUpCounter(start_time);
+					}
+
+					$('#tl-submit-question').removeClass('btn-danger').removeClass('btn-success').text("Submit answer").show();
+					$('.tl-question-preview-feedback').css('display', 'none');
+
+									});
+							}
+		});
+	});
+
+	window.start_time = '0';
+
+	window.tl_setUpCounter = function (secondsFromNow){
+		if(tl_timer_id){
+			tl_stopTimer(secondsFromNow);
+		}
+
+		setUnitEndDate(parseInt(secondsFromNow));
+		tl_timer_id = window.setInterval(tl_startCounter, 300);
+	};
+
+	window.tl_startCounter = function (){
+		var currentDate = new Date();
+		var restOfSeconds = Math.ceil((unitEndDate.getTime() - currentDate.getTime()) / 1000);
+
+		if(restOfSeconds > 0){
+			$('#tl-timer-seconds').text(restOfSeconds);
+			var interval = formatTimeInterval(restOfSeconds);
+
+			if(!interval){
+				$('.tl-timer-button').text("Ready!");
+			}
+			else{
+				$('#tl-timer').text(interval);
+			}
+		}
+		else {
+			tl_stopTimer(start_time);
+			tl_completeUnit();
+		}
+	}
+
+    window.formatTimeInterval = function(interval){
+    	var seconds = interval % 60;
+    	var minutes = ((interval - seconds) / 60) % 60;
+    	var hours = ((interval - seconds - (minutes * 60)) / 3600) % 24;
+    	var days = (interval - hours * 3600 + minutes * 60 + seconds) / (24 * 3600);
+    	var str = new Array();
+
+    	if(days >= 1){
+    		str.push("###days###d".replace('###days###', parseInt(days)));
+    	}
+
+    	if(hours){
+    		str.push("###hours###h".replace('###hours###', hours));
+    	}
+
+    	if(minutes){
+    		str.push("###minutes###m".replace('###minutes###', minutes));
+    	}
+
+    	if(seconds){
+    		str.push("###seconds###s".replace('###seconds###', seconds));
+    	}
+
+    	return str.join(' ');
+    }
+
+	/**
+	 * Sets the date that the unit will end.
+	 * @param {*} secondsFromNow
+	 */
+	window.setUnitEndDate = function(secondsFromNow){
+		if(secondsFromNow === false) {
+			secondsFromNow = start_time;
+		}
+
+		unitEndDate = new Date();
+		unitEndDate.setSeconds(unitEndDate.getSeconds() + parseInt(secondsFromNow));
+	};
+
+	
+		if (typeof window.syncVideoUnitTimer === 'undefined' || !window.syncVideoUnitTimer){
+		if(!tl_timer_id){
+			tl_setUpCounter(start_time);
+		}
+	}
+	else {
+		tl_timer_id = null;
+	}
+	});
+
+$(window).on('load', function(){
+	$.ajax('https://learn.liquibase.com/unit/enter/id:484128', {async: false});
+});
+
+	$(window).on('beforeunload', function(){
+        const exitUrl = 'https://learn.liquibase.com/unit/exit/id:484128';
+        const isFirefox = false;
+
+        if('fetch' in window && !isFirefox) { // In Firefox asynchronus fetch requests inside beforeunload callback are denied
+            fetch(exitUrl, {keepalive: true});
+        } else {
+            $.ajax(exitUrl, {async: false});
+        }
+	});
+
+
+function tl_toggleShare(el){
+	var url = $(el).data('url');
+	myportal.app.ajax(url, {
+		success: function(data){
+			var response = JSON.parse(data);
+			$('#tl-view-share-certificate-body').html(response.data.html);
+			$('#tl-view-share-certificate').show();
+			$('.tl-share-certificate').hide();
+		}
+	});
+}
+
+
+function tl_initTimerValue(time){
+	time = parseInt(time);
+	buttonText = "Completes in <span id = 'tl-timer'>%s</span>";
+
+	if (time < 1){
+		time = 1;
+	}
+
+	start_time = time;
+	$('#tl-timer-seconds').text(time);
+	interval = formatTimeInterval(time);
+
+	if(interval){
+		$('.tl-timer-button').html(buttonText.replace('%s', interval));
+	}
+}
+
+function tl_startTimer(){
+	if(tl_timer_id){
+		tl_stopTimer($('#tl-timer-seconds').text());
+	}
+
+	tl_setUpCounter($('#tl-timer-seconds').text());
+}
+
+function tl_stopTimer(time){
+	window.clearInterval(tl_timer_id);
+	tl_timer_id = false;
+	time = parseInt(time);
+	cur_time = parseInt($('#tl-timer-seconds').text());
+	if (time < 1){
+		time = 1;
+	}
+	if(cur_time < time ) {
+		return;
+	}
+	$('#tl-timer-seconds').text(time - 1);
+	interval = formatTimeInterval(time - 1);
+
+	if(!interval){
+		$('.tl-timer-button').text("Ready!");
+	}
+	else{
+		$('#tl-timer').text(interval);
+	}
+}
+function tl_completeUnit(){
+	completeUnit($('.tl-timer-button'));
+}
+
+
+var heartbeatInterval = 10790*1000; setInterval(function(){
+	myportal.app.ajax("https://learn.liquibase.com/index/heartbeat", {
+		'type': 'GET'
+	});
+}, heartbeatInterval);
+
+
+</script>			</div>	</div>
+	
+		<div id="tl-gamification-points-message" class="hide hidden-phone text-center tl-bold-item" style="z-index: 10000;"></div>
+	<div id="tl-gamification-badges-message" class="hide hidden-phone" style="z-index: 10000;">
+		<div class="tl-badge-image-message-wrapper">
+			<img class="tl-badge-image pull-left image60x60">
+			<div class="tl-badge-message text-center tl-bold-item"></div>
+		</div>
+	</div>
+</div>
+
+	<div class="modal fade hide" id="tl-export-to-csv-modal" style="outline: none;" tabindex="-1">
+		<div class="modal-header"><h3>Save as CSV</h3></div>
+		<div class="modal-body">
+			<div class="text-center">Creating the export file. Please wait...</div>
+			<div class="progress progress-striped progress-success active" style="margin: 15px 0px;">
+				<div class="bar" style="width: 100%;"></div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<div class="pull-left span4 text-left hide" style="margin: 0px 5px 0px 0px;">
+				<span>Please wait while the operation is cancelled</span>
+			</div>
+			<div class="pull-right">
+				<a href="javascript:void(0)" class="btn" id="tl-cancel-export">Cancel</a>
+			</div>
+		</div>
+	</div>
+	<div id="tl-export-to-csv-token" class="hide"></div>
+
+<div class="modal fade hide" id="tl-confirm" style="outline: none;" tabindex="-1">
+	<div class="modal-header">
+		<a href="javascript:void(0)" class="close" data-dismiss="modal">×</a>
+		<h3 class="tl-modal-header">Notice</h3>
+	</div>
+	<div class="modal-body"><p id="tl-modal-body"></p></div>
+	<div class="modal-footer">
+		<a id="tl-confirm-submit" class="btn btn-danger"><i class="icon-trash"></i>&nbsp;Delete</a>
+		<a id="tl-confirm-continue" class="btn btn-danger hide"><i class="icon-trash"></i>&nbsp;Delete, don't keep asking</a>
+		<a class="btn" data-dismiss="modal">Cancel</a>
+	</div>
+</div>
+<div class="modal fade hide" id="tl-confirm-double" style="outline: none;" tabindex="-1">
+	<div class="modal-header">
+		<a href="javascript:void(0)" class="close" data-dismiss="modal">×</a>
+		<h3 class="tl-modal-header-double">Notice</h3>
+	</div>
+	<div class="modal-body"><p id="tl-modal-body-double"></p></div>
+	<div class="modal-footer">
+		<a id="tl-confirm-submit-double" class="btn btn-danger"><i class="icon-trash"></i>&nbsp;Delete</a>
+		<a id="tl-confirm-submit-double2" class="btn btn-danger"></a>
+		<a class="btn" data-dismiss="modal">Cancel</a>
+	</div>
+</div>
+<div class="modal fade hide" id="tl_leavepage_confirm" style="outline: none;" tabindex="-1">
+	<div class="modal-header">
+		<a href="javascript:void(0)" class="close" data-dismiss="modal">×</a>
+		<h3>Notice</h3>
+	</div>
+	<div class="modal-body"><p></p></div>
+	<div class="modal-footer">
+		<a id="tl-leavepage" class="btn btn-danger"><i class="icon-trash"></i>&nbsp;Discard changes</a>
+		<a class="btn" data-dismiss="modal">Cancel</a>
+	</div>
+</div>
+
+
+<div class="modal fade hide" id="tl-relogin-modal" style="outline: none;" tabindex="-1">
+	<div class="modal-header text-center">
+		<h3>Just to be safe, we logged you out</h3>
+	</div>
+	<div class="modal-body">
+		<div class="text-center" style="padding: 10px 0px;">
+			<img src="./Liquibase_files/lockout.svg">
+			<div style="margin-top: 15px;">Enter your password to pick up where you left off</div>
+			<form name="tl-relogin-form" method="post" action="https://learn.liquibase.com/unit/view/id:3493" class="tl-form form-horizontal" id="tl-relogin-form" data-submiturl="https://learn.liquibase.com/index/relogin" data-hs-cf-bound="true"><input type="hidden" name="_track_tl-relogin-form" value="1726074757" class="" id="408674844"><input type="hidden" name="_redirect_" value="" class="" id="_redirect_"><input type="hidden" name="_myToken" value="5afd23f9a57bf989b51f1348ae9d6249" class="" id="_myToken"><input type="hidden" name="appear_as_supervisor_after_relogin" value="" class="" id="1349749226"><input type="hidden" name="relogin_role" value="learner" class="" id="1416328933"><input type="hidden" name="relogin_username" value="jsunkara99" class="" id="760477776">			<div class="control-group ">
+				<div class="controls">
+					<input type="password" name="relogin_password" value="" class="span4" id="1865385011" placeholder="password" autocomplete="off" tabindex="">					<span class="help-block"></span>
+				</div>
+			</div>
+			<input type="submit" name="submit_relogin" value="Login" class="btn btn-primary" id="231725394" data-loading-text="Logging in..." tabindex="">			</form>			<div><a href="https://learn.liquibase.com/index">Logout</a></div>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	$('body').on('touchstart.dropdown', '.dropdown-menu', function(e){ e.stopPropagation(); });	// Fix for https://github.com/twitter/bootstrap/issues/2975#issuecomment-6659992, should be removed if fixed in twitter bs 2.1.2 (or whenever)
+	myportal.app.translations['search'] = "Search";
+	myportal.app.translations['Completed'] = "Completed";
+	myportal.app.translations['cancel'] = "Cancel";
+	myportal.app.translations['ok'] = "Ok";
+	myportal.app.translations['save'] = "Save";
+	myportal.app.translations['save-as-new'] = "Save as new";
+	myportal.app.translations['more'] = "more";
+	myportal.app.translations['less'] = "less";
+	myportal.app.translations['remove'] = "Remove";
+	myportal.app.translations['reset'] = "Reset";
+	myportal.app.translations['refresh'] = "Refresh";
+	myportal.app.translations['notice'] = "Notice";
+	myportal.app.translations['reset-remove-certification'] = "Reset & remove certificate";
+	myportal.app.translations['activate'] = "activate";
+	myportal.app.translations['deactivate'] = "deactivate";
+	myportal.app.translations['search-courses'] = "Search courses";
+	myportal.app.translations['add-image'] = "Add image";
+	myportal.app.translations['change-image'] = "Change image";
+	myportal.app.translations['accepted-files'] = "Accepted files";
+	myportal.app.translations['max-file-size'] = "Max file size";
+	myportal.app.translations['switch-editor'] = "Switch between HTML and Source view";
+	myportal.app.translations['grid-more-results'] = "Show more results per page";
+	myportal.app.translations['grid-less-results'] = "Show less results per page";
+	myportal.app.translations['image-course-files'] = "Use an image from course files";
+	myportal.app.translations['use-image-url'] = "Use an image URL (http://...)";
+	myportal.app.translations['width'] = "Width";
+	myportal.app.translations['padding'] = "Padding";
+	myportal.app.translations['align-default'] = "Align (default)";
+	myportal.app.translations['align-left'] = "Align left";
+	myportal.app.translations['align-right'] = "Align right";
+	myportal.app.translations['make-changes'] = "Save changes";
+	myportal.app.translations['grid-start-end-total'] = "_START_ to _END_ of _TOTAL_";
+	myportal.app.translations['matrix-of-total'] = "of _TOTAL_";
+	myportal.app.translations['matrix-more-less-results'] = "Show more/less results per page";
+	myportal.app.translations['matrix-search-input-threshold'] = "Please use 3+ characters";
+	myportal.app.translations['search-users'] = "Search users";
+	myportal.app.translations['export'] = "Export";
+	myportal.app.translations['save-as-csv'] = "Save as CSV";
+	myportal.app.translations['active-file-upload'] = "There is an active file upload transfer";
+	myportal.app.translations['upload-leave-page'] = "Are you sure you want to leave this page? File upload will stop and you will lose all uploaded data.";
+	myportal.app.translations['unsaved-changes'] = "There are unsaved changes";
+	myportal.app.translations['changes-leave-page'] = "Are you sure you want to leave this page? You will lose all unsaved changes.";
+	myportal.app.translations['discard-draft'] = "Are you sure you want to delete the autosave? This action cannot be undone.";
+	myportal.app.translations['restore-draft'] = "Are you sure you want to restore the autosave? This action cannot be undone.";
+	myportal.app.translations['add'] = "Add";
+	myportal.app.translations['added'] = "Added";
+	myportal.app.translations['processing'] = "Processing...";
+	myportal.app.translations['validate'] = "Validate";
+	myportal.app.translations['click-to-start'] = "Start";
+	myportal.app.translations['reset-password'] = "Reset password";
+	myportal.app.translations['operation-completed-successfully'] = "Operation completed successfully";
+	myportal.app.translations['points'] = "points";
+	myportal.app.translations['badges'] = "badges";
+	myportal.app.translations['help-videos-unavailable'] = "Videos are not currently available";
+	myportal.app.translations['next'] = "Next";
+	myportal.app.translations['previous'] = "Previous";
+	myportal.app.translations['your-rating'] = "Your rating";
+	myportal.app.translations['reset-your-rating'] = "Reset your rating";
+	myportal.app.translations['creating-export'] = "Creating the export file. Please wait...";
+	myportal.app.translations['no-results-found'] = "No results were found. Please try again.";
+	myportal.app.translations['login'] = "Login";
+	myportal.app.translations['crop'] = "Crop";
+	myportal.app.translations['apply'] = "Apply";
+	myportal.app.translations['preview-certification-error'] = "An error occurred while generating the preview, try again later";
+	myportal.app.translations['preview'] = "Preview";
+	myportal.app.translations['wait-preview-generation'] = "Please wait while generating the preview";
+	myportal.app.translations['youtube'] = 'Youtube';
+	myportal.app.translations['uploaded-video'] = 'Uploaded video';
+	myportal.app.translations['days'] = 'days';
+	myportal.app.translations['pick-an-expiration-date'] = 'Pick an expiration date';
+	myportal.app.translations['duration'] = 'Duration';
+	myportal.app.translations['start-date'] = 'Start date';
+	myportal.app.translations['expiration-date'] = 'Expiration date';
+	myportal.app.translations['time-limit'] = 'Time limit';
+	myportal.app.translations['start-date-and-time-limit'] = 'Start date & Time limit';
+	myportal.app.translations['dtable-error'] = 'Failed to execute action (operation timed out)';
+	myportal.app.translations['generic-error'] = 'Oops, something went wrong! Please try reloading the page';
+
+	var isMobile = false;
+	var isRtl = false;
+	var general_css = 'https://learn.liquibase.com/index/css/fmt:1725978692,tn:53,tv:240,ct:1';
+	var editorMaxUploadSize = '10485760';
+	var editorFormattedMaxUploadSize = '10 MB';
+	var editorAcceptedFileTypes = 'gif|jpg|jpeg|png';
+	var editorFormattedAcceptedFileTypes = 'gif, jpg, jpeg, png';
+	var imageAcceptedFileTypes = 'gif|jpg|jpeg|png';
+	var imageMaxUploadSize = '3145728';
+	
+	var courseImageCanvasSizeWidth = '120';
+	var courseImageCanvasSizeHeight = '80';
+	
+	var datepickerFormat = 'mm/dd/yyyy';
+	var showSelect2 = true;
+	var currentUserId = "13362";
+	var currentUserName = "janardhana rao Sunkara";
+	var currentUserEmail = "jsunkara@axs.com";
+	var currentUserCreatedOn = "1726073993";
+		var currentUserIntercomHash = '7c80ec809cc7f9aa372ea23568313c7e6b036524e212014662cb8a7fdd6678f4';
+	var myToken = "5afd23f9a57bf989b51f1348ae9d6249";
+	var myEffectiveDomain = 'learn.liquibase.com';
+	var myAdminDomain = '';
+	var gridExportChunkSize = 5000;
+	var gridExportProgressThreshold = 100;
+	var isDummy = false;
+	var sessionMaxLifeTime = 10800;
+	var checkSessionExpirationUrl = 'https://learn.liquibase.com/index/checksessionexpiration';
+	var logourRedirectUrl = '';
+	var reloginRedirectUrl = 'https://learn.liquibase.com/unit/view/id:3493';
+	var enableRelogin = true;
+	var currency = '<span class="dollar-price">&#36;</span>';
+		var smartTags = {"{username}":"Username","{first_name}":"First name","{last_name}":"Last name","{date}":"Date","{course_progress}":"Course progress","{course_start_date}":"Course start date","{course_completion_date}":"Course completion date","{course_time}":"Course time","{course_name}":"Course name","{system_time}":"System time","{completed_courses}":"Completed courses","{certifications}":"Certificates","{Company Name}":"Company Name","{Job Title}":"Job Title"};
+	</script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		if($('.tl-title-link').length){
+			if(parseInt($('.tl-title').css('height')) < 50) {
+				$('.tl-title-link').addClass('tl-title-link-default');
+			}
+			$('.tl-title-link').show();
+		}
+	});
+</script>
+
+	<script type="text/javascript">if(!currentUserId){
+$('.tl-body').css({'background':'url("https://liquibase-university.s3.amazonaws.com/White+geometric_LBU.jpg") fixed','background-size':'cover'})
+}
+
+// Google Analytics
+$.getScript("https://www.googletagmanager.com/gtag/js?id=G-ELMPYMCM4X",function(){
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ELMPYMCM4X');
+});
+
+/*
+* Function that registers a click on an outbound link in Analytics.
+* This function takes a valid URL string as an argument, and uses that URL string
+* as the event label. Setting the transport method to 'beacon' lets the hit be sent
+* using 'navigator.sendBeacon' in browser that support it.
+*/
+var getOutboundLink = function(url) {
+gtag('event', 'click', {
+'event_category': 'outbound',
+'event_label': url,
+'transport_type': 'beacon',
+'event_callback': function(){document.location = url;}
+});
+}
+                                          
+                                                                                  
+ // LinkedIn Tracker
+_linkedin_partner_id = "1354740";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+(function(){var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})();
+  
+  // JavaScript to convert logo link to liquibase.com
+$('#tl-navigation-bar-handler .brand').attr('href','http://www.liquibase.com');
+ 
+  // Twitter Tracker
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+// Insert Twitter Pixel ID and Standard Event data below
+twq('init','o4dbe');
+twq('track','PageView');
+ 
+  // New UserSnap Global Snippet
+  window.onUsersnapCXLoad = function(api) {
+    api.init();
+  }
+  var userSnapScript = document.createElement('script');
+  userSnapScript.defer = 1;
+  userSnapScript.src = 'https://widget.usersnap.com/global/load/632b7a0e-ba7b-4613-ab8a-a34d8edf1097?onload=onUsersnapCXLoad';
+  document.getElementsByTagName('head')[0].appendChild(userSnapScript);
+
+  // HubSpot Tracker
+const erikasTracker = document.createElement('script');
+erikasTracker.type = 'text/javascript';
+erikasTracker.id = 'hs-script-loader';
+erikasTracker.setAttribute('async', '');
+erikasTracker.setAttribute('defer', '');
+erikasTracker.src = '//js.hs-scripts.com/8381145.js';
+const bodyElRef = document.querySelector('body');
+bodyElRef.appendChild(erikasTracker);
+  
+$('<div style="background-image:none; padding-left:5px; color:black; font-size:12px; float:right;"> (Name used for your official credentials)</div>').insertAfter('form[action*="/user/info/"] div.controls input[name="name"] ');
+$('<div style="background-image:none; padding-left:5px; color:black; font-size:12px; float:right;"> (Name used for your official credentials)</div>').insertAfter('form[action*="/user/info/"] div.controls input[name="surname"] ');
+ 
+$('#navbar-cms .brand').attr('href','https://www.liquibase.com/');
+ 
+$(document).ready(function(){
+  $('#lbAssociateExamGuideCTA').html('<a class="btn btn-primary" href="https://liquibase-university.s3.amazonaws.com/LB205+Liquibase+Certified+Associate+Exam+Guide+2022.pdf" target="_blank" onclick="getOutboundLink(\'https://liquibase-university.s3.amazonaws.com/LB205+Liquibase+Certified+Associate+Exam+Guide+2022.pdf\'); return false;">Liquibase Associate Exam Guide</a>');
+});</script><script type="text/javascript" id="hs-script-loader" async="" defer="" src="./Liquibase_files/8381145(1).js.download"></script><script type="text/javascript">
+		window.getTestIdAttr = function () {
+		return window.testIDAttr || "";
+	};
+	window.printTestId = function ( testID ) {
+		if ( window.testEnvActive && ( typeof testID !== 'undefined' ) ) {
+			return window.getTestIdAttr() + '=' + testID;
+		} else {
+			return '';
+		}
+	};
+	jQuery.fn.printTestId = function ( testID ) {
+	    var el = $(this[0]);
+		if ( window.testEnvActive && ( typeof testID !== 'undefined' ) ) {
+			el.attr(window.getTestIdAttr(), testID);
+		}
+	    return this;
+	};
+</script>
+
+
+
+
+<img src="./Liquibase_files/adsct" height="1" width="1" style="display: none;"><img src="./Liquibase_files/adsct(1)" height="1" width="1" style="display: none;"><iframe owner="archetype" title="archetype" style="display: none; visibility: hidden;" src="./Liquibase_files/saved_resource.html"></iframe>
+<div class="go2933276541 go2369186930" id="hs-web-interactives-top-anchor"><div id="hs-interactives-modal-overlay" class="go1632949049"></div></div>
+<div class="go2933276541 go1348078617" id="hs-web-interactives-bottom-anchor"></div>
+<div id="hs-web-interactives-floating-container">
+  <div id="hs-web-interactives-floating-top-left-anchor" class="go2417249464 go613305155">
+  </div>
+  <div id="hs-web-interactives-floating-top-right-anchor" class="go2417249464 go471583506">
+  </div>
+  <div id="hs-web-interactives-floating-bottom-left-anchor" class="go2417249464 go3921366393">
+  </div>
+  <div id="hs-web-interactives-floating-bottom-right-anchor" class="go2417249464 go3967842156">
+  </div>
+</div><iframe allow="join-ad-interest-group" data-tagging-id="AW-706771515" data-load-time="1726074738980" height="0" width="0" src="./Liquibase_files/706771515.html" style="display: none; visibility: hidden;"></iframe>
+<!--uspssb--><iframe name="us-entrypoint-globalSetup" title="Usersnap Feedback" style="display: none; height: 0px; width: 0px; z-index: 2147483647; color-scheme: normal;" src="./Liquibase_files/saved_resource(1).html"></iframe><!--uspsse--><us-button style="user-select: all;"><template shadowrootmode="open"><!--styles--><style data-jss="" data-meta="Unthemed">
+</style><style data-jss="" data-meta="Unthemed">
+#appRoot {
+  all: initial;
+  display: block;
+  z-index: 2147483647;
+  position: fixed;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+</style><!--end styles--><div id="appRoot" tabindex="0"><button class="button-0-3-5 button-d1-0-3-15" type="button" style="bottom: 50%; right: 0px; transform-origin: 100% 100%; font-size: 1rem; height: 2.375rem; box-shadow: rgba(0, 0, 0, 0.1) -4px -12px 25px 0px; border-radius: 20px 20px 0px 0px; transform: rotateZ(-90deg) translateX(50%) translateY(0px);"><div class="contentWrapper-0-3-10"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 19" fill="currentColor" class="icon-0-3-1 iconPlacement_left-0-3-2"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m10.507 1.61 2.174 4.704h4.24a1.041 1.041 0 0 1 .732 1.817l-3.675 3.631 2.04 4.698c.183.44.065.949-.292 1.263a1.11 1.11 0 0 1-1.289.128l-4.933-2.778L4.57 17.85a1.11 1.11 0 0 1-1.288-.128 1.115 1.115 0 0 1-.293-1.263l2.04-4.694-3.675-3.63a1.041 1.041 0 0 1 .726-1.822h4.24l2.182-4.708a1.13 1.13 0 0 1 2.004.004" clip-rule="evenodd"></path></svg><span>Feedback</span></div><div class="loadingWave-0-3-12"></div></button></div></template></us-button></body></html>

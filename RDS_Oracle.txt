@@ -1,0 +1,25 @@
+The following example terminates a session.
+
+
+
+BEGIN
+    rdsadmin.rdsadmin_util.kill(
+        sid    => sid, 
+        serial => serial_number,
+        method => 'IMMEDIATE');
+END;
+/
+
+
+
+The following example terminates the processes associated with a session.
+
+
+
+BEGIN
+    rdsadmin.rdsadmin_util.kill(
+        sid    => sid, 
+        serial => serial_number,
+        method => 'PROCESS');
+END;
+/

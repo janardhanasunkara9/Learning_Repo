@@ -1,0 +1,82 @@
+Liquibase uses commands and Change Types to enable users to specify what changes are needed and how those changes are to be deployed. 
+
+Liquibase also includes features such as rollback functionality and database drift detection. 
+
+
+Database Changes can be written in SQL, JSON, YAML and XML
+
+You can create Changelogs, Changesets, Change Type Objects.
+
+Changelog contains changesets.
+
+To establish a connection between Liquibase and the database, the JDBC drivers must be stored as a .jar file in the liquibase/lib folder
+
+
+
+CHANGELOGS:
+
+
+FORMAT SQL:
+
+
+SQL FORMAT : --liquibase formatted sql
+
+			 --changeset author:id    
+			 
+			 --changeset author:id attribute1:value1 attribute2:value2 [...]
+	
+
+
+-- liquibase formatted sql
+-- changeset nvoxland:1
+create table test1 (
+id int primary key,
+name varchar(255)
+);
+
+
+	
+			 
+			 
+XML Header:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+    http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd ">
+	
+	<changeSet  id="1"  author="nvoxland">  
+        <addColumn  tableName="person">  
+            <column  name="username"  type="varchar(8)"/>  
+        </addColumn>  
+</changeSet> 
+					
+</databaseChangeLog>					
+
+
+
+
+
+==================== COMMANDS =============
+
+
+
+liquibase --help
+
+
+liquibase <command name> --help
+
+
+Rollback can be done using DATE or TAG or ROLLBACK-COUNT-VALUE
+	
+	rollback-to-date
+	
+	rollback tag <tagname>
+	
+	rollback-count <value>
+	
+	
+	
