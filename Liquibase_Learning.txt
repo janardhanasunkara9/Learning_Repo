@@ -80,3 +80,76 @@ Rollback can be done using DATE or TAG or ROLLBACK-COUNT-VALUE
 	
 	
 	
+	
+	
+	============= References ====
+	
+	
+	https://rafal.hashnode.dev/install-liquibase-standalone-on-macwindows-and-use-it-with-oracle-database-on-premise-cloud
+	
+	
+	
+	Install Standalone Liquibase.
+	
+	---------- Liquibase Command Usage ----------
+	
+	
+	
+	Usage: liquibase [GLOBAL OPTIONS] [COMMAND] [COMMAND OPTIONS]
+Command-specific help: "liquibase <command-name> --help"
+
+
+
+	
+	---- Prepare Liquibase Properties as below ---
+	
+# Enter the path for your changelog file.
+changeLogFile=example-changelog.sql
+
+##Set URL
+liquibase.command.url=jdbc:oracle:thin:@us-qa5-oracle-0.cqmg1bbnvph6.us-west-2.rds.amazonaws.com:1521/USQA5
+
+
+# Enter the username for your Target database.
+liquibase.command.username: jsunkara
+
+# Enter the password for your Target database.
+liquibase.command.password: xxxxxx
+
+
+
+------- Test Liquibase Status ----
+
+
+$ liquibase status --defaults-file=liquibase.properties
+####################################################
+##   _     _             _ _                      ##
+##  | |   (_)           (_) |                     ##
+##  | |    _  __ _ _   _ _| |__   __ _ ___  ___   ##
+##  | |   | |/ _` | | | | | '_ \ / _` / __|/ _ \  ##
+##  | |___| | (_| | |_| | | |_) | (_| \__ \  __/  ##
+##  \_____/_|\__, |\__,_|_|_.__/ \__,_|___/\___|  ##
+##              | |                               ##
+##              |_|                               ##
+##                                                ##
+##  Get documentation at docs.liquibase.com       ##
+##  Get certified courses at learn.liquibase.com  ##
+##                                                ##
+####################################################
+Starting Liquibase at 13:51:03 using Java 21.0.4 (version 4.29.2 #3683 built at 2024-08-29 16:45+0000)
+Liquibase Version: 4.29.2
+Liquibase Open Source 4.29.2 by Liquibase
+3 changesets have not been applied to JSUNKARA@jdbc:oracle:thin:@us-qa5-oracle-0.cqmg1bbnvph6.us-west-2.rds.amazonaws.com:1521/USQA5
+     example-changelog.sql::1::Jana
+     example-changelog.sql::2::Jana
+     example-changelog.sql::3::Nazish
+Liquibase command 'status' was executed successfully.
+
+
+
+
+
+
+
+
+
