@@ -9,3 +9,5 @@ git add .
 git commit -m "11042024"
 
 git push -u origin master
+
+git pull origin master
