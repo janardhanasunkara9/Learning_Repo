@@ -147,9 +147,342 @@ Liquibase command 'status' was executed successfully.
 
 
 
+========== Setting up UTF-8 coding – This is only necessary if you use Windows ===============
+
+
+
+open file : C:\Program Files\liquibase\liquibase.bat
+
+IF NOT DEFINED JAVA_OPTS set JAVA_OPTS=-Dfile.encoding=UTF-8
 
 
 
 
 
 
+==============================  Tracking tables ===================
+
+
+
+Liquibase uses the DATABASECHANGELOG table to track which changesets have been run. If the table does not exist in the database, Liquibase creates one automatically.
+
+Liquibase will also create the DATABASECHANGELOGLOCK table. It will be used to create locks to avoid simultaneous runs of Liquibase to your database.
+
+
+
+
+
+============  Synchronize your database with Liquibase ===============
+
+$ liquibase --defaults-file=liquibase.properties changelog-sync-sql --outputfile=change-log-sync-sql-1.sql
+
+
+
+
+$ cat change-log-sync-sql-1.sql
+-- Lock Database
+UPDATE JSUNKARA.DATABASECHANGELOGLOCK SET LOCKED = 1, LOCKEDBY = 'DTLA-TECH-JS-WL (192.168.1.71)', LOCKGRANTED = SYSTIMESTAMP WHERE ID = 1 AND LOCKED = 0;
+
+-- *********************************************************************
+-- SQL to add all changesets to database history table
+-- *********************************************************************
+-- Change Log: example-changelog.sql
+-- Ran at: 11/12/24, 11:48 AM
+-- Against: JSUNKARA@jdbc:oracle:thin:@us-qa5-oracle-0.cqmg1bbnvph6.us-west-2.rds.amazonaws.com:1521/USQA5
+-- Liquibase version: 4.29.2
+-- *********************************************************************
+
+INSERT INTO JSUNKARA.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('1', 'Jana', 'example-changelog.sql', SYSTIMESTAMP, 1, '9:f6d6b04fbf860e734bbcaa93c2207423', 'sql', 'example comment', 'EXECUTED', 'example-context', 'example-label', '4.29.2', '1440891265');
+
+INSERT INTO JSUNKARA.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('2', 'Jana', 'example-changelog.sql', SYSTIMESTAMP, 2, '9:8105cd2916fe5e4a0d7e030fd54037dc', 'sql', 'example comment', 'EXECUTED', 'example-context', 'example-label', '4.29.2', '1440891265');
+
+INSERT INTO JSUNKARA.DATABASECHANGELOG (ID, AUTHOR, FILENAME, DATEEXECUTED, ORDEREXECUTED, MD5SUM, DESCRIPTION, COMMENTS, EXECTYPE, CONTEXTS, LABELS, LIQUIBASE, DEPLOYMENT_ID) VALUES ('3', 'Nazish', 'example-changelog.sql', SYSTIMESTAMP, 3, '9:7ce8f8f671c85fee99df053c02c385f2', 'sql', 'example comment', 'EXECUTED', 'example-context', 'example-label', '4.29.2', '1440891265');
+
+-- Release Database Lock
+UPDATE JSUNKARA.DATABASECHANGELOGLOCK SET LOCKED = 0, LOCKEDBY = NULL, LOCKGRANTED = NULL WHERE ID = 1;
+
+
+
+
+
+
+-------------------------- Run Synchronize using Filter Label ---
+
+
+$ liquibase --defaults-file=liquibase.properties changelog-sync-sql --label-filter=example-label
+
+
+
+-----------------  Preview of Deployment ------
+
+
+$ liquibase --defaults-file=liquibase.properties update-sql --output-file=generate.sql
+####################################################
+##   _     _             _ _                      ##
+##  | |   (_)           (_) |                     ##
+##  | |    _  __ _ _   _ _| |__   __ _ ___  ___   ##
+##  | |   | |/ _` | | | | | '_ \ / _` / __|/ _ \  ##
+##  | |___| | (_| | |_| | | |_) | (_| \__ \  __/  ##
+##  \_____/_|\__, |\__,_|_|_.__/ \__,_|___/\___|  ##
+##              | |                               ##
+##              |_|                               ##
+##                                                ##
+##  Get documentation at docs.liquibase.com       ##
+##  Get certified courses at learn.liquibase.com  ##
+##                                                ##
+####################################################
+Starting Liquibase at 12:15:51 using Java 21.0.4 (version 4.29.2 #3683 built at 2024-08-29 16:45+0000)
+Liquibase Version: 4.29.2
+Liquibase Open Source 4.29.2 by Liquibase
+Output saved to generate.sql
+Liquibase command 'update-sql' was executed successfully.
+
+
+
+
+
+----------------------  Deploy Changes -----------------
+
+
+
+$ liquibase --defaults-file=liquibase.properties update --output-file=1_deploy.log
+
+
+####################################################
+##   _     _             _ _                      ##
+##  | |   (_)           (_) |                     ##
+##  | |    _  __ _ _   _ _| |__   __ _ ___  ___   ##
+##  | |   | |/ _` | | | | | '_ \ / _` / __|/ _ \  ##
+##  | |___| | (_| | |_| | | |_) | (_| \__ \  __/  ##
+##  \_____/_|\__, |\__,_|_|_.__/ \__,_|___/\___|  ##
+##              | |                               ##
+##              |_|                               ##
+##                                                ##
+##  Get documentation at docs.liquibase.com       ##
+##  Get certified courses at learn.liquibase.com  ##
+##                                                ##
+####################################################
+Starting Liquibase at 11:14:22 using Java 21.0.4 (version 4.29.2 #3683 built at 2024-08-29 16:45+0000)
+Liquibase Version: 4.29.2
+Liquibase Open Source 4.29.2 by Liquibase
+Running Changeset: example-changelog.sql::1::Jana
+Running Changeset: example-changelog.sql::2::Jana
+Running Changeset: example-changelog.sql::3::Nazish
+ERROR: Exception Details
+ERROR: Exception Primary Class:  OracleDatabaseException
+ERROR: Exception Primary Reason:  ORA-00904: "COLUMN": invalid identifier
+
+ERROR: Exception Primary Source:  Oracle Oracle Database 19c Standard Edition 2 Release 19.0.0.0.0 - Production
+Version 19.22.0.0.0
+
+Unexpected error running Liquibase: Migration failed for changeset example-changelog.sql::3::Nazish:
+     Reason: liquibase.exception.DatabaseException: ORA-00904: "COLUMN": invalid identifier
+ [Failed SQL: (904) alter table person add column country varchar(2)]
+
+For more information, please use the --log-level flag
+Output saved to 1_deploy.log
+
+
+
+
+$ cat 1_deploy.log
+
+UPDATE SUMMARY
+Run:                          2
+Previously run:               0
+Filtered out:                 0
+-------------------------------
+Total change sets:            3
+
+
+
+
+-------------- Deploy failed changesets again after fix ----
+
+
+$ liquibase --defaults-file=liquibase.properties update --output-file=2_deploy.log
+####################################################
+##   _     _             _ _                      ##
+##  | |   (_)           (_) |                     ##
+##  | |    _  __ _ _   _ _| |__   __ _ ___  ___   ##
+##  | |   | |/ _` | | | | | '_ \ / _` / __|/ _ \  ##
+##  | |___| | (_| | |_| | | |_) | (_| \__ \  __/  ##
+##  \_____/_|\__, |\__,_|_|_.__/ \__,_|___/\___|  ##
+##              | |                               ##
+##              |_|                               ##
+##                                                ##
+##  Get documentation at docs.liquibase.com       ##
+##  Get certified courses at learn.liquibase.com  ##
+##                                                ##
+####################################################
+Starting Liquibase at 11:16:24 using Java 21.0.4 (version 4.29.2 #3683 built at 2024-08-29 16:45+0000)
+Liquibase Version: 4.29.2
+Liquibase Open Source 4.29.2 by Liquibase
+Running Changeset: example-changelog.sql::3::Nazish
+Liquibase: Update has been successful. Rows affected: 1
+Output saved to 2_deploy.log
+Liquibase command 'update' was executed successfully.
+
+
+
+
+jsunkara@DTLA-TECH-JS-WL MINGW64 ~/lb_tutorial/examples/sql
+$ cat 2_deploy.log
+
+UPDATE SUMMARY
+Run:                          1
+Previously run:               2
+Filtered out:                 0
+-------------------------------
+Total change sets:            3
+
+
+
+
+
+
+------------------ Run Deployment again to see the Liquibase is able to identify the changeset or not ---
+
+
+
+$ liquibase --defaults-file=liquibase.properties update --output-file=3_deploy.log
+####################################################
+##   _     _             _ _                      ##
+##  | |   (_)           (_) |                     ##
+##  | |    _  __ _ _   _ _| |__   __ _ ___  ___   ##
+##  | |   | |/ _` | | | | | '_ \ / _` / __|/ _ \  ##
+##  | |___| | (_| | |_| | | |_) | (_| \__ \  __/  ##
+##  \_____/_|\__, |\__,_|_|_.__/ \__,_|___/\___|  ##
+##              | |                               ##
+##              |_|                               ##
+##                                                ##
+##  Get documentation at docs.liquibase.com       ##
+##  Get certified courses at learn.liquibase.com  ##
+##                                                ##
+####################################################
+Starting Liquibase at 11:28:31 using Java 21.0.4 (version 4.29.2 #3683 built at 2024-08-29 16:45+0000)
+Liquibase Version: 4.29.2
+Liquibase Open Source 4.29.2 by Liquibase
+Database is up to date, no changesets to execute
+Output saved to 3_deploy.log
+Liquibase command 'update' was executed successfully.
+
+
+
+
+jsunkara@DTLA-TECH-JS-WL MINGW64 ~/lb_tutorial/examples/sql
+$ cat 3_deploy.log
+
+UPDATE SUMMARY
+Run:                          0
+Previously run:               3
+Filtered out:                 0
+-------------------------------
+Total change sets:            3
+
+
+
+
+
+------------------------------------------- Generate Changelog ------------------------
+
+
+$ liquibase generate-changelog --changelog-file=changelog.txt --defaults-file=../liquibase.properties
+####################################################
+##   _     _             _ _                      ##
+##  | |   (_)           (_) |                     ##
+##  | |    _  __ _ _   _ _| |__   __ _ ___  ___   ##
+##  | |   | |/ _` | | | | | '_ \ / _` / __|/ _ \  ##
+##  | |___| | (_| | |_| | | |_) | (_| \__ \  __/  ##
+##  \_____/_|\__, |\__,_|_|_.__/ \__,_|___/\___|  ##
+##              | |                               ##
+##              |_|                               ##
+##                                                ##
+##  Get documentation at docs.liquibase.com       ##
+##  Get certified courses at learn.liquibase.com  ##
+##                                                ##
+####################################################
+Starting Liquibase at 13:44:01 using Java 21.0.4 (version 4.29.2 #3683 built at 2024-08-29 16:45+0000)
+Liquibase Version: 4.29.2
+Liquibase Open Source 4.29.2 by Liquibase
+BEST PRACTICE: The changelog generated by diffChangeLog/generateChangeLog should be inspected for correctness and completeness before being deployed. Some database objects and their dependencies cannot be represented automatically, and they may need to be manually updated before being deployed.
+Generated changelog written to changelog.txt
+Liquibase command 'generate-changelog' was executed successfully.
+
+
+
+
+
+
+======================================= Using master.xml file =================
+
+
+$ cat master.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+    http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd ">
+
+<includeAll path="C:\Users\jsunkara\lb_tutorial\examples\sql\jsunkara\Tables\"/>
+<includeAll path="C:\Users\jsunkara\lb_tutorial\examples\sql\jsunkara\Procedures\"/>
+<includeAll path="C:\Users\jsunkara\lb_tutorial\examples\sql\jsunkara\Views\"/>
+
+</databaseChangeLog>
+
+
+
+$ liquibase --defaults-file=liquibase.properties update
+####################################################
+##   _     _             _ _                      ##
+##  | |   (_)           (_) |                     ##
+##  | |    _  __ _ _   _ _| |__   __ _ ___  ___   ##
+##  | |   | |/ _` | | | | | '_ \ / _` / __|/ _ \  ##
+##  | |___| | (_| | |_| | | |_) | (_| \__ \  __/  ##
+##  \_____/_|\__, |\__,_|_|_.__/ \__,_|___/\___|  ##
+##              | |                               ##
+##              |_|                               ##
+##                                                ##
+##  Get documentation at docs.liquibase.com       ##
+##  Get certified courses at learn.liquibase.com  ##
+##                                                ##
+####################################################
+Starting Liquibase at 14:48:29 using Java 21.0.4 (version 4.29.2 #3683 built at 2024-08-29 16:45+0000)
+Liquibase Version: 4.29.2
+Liquibase Open Source 4.29.2 by Liquibase
+Running Changeset: Views/1_Create_View_Orders.sql::1::Jana
+
+UPDATE SUMMARY
+Run:                          1
+Previously run:               2
+Filtered out:                 0
+-------------------------------
+Total change sets:            3
+
+Liquibase: Update has been successful. Rows affected: 1
+Liquibase command 'update' was executed successfully.
+
+
+
+
+
+===================
+NOTES: 
+
+
+When you run the UPDATE command, Liquibase sequentially reads changesets in the changelog file, then compares the unique identifiers – id, author, and filename path – to the values in the DATABASECHANGELOG table.
+
+
+
+
+If the unique identifiers exist, the MD5Sum (file checksum stored in the DATABASECHANGELOG.MD5SUM column) of the changeset is calculated and compared to the one in the database. If they are different, Liquibase will produce an error message
+
+
+if runOnChange is set to TRUE, Liquibase will re-apply the changeset.
+
+Remember that this param should be set to TRUE only for objects that can be replaced, like views, packages, procedures, functions, etc.
+
+
+runAlways:true - Liquibase will execute this changeset every time you will run the UPDATE command.
